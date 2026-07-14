@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SocialFloat from "@/components/SocialFloat";
+import LoadingScreen from "@/components/LoadingScreen";
+
 
 
 export const viewport: Viewport = {
@@ -49,6 +51,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased">
+        <LoadingScreen />
         <Navbar />
         <main className="flex-grow pt-16 sm:pt-20">{children}</main>
         <Footer />

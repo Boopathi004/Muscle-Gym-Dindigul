@@ -65,7 +65,7 @@ export default function About() {
                 src="/trainers/rajeshkumar.jpg"
                 alt="Master Rajkumar — Head Coach & Founder, Muscle Gym Dindigul"
                 fill
-                className="object-cover object-top transition-transform duration-700 group-hover/image:scale-105"
+                className="object-cover object-top image-hover-anim"
                 sizes="(max-width: 768px) 100vw, 450px"
                 priority
               />
