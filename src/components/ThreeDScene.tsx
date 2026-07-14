@@ -8,8 +8,8 @@ import * as THREE from "three";
 
 // ─── Multi-color Particles ───────────────────────────────────────────────────
 function GlowParticles() {
-  const ref = useRef<THREE.Points>(null); // brand orange
-  const refB = useRef<THREE.Points>(null); // cyan accent
+  const ref = useRef<THREE.Points>(null);
+  const refB = useRef<THREE.Points>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -57,59 +57,35 @@ function GlowParticles() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[posA, 3]} />
         </bufferGeometry>
-        <pointsMaterial
-          size={0.055}
-          color="#FF8C00"
-          transparent
-          opacity={0.65}
-          sizeAttenuation
-          blending={THREE.AdditiveBlending}
-          depthWrite={false}
-        />
+        <pointsMaterial size={0.055} color="#FF8C00" transparent opacity={0.65} sizeAttenuation blending={THREE.AdditiveBlending} depthWrite={false} />
       </points>
-
       <points ref={refB}>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[posB, 3]} />
         </bufferGeometry>
-        <pointsMaterial
-          size={0.04}
-          color="#00e5ff"
-          transparent
-          opacity={0.35}
-          sizeAttenuation
-          blending={THREE.AdditiveBlending}
-          depthWrite={false}
-        />
+        <pointsMaterial size={0.04} color="#00e5ff" transparent opacity={0.35} sizeAttenuation blending={THREE.AdditiveBlending} depthWrite={false} />
       </points>
     </>
   );
 }
 
-// ─── Pulsing halo disc (uses plane, not ring geometry) ────────────────────────
+// ─── Pulsing halo disc ────────────────────────────────────────────────────────
 function FloorHalo() {
   const ref = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (!ref.current) return;
     const t = state.clock.getElapsedTime();
-    const mat = ref.current.material as THREE.MeshBasicMaterial;
-    mat.opacity = 0.18 + Math.sin(t * 1.4) * 0.09;
+    (ref.current.material as THREE.MeshBasicMaterial).opacity = 0.18 + Math.sin(t * 1.4) * 0.09;
   });
   return (
     <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.0, 0]}>
       <circleGeometry args={[2.0, 48]} />
-      <meshBasicMaterial
-        color="#F4D03F"
-        transparent
-        opacity={0.18}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
+      <meshBasicMaterial color="#F4D03F" transparent opacity={0.18} blending={THREE.AdditiveBlending} depthWrite={false} />
     </mesh>
   );
 }
 
-// ─── Loading Fallback ────────────────────────────────────────────────────────
+// ─── Loading Fallback ─────────────────────────────────────────────────────────
 function SceneLoader() {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -121,22 +97,87 @@ function SceneLoader() {
   );
 }
 
-// ─── Main Scene ──────────────────────────────────────────────────────────────
+// ─── Static CSS Fallback (low-end / no-WebGL devices) ────────────────────────
+function StaticDumbbellFallback() {
+  return (
+    <div className="flex items-center justify-center w-full h-full">
+      <div className="relative flex items-center justify-center select-none">
+        {/* Outer glow */}
+        <div className="absolute w-64 h-64 bg-gradient-to-br from-brand-orange/20 to-brand-yellow/10 rounded-full blur-3xl" />
+        {/* Dumbbell SVG */}
+        <svg
+          viewBox="0 0 200 80"
+          className="w-64 h-28 relative z-10 drop-shadow-[0_0_20px_rgba(244,208,63,0.5)]"
+          aria-label="Dumbbell"
+        >
+          {/* Handle */}
+          <rect x="55" y="35" width="90" height="10" rx="5" fill="#c0c0c0" />
+          {/* Brand accent center */}
+          <rect x="85" y="33" width="30" height="14" rx="4" fill="#F4D03F" opacity="0.9" />
+          {/* Left plates */}
+          <rect x="28" y="20" width="12" height="40" rx="4" fill="#e63946" />
+          <rect x="38" y="24" width="10" height="32" rx="3" fill="#2196F3" />
+          <rect x="46" y="28" width="9" height="24" rx="3" fill="#F4D03F" />
+          {/* Right plates */}
+          <rect x="160" y="20" width="12" height="40" rx="4" fill="#e63946" />
+          <rect x="152" y="24" width="10" height="32" rx="3" fill="#2196F3" />
+          <rect x="145" y="28" width="9" height="24" rx="3" fill="#F4D03F" />
+          {/* End caps */}
+          <rect x="18" y="28" width="12" height="24" rx="5" fill="#a0a0a0" />
+          <rect x="170" y="28" width="12" height="24" rx="5" fill="#a0a0a0" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// ─── Detect low-end device ────────────────────────────────────────────────────
+function isLowEndDevice(): boolean {
+  if (typeof window === "undefined") return false;
+  const nav = navigator as Navigator & { deviceMemory?: number };
+  // Low RAM (≤2 GB) or very few CPU cores (≤2)
+  const lowMemory = typeof nav.deviceMemory === "number" && nav.deviceMemory <= 2;
+  const lowCPU = navigator.hardwareConcurrency <= 2;
+  return lowMemory || lowCPU;
+}
+
+// ─── Main Scene ───────────────────────────────────────────────────────────────
 export default function ThreeDScene() {
   const [isMobile, setIsMobile] = useState(false);
+  const [showStatic, setShowStatic] = useState(false);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
     window.addEventListener("resize", check);
+
+    // Degrade gracefully on low-end devices — skip WebGL entirely
+    if (isLowEndDevice()) setShowStatic(true);
+
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  const hint = isMobile
+    ? "👆 Swipe / Drag to rotate"
+    : "🖱️ Left Click + Drag to rotate";
+
+  if (showStatic) {
+    return (
+      <div className="relative w-full h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+        <StaticDumbbellFallback />
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full h-[300px] sm:h-[420px] md:h-[500px] lg:h-[620px] select-none cursor-grab active:cursor-grabbing">
+      {/* Mobile interaction hint */}
+      <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-brand-gray/60 pointer-events-none z-10 sm:hidden">
+        {hint}
+      </p>
+
       <Suspense fallback={<SceneLoader />}>
         <Canvas
-          // No shadows — biggest GPU saver
           gl={{
             antialias: !isMobile,
             powerPreference: isMobile ? "default" : "high-performance",
@@ -148,30 +189,15 @@ export default function ThreeDScene() {
         >
           <PerspectiveCamera makeDefault position={[0, 0.4, 5.8]} fov={46} />
 
-          {/* ── Lean lighting rig (3 lights, NO castShadow) ── */}
-
-          {/* Soft global fill */}
           <ambientLight intensity={0.35} />
-
-          {/* Gold key from upper-left */}
-          <directionalLight
-            position={[-4, 5, 3]}
-            intensity={2.8}
-            color="#F4D03F"
-          />
-
-          {/* Cool blue fill from right */}
+          <directionalLight position={[-4, 5, 3]} intensity={2.8} color="#F4D03F" />
           <pointLight position={[5, 1, -2]} intensity={18} color="#4FC3F7" />
-
-          {/* Orange rim from behind-low */}
           <pointLight position={[0, -3, -4]} intensity={22} color="#FF6D00" />
 
-          {/* ── Objects ── */}
           <DumbbellModel />
           <GlowParticles />
           <FloorHalo />
 
-          {/* ── Controls ── */}
           <OrbitControls
             enableZoom={false}
             maxPolarAngle={Math.PI / 1.7}

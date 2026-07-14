@@ -1,19 +1,10 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Award, Users, Star, ArrowRight } from "lucide-react";
-import TiltCard from "@/components/TiltCard";
-import { INITIAL_TRAINERS } from "@/lib/constants";
-
-// Inline SVG components to replace missing lucide-react social icons
-const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-  </svg>
-);
+import { Users, Star, ArrowRight } from "lucide-react";
+import StaggerTrainers from "@/components/StaggerTrainers";
 
 export default function Trainers() {
   return (
@@ -35,10 +26,24 @@ export default function Trainers() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-yellow/5 rounded-full blur-3xl pointer-events-none" />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Image/Avatar */}
+            {/* Photo */}
             <div className="lg:col-span-4 flex justify-center">
-              <div className="w-56 h-56 rounded-full bg-gradient-to-tr from-brand-yellow/20 to-brand-orange/20 border-2 border-brand-yellow flex items-center justify-center text-brand-yellow">
-                <Award className="h-28 w-28" />
+              <div className="relative">
+                {/* Outer glow ring */}
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-brand-yellow via-brand-orange to-brand-yellow opacity-70 blur-sm" />
+                {/* Border ring */}
+                <div className="relative w-56 h-56 rounded-full border-2 border-brand-yellow overflow-hidden shadow-[0_0_30px_rgba(244,208,63,0.25)]">
+                  <Image
+                    src="/trainers/rajeshkumar.jpg"
+                    alt="Master Rajkumar — Head Coach & Founder, Muscle Gym Dindigul"
+                    fill
+                    className="object-cover object-top"
+                    sizes="224px"
+                    priority
+                  />
+                  {/* Subtle bottom gradient for text legibility on mobile */}
+                  <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
               </div>
             </div>
 
@@ -85,66 +90,17 @@ export default function Trainers() {
           </div>
         </section>
 
-        {/* ALL TRAINERS GRID */}
+        {/* COACHING STAFF — STAGGER CAROUSEL */}
         <section>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h3 className="font-bebas text-3xl tracking-widest text-white">
-              COACHING <span className="text-brand-orange">STAFF</span>
+              MEET THE <span className="text-brand-orange">COACHING STAFF</span>
             </h3>
+            <p className="text-brand-gray text-xs mt-2">
+              Click any card or use the arrows to explore our trainers
+            </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {INITIAL_TRAINERS.map((trainer) => (
-              <TiltCard 
-                key={trainer.id}
-                className="glass-card rounded-2xl border border-brand-dark-gray/50 p-6 flex flex-col justify-between hover:border-brand-yellow/30 hover:shadow-lg transition-all duration-300"
-              >
-                <div>
-                  {/* Photo Placeholder */}
-                  <div className="h-48 rounded-xl bg-gradient-to-br from-brand-dark-gray/20 to-brand-black/40 border border-brand-dark-gray/30 flex items-center justify-center text-brand-gray mb-5">
-                    <Users className="h-16 w-16 opacity-30" />
-                  </div>
-
-                  <h4 className="font-bebas text-2xl text-white tracking-wide">
-                    {trainer.name}
-                  </h4>
-                  <p className="text-brand-yellow text-xs font-bold uppercase tracking-wider mb-3">
-                    {trainer.specialty}
-                  </p>
-                  
-                  <p className="text-brand-gray text-xs leading-relaxed mb-6">
-                    {trainer.bio}
-                  </p>
-                </div>
-
-                <div>
-                  <div className="bg-brand-black/30 border border-brand-dark-gray/20 px-3.5 py-2.5 rounded-xl text-[10px] text-brand-gray font-bold uppercase mb-5">
-                    <span className="text-brand-light-gray">Experience:</span> {trainer.experience} Years | <span className="text-brand-light-gray">Branch:</span> {trainer.branch.replace(" Branch", "")}
-                  </div>
-
-                  <div className="flex items-center justify-between pt-4 border-t border-brand-dark-gray/20">
-                    <Link
-                      href="/join"
-                      className="text-xs text-brand-yellow hover:text-brand-orange font-bold uppercase tracking-wider flex items-center gap-1 py-3 -my-3 min-h-[44px] cursor-pointer"
-                    >
-                      Book Session <ArrowRight className="h-3 w-3" />
-                    </Link>
-                    <div className="flex items-center">
-                      <a
-                        href={trainer.socialLinks.instagram}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-brand-gray hover:text-white transition-colors p-3.5 -m-3.5 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
-                        aria-label={`Visit ${trainer.name} on Instagram`}
-                      >
-                        <InstagramIcon className="h-4.5 w-4.5" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </TiltCard>
-            ))}
-          </div>
+          <StaggerTrainers />
         </section>
 
       </div>

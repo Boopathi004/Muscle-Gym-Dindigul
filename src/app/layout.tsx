@@ -1,8 +1,26 @@
 import type { Metadata, Viewport } from "next";
+import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SocialFloat from "@/components/SocialFloat";
+
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bebas",
+  display: "swap",
+  preload: true,
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+  display: "swap",
+  preload: true,
+});
+
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -42,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${bebasNeue.variable} ${inter.variable}`}>
       <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased">
         <Navbar />
         <main className="flex-grow pt-16 sm:pt-20">{children}</main>

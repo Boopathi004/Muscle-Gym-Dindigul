@@ -2,15 +2,28 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { 
   Dumbbell, Flame, ShieldAlert, Award, MapPin, 
   Phone, Users, ChevronRight, Star, Heart, ArrowRight,
   MessageSquare, Sparkles, CheckCircle2
 } from "lucide-react";
-import ThreeDScene from "@/components/ThreeDScene";
 import TiltCard from "@/components/TiltCard";
 import { INITIAL_BRANCHES, INITIAL_PROGRAMS, INITIAL_TESTIMONIALS } from "@/lib/constants";
-import confetti from "canvas-confetti";
+
+// Lazy-load the entire Three.js scene — defers ~400KB of JS until needed
+const ThreeDScene = dynamic(() => import("@/components/ThreeDScene"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-12 h-12 border-4 border-brand-yellow/20 border-t-brand-orange rounded-full animate-spin" />
+        <span className="text-brand-gray text-xs font-bebas tracking-widest">LOADING 3D...</span>
+      </div>
+    </div>
+  ),
+});
+
 
 export default function Home() {
   // Form State
@@ -59,12 +72,14 @@ export default function Home() {
 
       if (response.ok) {
         setSubmitSuccess(true);
-        // Trigger confetti!
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ["#F4D03F", "#FF8C00", "#ffffff"]
+        // Dynamically import confetti — only loads when actually needed
+        import("canvas-confetti").then(({ default: confetti }) => {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ["#F4D03F", "#FF8C00", "#ffffff"]
+          });
         });
         // Reset form
         setFormData({
