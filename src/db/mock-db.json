@@ -1,0 +1,45 @@
+{
+  "members": [],
+  "enquiries": [],
+  "leads": [
+    {
+      "id": 1,
+      "name": "Rajesh Sekar",
+      "email": "rajesh@gmail.com",
+      "phone": "9876543210",
+      "source": "google_ads",
+      "leadScore": 85,
+      "status": "contacted",
+      "notes": "Interested in the Pro Membership Plan. Preferred Begampur branch.",
+      "lastContactedAt": "2026-07-07T10:27:21.189Z",
+      "convertedAt": null,
+      "createdAt": "2026-07-05T10:27:21.189Z"
+    },
+    {
+      "id": 2,
+      "name": "Vikram Nathan",
+      "email": "vikram@yahoo.com",
+      "phone": "9123456789",
+      "source": "social",
+      "leadScore": 45,
+      "status": "new",
+      "notes": "Submitted general inquiry about operating hours.",
+      "lastContactedAt": null,
+      "convertedAt": null,
+      "createdAt": "2026-07-08T10:27:21.189Z"
+    },
+    {
+      "id": 3,
+      "name": "Subha Sri",
+      "email": "subha.sri@outlook.com",
+      "phone": "9944112233",
+      "source": "organic",
+      "leadScore": 95,
+      "status": "converted",
+      "notes": "Signed up for the 12-Month Transformation Plan! Assigned to Master Rajkumar.",
+      "lastContactedAt": "2026-07-08T06:27:21.189Z",
+      "convertedAt": "2026-07-08T10:27:21.189Z",
+      "createdAt": "2026-07-03T10:27:21.189Z"
+    }
+  ]
+}
