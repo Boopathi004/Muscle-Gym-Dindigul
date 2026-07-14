@@ -20,12 +20,12 @@ const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-black border-t border-brand-dark-gray/30 pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-brand-black border-t border-brand-dark-gray/30 pt-12 sm:pt-16 pb-8 relative overflow-hidden" style={{ paddingBottom: 'calc(2rem + var(--safe-area-bottom))' }}>
       {/* Decorative gradient overlay */}
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-brand-orange/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-gradient-to-tr from-brand-orange/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-12">
           {/* Brand Column */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2 group w-max">
@@ -44,7 +44,8 @@ export default function Footer() {
                 href="https://instagram.com/muscle_gym_dindigul"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-brand-dark-gray/50 flex items-center justify-center text-brand-gray hover:text-brand-yellow hover:border-brand-yellow transition-all duration-300"
+                className="w-11 h-11 sm:w-10 sm:h-10 rounded-full border border-brand-dark-gray/50 flex items-center justify-center text-brand-gray hover:text-brand-yellow hover:border-brand-yellow transition-all duration-300"
+                aria-label="Instagram Dindigul Branch"
               >
                 <InstagramIcon className="h-5 w-5" />
               </a>
@@ -52,13 +53,15 @@ export default function Footer() {
                 href="https://instagram.com/muscle_fitnesstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-brand-dark-gray/50 flex items-center justify-center text-brand-gray hover:text-brand-yellow hover:border-brand-yellow transition-all duration-300"
+                className="w-11 h-11 sm:w-10 sm:h-10 rounded-full border border-brand-dark-gray/50 flex items-center justify-center text-brand-gray hover:text-brand-yellow hover:border-brand-yellow transition-all duration-300"
+                aria-label="Instagram Fitness Studio"
               >
                 <InstagramIcon className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full border border-brand-dark-gray/50 flex items-center justify-center text-brand-gray hover:text-brand-orange hover:border-brand-orange transition-all duration-300"
+                className="w-11 h-11 sm:w-10 sm:h-10 rounded-full border border-brand-dark-gray/50 flex items-center justify-center text-brand-gray hover:text-brand-orange hover:border-brand-orange transition-all duration-300"
+                aria-label="Facebook Profile"
               >
                 <FacebookIcon className="h-5 w-5" />
               </a>
@@ -67,37 +70,37 @@ export default function Footer() {
 
           {/* Quick Links Column */}
           <div>
-            <h4 className="font-bebas text-lg tracking-widest text-white mb-6 uppercase border-l-2 border-brand-yellow pl-3">
+            <h4 className="font-bebas text-lg tracking-widest text-white mb-4 sm:mb-6 uppercase border-l-2 border-brand-yellow pl-3">
               Explore
             </h4>
             <ul className="flex flex-col gap-3 text-sm">
               <li>
-                <Link href="/about" className="text-brand-gray hover:text-brand-yellow transition-colors duration-300">
+                <Link href="/about" className="text-brand-gray hover:text-white hover:text-brand-yellow transition-colors duration-300 py-1 block">
                   About Master Rajkumar
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="text-brand-gray hover:text-brand-yellow transition-colors duration-300">
+                <Link href="/programs" className="text-brand-gray hover:text-white hover:text-brand-yellow transition-colors duration-300 py-1 block">
                   Training Programs
                 </Link>
               </li>
               <li>
-                <Link href="/facilities" className="text-brand-gray hover:text-brand-yellow transition-colors duration-300">
+                <Link href="/facilities" className="text-brand-gray hover:text-white hover:text-brand-yellow transition-colors duration-300 py-1 block">
                   Gym Facilities
                 </Link>
               </li>
               <li>
-                <Link href="/membership" className="text-brand-gray hover:text-brand-yellow transition-colors duration-300">
+                <Link href="/membership" className="text-brand-gray hover:text-white hover:text-brand-yellow transition-colors duration-300 py-1 block">
                   Membership Plans
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="text-brand-gray hover:text-brand-yellow transition-colors duration-300">
+                <Link href="/gallery" className="text-brand-gray hover:text-white hover:text-brand-yellow transition-colors duration-300 py-1 block">
                   Gallery & Transformations
                 </Link>
               </li>
               <li>
-                <Link href="/locations" className="text-brand-gray hover:text-brand-yellow transition-colors duration-300">
+                <Link href="/locations" className="text-brand-gray hover:text-white hover:text-brand-yellow transition-colors duration-300 py-1 block">
                   Our Branches
                 </Link>
               </li>
@@ -106,7 +109,7 @@ export default function Footer() {
 
           {/* Operating Hours Column */}
           <div>
-            <h4 className="font-bebas text-lg tracking-widest text-white mb-6 uppercase border-l-2 border-brand-yellow pl-3">
+            <h4 className="font-bebas text-lg tracking-widest text-white mb-4 sm:mb-6 uppercase border-l-2 border-brand-yellow pl-3">
               Operating Hours
             </h4>
             <div className="flex flex-col gap-4 text-sm text-brand-gray">
@@ -132,7 +135,7 @@ export default function Footer() {
 
           {/* Our Branches Column */}
           <div>
-            <h4 className="font-bebas text-lg tracking-widest text-white mb-6 uppercase border-l-2 border-brand-yellow pl-3">
+            <h4 className="font-bebas text-lg tracking-widest text-white mb-4 sm:mb-6 uppercase border-l-2 border-brand-yellow pl-3">
               Our Branches
             </h4>
             <div className="flex flex-col gap-4 text-sm text-brand-gray">
@@ -152,8 +155,8 @@ export default function Footer() {
         <div className="border-t border-brand-dark-gray/35 pt-8 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-gray">
           <p>© {new Date().getFullYear()} Muscle Gym Dindigul. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors py-1 block">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors py-1 block">Terms of Service</Link>
           </div>
         </div>
       </div>

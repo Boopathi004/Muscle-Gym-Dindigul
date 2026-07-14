@@ -1,8 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SocialFloat from "@/components/SocialFloat";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#000000",
+};
 
 export const metadata: Metadata = {
   title: "Muscle Gym Dindigul | Best Fitness Center & Gym in Dindigul",
@@ -37,7 +45,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased">
         <Navbar />
-        <main className="flex-grow pt-20">{children}</main>
+        <main className="flex-grow pt-16 sm:pt-20">{children}</main>
         <Footer />
         {/* Floating social buttons — visible on all pages */}
         <SocialFloat />

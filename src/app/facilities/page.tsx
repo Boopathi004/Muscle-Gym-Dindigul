@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, Suspense, useRef } from "react";
+import React, { useState, useEffect, Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Wind, ShowerHead, Lock, Flame, Sparkles } from "lucide-react";
@@ -309,6 +309,14 @@ function SimpleDumbbellModel() {
 // ─── Main Facilities Component ──────────────────────────────────────
 export default function Facilities() {
   const [activeModel, setActiveModel] = useState<"barbell" | "dumbbell" | "kettlebell">("barbell");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const amenities = [
     { icon: <Wind className="h-6 w-6" />, name: "Fully Air Conditioned", desc: "Keep body temperatures regulated and oxygen flow high during heavy compounds." },
@@ -365,7 +373,7 @@ export default function Facilities() {
           </div>
 
           {/* 3D Canvas Box with Upgraded Lighting */}
-          <div className="lg:col-span-5 order-1 lg:order-2 glass-card rounded-3xl border border-brand-dark-gray/80 h-[380px] sm:h-[420px] relative overflow-hidden flex items-center justify-center">
+          <div className="lg:col-span-5 order-1 lg:order-2 glass-card rounded-3xl border border-brand-dark-gray/80 h-[280px] sm:h-[380px] md:h-[420px] relative overflow-hidden flex items-center justify-center">
             <Suspense fallback={
               <div className="flex flex-col items-center justify-center">
                 <div className="w-12 h-12 border-4 border-brand-yellow/20 border-t-brand-orange rounded-full animate-spin mb-3" />
@@ -374,11 +382,12 @@ export default function Facilities() {
             }>
               <Canvas
                 gl={{
-                  antialias: true,
-                  powerPreference: "high-performance",
+                  antialias: !isMobile,
+                  powerPreference: isMobile ? "default" : "high-performance",
                   toneMapping: THREE.ACESFilmicToneMapping,
                   toneMappingExposure: 1.3
                 }}
+                dpr={isMobile ? [1, 1.5] : [1, 2]}
                 className="w-full h-full bg-transparent"
               >
                 <PerspectiveCamera makeDefault position={[0, 0, 2.4]} fov={50} />
@@ -397,7 +406,7 @@ export default function Facilities() {
               </Canvas>
             </Suspense>
             <div className="absolute bottom-4 right-4 bg-brand-black/60 border border-brand-dark-gray/40 px-3 py-1.5 rounded-lg text-[10px] text-brand-gray font-bold uppercase tracking-widest">
-              🖱️ Left Click + Drag to rotate
+              {isMobile ? "👆 Swipe / Drag to rotate" : "🖱️ Left Click + Drag to rotate"}
             </div>
           </div>
         </section>

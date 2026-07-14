@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dumbbell, Menu, X, ShieldAlert } from "lucide-react";
@@ -22,6 +22,31 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile nav is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("nav-open");
+    } else {
+      document.body.classList.remove("nav-open");
+    }
+    return () => document.body.classList.remove("nav-open");
+  }, [isOpen]);
+
+  // Close drawer on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  // Close drawer on Escape key press
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") setIsOpen(false);
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -39,18 +64,19 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-brand-black/90 backdrop-blur-md border-b border-brand-orange/20 py-3 shadow-lg shadow-brand-orange/5"
-          : "bg-transparent py-5"
+          ? "bg-brand-black/90 backdrop-blur-md border-b border-brand-orange/20 py-2 sm:py-3 shadow-lg shadow-brand-orange/5"
+          : "bg-transparent py-3 sm:py-5"
       }`}
+      style={{ paddingTop: `max(${isScrolled ? '0.5rem' : '0.75rem'}, var(--safe-area-top))` }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="p-2 bg-gradient-to-br from-brand-yellow to-brand-orange rounded-lg text-brand-black transform transition-transform group-hover:rotate-12 duration-300">
-              <Dumbbell className="h-6 w-6 font-bold" />
+            <span className="p-1.5 sm:p-2 bg-gradient-to-br from-brand-yellow to-brand-orange rounded-lg text-brand-black transform transition-transform group-hover:rotate-12 duration-300">
+              <Dumbbell className="h-5 w-5 sm:h-6 sm:w-6 font-bold" />
             </span>
-            <span className="font-bebas text-2xl tracking-wider text-white group-hover:text-brand-yellow transition-colors duration-300">
+            <span className="font-bebas text-xl sm:text-2xl tracking-wider text-white group-hover:text-brand-yellow transition-colors duration-300">
               MUSCLE <span className="text-brand-yellow">GYM</span>
             </span>
           </Link>
@@ -94,7 +120,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center gap-3">
+          <div className="flex lg:hidden items-center gap-2">
             <Link
               href="/admin"
               className="text-brand-gray hover:text-brand-yellow p-2 transition-colors"
@@ -103,7 +129,9 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-brand-gray hover:text-white p-2 rounded-md hover:bg-brand-dark-gray/30 transition-colors"
+              className="text-brand-gray hover:text-white p-2 rounded-md hover:bg-brand-dark-gray/30 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -113,33 +141,72 @@ export default function Navbar() {
 
       {/* Mobile Drawer Overlay */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-[60px] bg-brand-black/98 z-40 flex flex-col px-6 py-8 gap-6 border-t border-brand-dark-gray/30">
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-xl font-bebas tracking-widest py-2 border-b border-brand-dark-gray/20 ${
-                    isActive ? "text-brand-yellow" : "text-brand-gray"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </div>
-
-          <Link
-            href="/join"
+        <>
+          {/* Backdrop */}
+          <div 
+            className="lg:hidden fixed inset-0 bg-black/60 z-30 mobile-drawer-bg-enter"
             onClick={() => setIsOpen(false)}
-            className="w-full text-center bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-black py-3.5 rounded-full font-bold text-base tracking-wider hover:shadow-[0_0_15px_rgba(255,140,0,0.4)] transition-all duration-300 uppercase mt-auto"
+            aria-hidden="true"
+          />
+          {/* Drawer Panel */}
+          <div 
+            className="lg:hidden fixed inset-y-0 right-0 w-[85%] max-w-sm bg-brand-black/98 backdrop-blur-xl z-40 flex flex-col px-6 py-8 gap-4 border-l border-brand-dark-gray/30 mobile-drawer-enter overflow-y-auto"
+            style={{ paddingTop: 'max(2rem, var(--safe-area-top))', paddingBottom: 'max(2rem, var(--safe-area-bottom))' }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
           >
-            Join Now
-          </Link>
-        </div>
+            {/* Close Button */}
+            <div className="flex justify-end mb-4">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-brand-gray hover:text-white p-2 rounded-lg hover:bg-brand-dark-gray/30 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+                aria-label="Close navigation menu"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Nav Links */}
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link, index) => {
+                const isActive = pathname === link.path;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-lg font-bebas tracking-widest py-3 px-4 rounded-xl transition-all duration-200 ${
+                      isActive 
+                        ? "text-brand-yellow bg-brand-yellow/5 border-l-2 border-brand-yellow" 
+                        : "text-brand-gray hover:text-white hover:bg-brand-dark-gray/20"
+                    }`}
+                    style={{ animationDelay: `${index * 30}ms` }}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Join CTA */}
+            <Link
+              href="/join"
+              onClick={() => setIsOpen(false)}
+              className="w-full text-center bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-black py-3.5 rounded-full font-bold text-base tracking-wider hover:shadow-[0_0_15px_rgba(255,140,0,0.4)] transition-all duration-300 uppercase mt-auto"
+            >
+              Join Now
+            </Link>
+
+            {/* Quick Contact */}
+            <a
+              href="tel:9787045050"
+              className="w-full text-center text-brand-gray text-xs font-bold uppercase tracking-widest py-2"
+            >
+              📞 Call: 9787045050
+            </a>
+          </div>
+        </>
       )}
     </nav>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import DumbbellModel from "./DumbbellModel";
@@ -8,34 +8,42 @@ import * as THREE from "three";
 
 // ─── Multi-color Particles ───────────────────────────────────────────────────
 function GlowParticles() {
-  const refA = useRef<THREE.Points>(null); // brand orange
+  const ref = useRef<THREE.Points>(null); // brand orange
   const refB = useRef<THREE.Points>(null); // cyan accent
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  const particleCountA = isMobile ? 60 : 140;
+  const particleCountB = isMobile ? 30 : 70;
 
   const posA = React.useMemo(() => {
-    const arr = new Float32Array(140 * 3);
+    const arr = new Float32Array(particleCountA * 3);
     for (let i = 0; i < arr.length; i += 3) {
       arr[i]     = (Math.random() - 0.5) * 9;
       arr[i + 1] = (Math.random() - 0.5) * 9;
       arr[i + 2] = (Math.random() - 0.5) * 9;
     }
     return arr;
-  }, []);
+  }, [particleCountA]);
 
   const posB = React.useMemo(() => {
-    const arr = new Float32Array(70 * 3);
+    const arr = new Float32Array(particleCountB * 3);
     for (let i = 0; i < arr.length; i += 3) {
       arr[i]     = (Math.random() - 0.5) * 7;
       arr[i + 1] = (Math.random() - 0.5) * 7;
       arr[i + 2] = (Math.random() - 0.5) * 7;
     }
     return arr;
-  }, []);
+  }, [particleCountB]);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
-    if (refA.current) {
-      refA.current.rotation.y = t * 0.055;
-      refA.current.rotation.x = Math.sin(t * 0.025) * 0.1;
+    if (ref.current) {
+      ref.current.rotation.y = t * 0.055;
+      ref.current.rotation.x = Math.sin(t * 0.025) * 0.1;
     }
     if (refB.current) {
       refB.current.rotation.y = -t * 0.04;
@@ -45,7 +53,7 @@ function GlowParticles() {
 
   return (
     <>
-      <points ref={refA}>
+      <points ref={ref}>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[posA, 3]} />
         </bufferGeometry>
@@ -115,17 +123,27 @@ function SceneLoader() {
 
 // ─── Main Scene ──────────────────────────────────────────────────────────────
 export default function ThreeDScene() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
-    <div className="relative w-full h-[500px] md:h-[620px] select-none cursor-grab active:cursor-grabbing">
+    <div className="relative w-full h-[300px] sm:h-[420px] md:h-[500px] lg:h-[620px] select-none cursor-grab active:cursor-grabbing">
       <Suspense fallback={<SceneLoader />}>
         <Canvas
           // No shadows — biggest GPU saver
           gl={{
-            antialias: true,
-            powerPreference: "high-performance",
+            antialias: !isMobile,
+            powerPreference: isMobile ? "default" : "high-performance",
             toneMapping: THREE.ACESFilmicToneMapping,
             toneMappingExposure: 1.3,
           }}
+          dpr={isMobile ? [1, 1.5] : [1, 2]}
           className="w-full h-full bg-transparent"
         >
           <PerspectiveCamera makeDefault position={[0, 0.4, 5.8]} fov={46} />

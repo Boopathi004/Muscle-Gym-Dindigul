@@ -125,13 +125,19 @@ export default function Trainers() {
                   <div className="flex items-center justify-between pt-4 border-t border-brand-dark-gray/20">
                     <Link
                       href="/join"
-                      className="text-xs text-brand-yellow hover:text-brand-orange font-bold uppercase tracking-wider flex items-center gap-1"
+                      className="text-xs text-brand-yellow hover:text-brand-orange font-bold uppercase tracking-wider flex items-center gap-1 py-3 -my-3 min-h-[44px] cursor-pointer"
                     >
                       Book Session <ArrowRight className="h-3 w-3" />
                     </Link>
-                    <div className="flex items-center gap-2">
-                      <a href={trainer.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-brand-gray hover:text-white transition-colors">
-                        <InstagramIcon className="h-4 w-4" />
+                    <div className="flex items-center">
+                      <a
+                        href={trainer.socialLinks.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-gray hover:text-white transition-colors p-3.5 -m-3.5 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+                        aria-label={`Visit ${trainer.name} on Instagram`}
+                      >
+                        <InstagramIcon className="h-4.5 w-4.5" />
                       </a>
                     </div>
                   </div>

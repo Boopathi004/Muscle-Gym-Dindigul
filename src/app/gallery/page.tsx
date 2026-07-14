@@ -14,6 +14,10 @@ interface GalleryItem {
 export default function Gallery() {
   const [filter, setFilter] = useState<"all" | "interior" | "equipment" | "sessions" | "transformations">("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
 
   const categories = [
     { value: "all", label: "All Photos" },
@@ -90,17 +94,39 @@ export default function Gallery() {
     if (index !== -1) setLightboxIndex(index);
   };
 
-  const nextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const nextImage = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (lightboxIndex !== null) {
       setLightboxIndex((lightboxIndex + 1) % items.length);
     }
   };
 
-  const prevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const prevImage = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (lightboxIndex !== null) {
       setLightboxIndex((lightboxIndex - 1 + items.length) % items.length);
+    }
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      nextImage();
+    }
+    if (isRightSwipe) {
+      prevImage();
     }
   };
 
@@ -174,12 +200,13 @@ export default function Gallery() {
         {lightboxIndex !== null && (
           <div
             onClick={() => setLightboxIndex(null)}
-            className="fixed inset-0 z-50 bg-brand-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-10"
+            className="fixed inset-0 z-50 bg-brand-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
           >
-            {/* Close Button */}
+            {/* Close Button - minimum 44px touch target */}
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-6 right-6 p-2 rounded-full bg-brand-dark-gray/20 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors"
+              className="absolute top-4 right-4 p-3.5 rounded-full bg-brand-dark-gray/20 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors z-10 cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+              aria-label="Close lightbox"
             >
               <X className="h-6 w-6" />
             </button>
@@ -187,38 +214,45 @@ export default function Gallery() {
             {/* Modal Body */}
             <div
               onClick={(e) => e.stopPropagation()}
-              className="glass-card max-w-2xl w-full rounded-3xl border border-brand-yellow/20 overflow-hidden shadow-2xl relative"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+              className="glass-card max-w-2xl w-full rounded-2xl sm:rounded-3xl border border-brand-yellow/20 overflow-hidden shadow-2xl relative"
             >
               {/* Dynamic decorative backdrop */}
               <div className={`absolute inset-0 bg-gradient-to-tr ${items[lightboxIndex].bgGradient} opacity-20 -z-10`} />
               
-              <div className="h-72 bg-gradient-to-br from-brand-yellow/10 to-brand-orange/5 flex flex-col items-center justify-center text-brand-yellow/30 border-b border-brand-dark-gray/35">
-                <Dumbbell className="h-20 w-20 animate-bounce" />
+              <div className="h-44 sm:h-72 bg-gradient-to-br from-brand-yellow/10 to-brand-orange/5 flex flex-col items-center justify-center text-brand-yellow/30 border-b border-brand-dark-gray/35">
+                <Dumbbell className="h-14 w-14 sm:h-20 sm:w-20 animate-bounce" />
                 <span className="text-[10px] text-brand-gray font-bold tracking-widest mt-2 uppercase">Muscle Gym Interactive View</span>
               </div>
 
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <span className="text-xs bg-brand-yellow/10 border border-brand-yellow/30 px-3 py-1 rounded-full text-brand-yellow font-extrabold uppercase tracking-widest">
                   {items[lightboxIndex].category}
                 </span>
-                <h2 className="font-bebas text-3xl text-white tracking-wide mt-4 mb-2">
+                <h2 className="font-bebas text-2xl sm:text-3xl text-white tracking-wide mt-4 mb-2">
                   {items[lightboxIndex].title}
                 </h2>
-                <p className="text-brand-gray text-sm leading-relaxed">
+                <p className="text-brand-gray text-xs sm:text-sm leading-relaxed">
                   {items[lightboxIndex].desc}
                 </p>
 
-                {/* Navigation arrows inside lightbox */}
-                <div className="flex justify-between items-center mt-8 pt-4 border-t border-brand-dark-gray/30">
+                <div className="lg:hidden text-[9px] text-brand-gray/50 uppercase tracking-widest mt-2 text-center">
+                  ← Swipe Left / Right to navigate →
+                </div>
+
+                {/* Navigation arrows inside lightbox - minimum 44px touch targets */}
+                <div className="flex justify-between items-center mt-6 sm:mt-8 pt-4 border-t border-brand-dark-gray/30">
                   <button
-                    onClick={prevImage}
-                    className="text-xs font-bold text-brand-gray hover:text-brand-yellow uppercase tracking-wider cursor-pointer"
+                    onClick={(e) => prevImage(e)}
+                    className="text-xs font-extrabold text-brand-gray hover:text-brand-yellow uppercase tracking-wider cursor-pointer p-3 min-h-[44px] min-w-[80px] text-left"
                   >
-                    ← Previous
+                    ← Prev
                   </button>
                   <button
-                    onClick={nextImage}
-                    className="text-xs font-bold text-brand-gray hover:text-brand-yellow uppercase tracking-wider cursor-pointer"
+                    onClick={(e) => nextImage(e)}
+                    className="text-xs font-extrabold text-brand-gray hover:text-brand-yellow uppercase tracking-wider cursor-pointer p-3 min-h-[44px] min-w-[80px] text-right"
                   >
                     Next →
                   </button>

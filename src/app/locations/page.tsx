@@ -160,20 +160,24 @@ export default function Locations() {
                     </div>
 
                     <div className="flex flex-col gap-3 text-xs text-brand-gray mb-6">
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 items-start">
                         <MapPin className="h-4.5 w-4.5 text-brand-yellow shrink-0 mt-0.5" />
                         <span className="leading-relaxed">{branch.address}</span>
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 items-start">
                         <Clock className="h-4.5 w-4.5 text-brand-yellow shrink-0 mt-0.5" />
                         <div>
                           <p className="font-bold text-white">Mon - Sat: {branch.hours.weekdays}</p>
                           <p>Sun: {branch.hours.sunday}</p>
                         </div>
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 items-start">
                         <Phone className="h-4.5 w-4.5 text-brand-yellow shrink-0 mt-0.5" />
-                        <span>{branch.phone.join(", ")}</span>
+                        <div className="flex flex-col gap-1">
+                          {branch.phone.map((ph, i) => (
+                            <a key={i} href={`tel:${ph}`} className="hover:text-brand-yellow transition-colors">{ph}</a>
+                          ))}
+                        </div>
                       </div>
                     </div>
 
@@ -193,15 +197,15 @@ export default function Locations() {
                   <div className="flex flex-col gap-2 border-t border-brand-dark-gray/30 pt-4">
                     <a
                       href={`tel:${branch.phone[0]}`}
-                      className="w-full bg-brand-dark-gray/35 border border-brand-dark-gray/70 hover:border-brand-yellow hover:text-brand-yellow text-center py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 block"
+                      className="w-full bg-brand-dark-gray/35 border border-brand-dark-gray/70 hover:border-brand-yellow hover:text-brand-yellow text-center py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]"
                     >
-                      Call Branch
+                      <Phone className="h-4 w-4" /> Call Branch
                     </a>
                     <a
                       href={`https://wa.me/91${branch.phone[0]}?text=Hi,%20I'm%20interested%20in%20joining%20the%20${encodeURIComponent(branch.name)}!`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full bg-brand-dark-gray/35 border border-brand-dark-gray/70 hover:border-brand-orange hover:text-brand-orange text-center py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 block"
+                      className="w-full bg-brand-dark-gray/35 border border-brand-dark-gray/70 hover:border-brand-orange hover:text-brand-orange text-center py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]"
                     >
                       WhatsApp Branch
                     </a>

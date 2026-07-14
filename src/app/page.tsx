@@ -89,7 +89,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-black/50 to-brand-black pointer-events-none -z-10" />
 
       {/* HERO SECTION */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center overflow-hidden">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 items-center overflow-hidden">
         {/* Left Side: Headlines */}
         <div className="flex flex-col gap-6 text-center lg:text-left z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-dark-gray/30 border border-brand-orange/20 rounded-full w-max mx-auto lg:mx-0">
@@ -98,7 +98,7 @@ export default function Home() {
               Dindigul's Premier Power Zone
             </span>
           </div>
-          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-wider text-white">
+          <h1 className="font-bebas text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-wider text-white">
             BUILD <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-orange text-neon-glow-orange">STRENGTH</span><br />
             BURN LIMITS<br />
             BECOME <span className="text-brand-yellow">MUSCLE</span>
@@ -125,7 +125,7 @@ export default function Home() {
         </div>
 
         {/* Right Side: 3D Scene */}
-        <div className="relative flex items-center justify-center h-[400px] md:h-[500px] lg:h-[600px] z-10">
+        <div className="relative flex items-center justify-center h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px] z-10">
           <div className="absolute w-[350px] h-[350px] bg-gradient-to-br from-brand-orange/10 to-brand-yellow/5 rounded-full blur-3xl -z-10 animate-pulse-slow" />
           <ThreeDScene />
         </div>
@@ -133,7 +133,7 @@ export default function Home() {
 
       {/* STATS STRIP */}
       <section className="bg-brand-black/80 border-y border-brand-dark-gray/30 py-8 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
           <div className="flex flex-col gap-1">
             <span className="font-bebas text-4xl sm:text-5xl md:text-6xl text-brand-yellow text-neon-glow">3</span>
             <span className="text-brand-gray text-xs sm:text-sm uppercase tracking-wider font-bold">Premium Branches</span>
@@ -154,7 +154,7 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
             WHY <span className="text-brand-yellow">MUSCLE GYM</span> DINDIGUL
@@ -164,7 +164,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           <TiltCard className="glass-card p-8 rounded-2xl border-neon-glow flex flex-col gap-5">
             <div className="w-14 h-14 bg-gradient-to-br from-brand-yellow to-brand-orange rounded-xl flex items-center justify-center text-brand-black">
               <Award className="h-7 w-7" />
@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* TRAINING PROGRAMS PREVIEW */}
-      <section className="py-24 bg-brand-surface-card/30 border-y border-brand-dark-gray/20">
+      <section className="py-12 sm:py-24 bg-brand-surface-card/30 border-y border-brand-dark-gray/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-16 gap-4">
             <div className="text-center sm:text-left">
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS SLIDER */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="text-center mb-16">
           <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
             TRANSFORMATION <span className="text-brand-orange">REVIEWS</span>
@@ -253,7 +253,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="relative max-w-3xl mx-auto glass-card p-8 sm:p-12 rounded-3xl border border-brand-yellow/20 shadow-[0_10px_40px_rgba(244,208,63,0.03)]">
+        <div className="relative max-w-3xl mx-auto glass-card p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl border border-brand-yellow/20 shadow-[0_10px_40px_rgba(244,208,63,0.03)]">
           {/* Quote Icon */}
           <span className="absolute top-6 right-8 text-8xl font-serif text-brand-yellow/10 pointer-events-none">“</span>
           
@@ -296,8 +296,8 @@ export default function Home() {
       </section>
 
       {/* QUICK CONSULTATION / LEAD CAPTURE */}
-      <section className="py-24 bg-gradient-to-t from-brand-surface to-brand-black border-t border-brand-dark-gray/30 relative">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="py-12 sm:py-24 bg-gradient-to-t from-brand-surface to-brand-black border-t border-brand-dark-gray/30 relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
           
           {/* Left Column: Offer Content */}
           <div className="flex flex-col gap-5">
@@ -371,7 +371,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-brand-gray mb-1">Fitness Goal</label>
                     <select

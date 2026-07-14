@@ -195,7 +195,13 @@ export default function Membership() {
             </h3>
           </div>
 
-          <div className="overflow-x-auto glass-card rounded-2xl border border-brand-dark-gray/60">
+          {/* Scroll Cue on Mobile */}
+          <div className="lg:hidden flex items-center justify-center gap-1.5 text-[10px] text-brand-gray/80 font-bold uppercase tracking-widest mb-3 bg-brand-surface-card/20 py-1.5 rounded-lg border border-brand-dark-gray/20">
+            <span>Swipe Left/Right to Compare Features</span>
+            <span className="animate-pulse text-brand-yellow font-black">↔</span>
+          </div>
+
+          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-brand-orange scrollbar-track-transparent glass-card rounded-2xl border border-brand-dark-gray/60">
             <table className="w-full text-left border-collapse text-xs md:text-sm">
               <thead>
                 <tr className="border-b border-brand-dark-gray/60 font-bebas text-base text-brand-yellow uppercase tracking-widest bg-brand-surface-card/45">
