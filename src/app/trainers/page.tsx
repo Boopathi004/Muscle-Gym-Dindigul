@@ -27,28 +27,28 @@ export default function Trainers() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Photo */}
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="relative">
-                {/* Outer glow ring */}
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-brand-yellow via-brand-orange to-brand-yellow opacity-70 blur-sm" />
-                {/* Border ring */}
-                <div className="relative w-56 h-56 rounded-full border-2 border-brand-yellow overflow-hidden shadow-[0_0_30px_rgba(244,208,63,0.25)]">
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-[320px] sm:max-w-[360px] aspect-[3/4] group">
+                {/* Outer glow accent */}
+                <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-brand-yellow via-brand-orange to-brand-yellow opacity-75 blur-md transition-all duration-500 group-hover:opacity-100" />
+                {/* Main frame */}
+                <div className="relative w-full h-full rounded-3xl border-2 border-brand-yellow overflow-hidden shadow-[0_0_35px_rgba(244,208,63,0.2)]">
                   <Image
                     src="/trainers/rajeshkumar.jpg"
                     alt="Master Rajkumar — Head Coach & Founder, Muscle Gym Dindigul"
                     fill
-                    className="object-cover object-top"
-                    sizes="224px"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 320px, 400px"
                     priority
                   />
-                  {/* Subtle bottom gradient for text legibility on mobile */}
-                  <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-black/40 to-transparent" />
+                  {/* Premium overlay shading for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 </div>
               </div>
             </div>
 
             {/* Info */}
-            <div className="lg:col-span-8 flex flex-col gap-4 text-center lg:text-left">
+            <div className="lg:col-span-7 flex flex-col gap-4 text-center lg:text-left">
               <span className="bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow text-xs font-bold uppercase tracking-widest px-3.5 py-1 rounded-full w-max mx-auto lg:mx-0">
                 ⭐ HEAD COACH & FOUNDER
               </span>

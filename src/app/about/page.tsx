@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Award, ShieldCheck, Heart, Sparkles, TrendingUp, Calendar, ArrowRight } from "lucide-react";
+import { ShieldCheck, Heart, Sparkles, TrendingUp, Calendar, ArrowRight } from "lucide-react";
 import { INITIAL_TRAINERS } from "@/lib/constants";
 
 export default function About() {
@@ -60,15 +60,22 @@ export default function About() {
           <div className="lg:col-span-5 relative group">
             {/* Glowing frame */}
             <div className="absolute -inset-1.5 bg-gradient-to-r from-brand-yellow to-brand-orange rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000 -z-10" />
-            <div className="bg-brand-surface-card rounded-3xl border border-brand-dark-gray/60 p-4 aspect-[4/5] relative overflow-hidden flex flex-col items-center justify-center">
-              {/* Fallback avatar visual since photos are local */}
-              <div className="w-40 h-40 rounded-full bg-gradient-to-tr from-brand-yellow/20 to-brand-orange/20 border-2 border-brand-yellow flex items-center justify-center text-brand-yellow mb-6">
-                <Award className="h-20 w-20" />
-              </div>
-              <h3 className="font-bebas text-3xl text-white tracking-wider">{rajkumar.name}</h3>
-              <p className="text-brand-yellow text-sm font-bold uppercase tracking-wider mt-1">{rajkumar.specialty}</p>
-              <div className="bg-brand-black/55 border border-brand-dark-gray/40 px-4 py-1.5 rounded-full mt-4 text-xs font-bold text-brand-gray uppercase tracking-widest">
-                🏆 18+ Years Expert Coach
+            <div className="bg-brand-surface-card rounded-3xl border border-brand-dark-gray/60 aspect-[4/5] relative overflow-hidden group/image shadow-[0_0_30px_rgba(244,208,63,0.15)]">
+              <Image
+                src="/trainers/rajeshkumar.jpg"
+                alt="Master Rajkumar — Head Coach & Founder, Muscle Gym Dindigul"
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover/image:scale-105"
+                sizes="(max-width: 768px) 100vw, 450px"
+                priority
+              />
+              {/* Dark gradient overlay with info at the bottom */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end p-8">
+                <h3 className="font-bebas text-3xl text-white tracking-wider">{rajkumar.name}</h3>
+                <p className="text-brand-yellow text-xs font-bold uppercase tracking-wider mt-1">{rajkumar.specialty}</p>
+                <div className="w-max bg-brand-yellow text-brand-black border border-brand-yellow px-3.5 py-1.5 rounded-full mt-3.5 text-[10px] font-extrabold uppercase tracking-widest">
+                  🏆 18+ Years Expert Coach
+                </div>
               </div>
             </div>
           </div>
