@@ -134,19 +134,38 @@ export default function Locations() {
                     : "border-brand-dark-gray/50"
                 }`}
               >
-                {/* Simulated map header placeholder */}
-                <div className="h-44 bg-brand-surface-card border-b border-brand-dark-gray/30 flex flex-col items-center justify-center relative select-none">
-                  {/* Glowing background details */}
-                  <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
-                  <MapPin className={`h-12 w-12 ${isClosest ? "text-brand-yellow animate-bounce" : "text-brand-gray/50"}`} />
-                  <span className="text-[10px] text-brand-gray font-bold tracking-widest uppercase mt-2">Dindigul Location Pins</span>
-                  
+                {/* Google Maps Embed */}
+                <div className="relative h-44 border-b border-brand-dark-gray/30 overflow-hidden group/map">
+                  <iframe
+                    src={`https://maps.google.com/maps?q=${branch.coordinates.lat},${branch.coordinates.lng}&z=16&output=embed`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) saturate(0.8)" }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`Map of ${branch.name}`}
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                  />
+                  {/* Clickable overlay to open Google Maps */}
+                  <a
+                    href={branch.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-10 flex flex-col items-end justify-end p-3 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/map:opacity-100 transition-opacity duration-300"
+                  >
+                    <span className="bg-brand-yellow text-brand-black text-[9px] font-black uppercase px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-lg">
+                      <MapPin className="h-3 w-3" /> Open in Maps
+                    </span>
+                  </a>
+                  {/* Nearest badge */}
                   {isClosest && (
-                    <span className="absolute top-4 right-4 bg-brand-yellow text-brand-black text-[9px] font-black uppercase px-2 py-0.5 rounded">
+                    <span className="absolute top-3 right-3 z-20 bg-brand-yellow text-brand-black text-[9px] font-black uppercase px-2 py-0.5 rounded shadow">
                       NEAREST: {distances[branch.id]}
                     </span>
                   )}
                 </div>
+
 
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div>
@@ -195,6 +214,14 @@ export default function Locations() {
                   </div>
 
                   <div className="flex flex-col gap-2 border-t border-brand-dark-gray/30 pt-4">
+                    <a
+                      href={branch.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-gradient-to-r from-brand-yellow/20 to-brand-orange/10 border border-brand-yellow/50 hover:border-brand-yellow hover:from-brand-yellow/30 text-brand-yellow text-center py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]"
+                    >
+                      <MapPin className="h-4 w-4" /> Get Directions
+                    </a>
                     <a
                       href={`tel:${branch.phone[0]}`}
                       className="w-full bg-brand-dark-gray/35 border border-brand-dark-gray/70 hover:border-brand-yellow hover:text-brand-yellow text-center py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]"

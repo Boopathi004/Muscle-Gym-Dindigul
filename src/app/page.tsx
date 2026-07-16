@@ -9,20 +9,10 @@ import {
   MessageSquare, Sparkles, CheckCircle2
 } from "lucide-react";
 import TiltCard from "@/components/TiltCard";
+import CoachesMarquee from "@/components/CoachesMarquee";
 import { INITIAL_BRANCHES, INITIAL_PROGRAMS, INITIAL_TESTIMONIALS } from "@/lib/constants";
 
-// Lazy-load the entire Three.js scene — defers ~400KB of JS until needed
-const ThreeDScene = dynamic(() => import("@/components/ThreeDScene"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
-      <div className="flex flex-col items-center gap-3">
-        <div className="w-12 h-12 border-4 border-brand-yellow/20 border-t-brand-orange rounded-full animate-spin" />
-        <span className="text-brand-gray text-xs font-bebas tracking-widest">LOADING 3D...</span>
-      </div>
-    </div>
-  ),
-});
+
 
 
 export default function Home() {
@@ -31,7 +21,7 @@ export default function Home() {
     name: "",
     phone: "",
     goal: "Muscle Gain",
-    branch: "Begampur Branch",
+    branch: "Muscle Gym, Bagambur",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -86,7 +76,7 @@ export default function Home() {
           name: "",
           phone: "",
           goal: "Muscle Gain",
-          branch: "Begampur Branch",
+          branch: "Muscle Gym, Bagambur",
           message: ""
         });
       }
@@ -114,7 +104,7 @@ export default function Home() {
             </span>
           </div>
           <h1 className="font-bebas text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-wider text-white">
-            BUILD <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-orange text-neon-glow-orange">STRENGTH</span><br />
+            UNLEASH YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-orange text-neon-glow-orange">STRENGTH</span><br />
             BURN LIMITS<br />
             BECOME <span className="text-brand-yellow">MUSCLE</span>
           </h1>
@@ -126,7 +116,7 @@ export default function Home() {
               href="/join"
               className="w-full sm:w-auto bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-black px-8 py-4 rounded-full font-extrabold text-base tracking-wider hover:scale-105 hover:shadow-[0_0_20px_rgba(255,140,0,0.5)] transition-all duration-300 uppercase flex items-center justify-center gap-2"
             >
-              Start Free Trial <ArrowRight className="h-5 w-5" />
+              Join Now <ArrowRight className="h-5 w-5" />
             </Link>
             <a
               href="https://wa.me/919787045050?text=Hi%20Muscle%20Gym%20Dindigul,%20I'm%20interested%20in%20joining%20the%20gym!"
@@ -139,10 +129,18 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right Side: 3D Scene */}
-        <div className="relative flex items-center justify-center h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px] z-10">
-          <div className="absolute w-[350px] h-[350px] bg-gradient-to-br from-brand-orange/10 to-brand-yellow/5 rounded-full blur-3xl -z-10 animate-pulse-slow" />
-          <ThreeDScene />
+        {/* Right Side: Video */}
+        <div className="relative flex items-center justify-center h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px] z-10 rounded-3xl overflow-hidden border border-brand-dark-gray/50 shadow-[0_0_40px_rgba(244,208,63,0.15)] group">
+          <div className="absolute w-[350px] h-[350px] bg-gradient-to-br from-brand-orange/20 to-brand-yellow/10 rounded-full blur-3xl -z-10 animate-pulse-slow" />
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
@@ -212,49 +210,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TRAINING PROGRAMS PREVIEW */}
-      <section className="py-12 sm:py-24 bg-brand-surface-card/30 border-y border-brand-dark-gray/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-16 gap-4">
-            <div className="text-center sm:text-left">
-              <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
-                ELITE <span className="text-brand-yellow">TRAINING</span> CLASSES
-              </h2>
-              <p className="text-brand-gray text-sm mt-2">
-                Engineered workouts for targeted results, from beginners to pro athletes.
-              </p>
-            </div>
-            <Link
-              href="/programs"
-              className="text-brand-yellow hover:text-white flex items-center gap-1 font-bold text-sm uppercase tracking-wider group transition-colors"
-            >
-              View All Programs <ChevronRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {INITIAL_PROGRAMS.slice(0, 3).map((prog) => (
-              <div 
-                key={prog.id} 
-                className="glass-card p-6 rounded-2xl border border-brand-dark-gray/50 hover:border-brand-yellow/30 hover:shadow-[0_4px_25px_rgba(244,208,63,0.05)] transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-12 h-12 bg-brand-dark-gray/30 border border-brand-yellow/10 rounded-xl flex items-center justify-center text-brand-yellow mb-5">
-                    {prog.id === 1 ? <Dumbbell className="h-6 w-6" /> : prog.id === 2 ? <Flame className="h-6 w-6" /> : <ShieldAlert className="h-6 w-6" />}
-                  </div>
-                  <h3 className="font-bebas text-xl tracking-wide text-white mb-2">{prog.title}</h3>
-                  <p className="text-brand-gray text-xs leading-relaxed mb-6">{prog.description}</p>
-                </div>
-                <div className="flex items-center justify-between pt-4 border-t border-brand-dark-gray/20">
-                  <span className="text-xs text-brand-gray font-bold">{prog.schedule}</span>
-                  <Link href="/join" className="text-xs text-brand-yellow hover:text-brand-orange font-bold uppercase tracking-wider flex items-center gap-1">
-                    Book Class <ChevronRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* EXPERT COACHES STAFF */}
+      <section className="relative py-12 sm:py-24 bg-brand-black/40 border-y border-brand-dark-gray/30 overflow-hidden">
+        <div className="text-center mb-10">
+          <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
+            MEET OUR <span className="text-brand-yellow">COACHING STAFF</span>
+          </h2>
+          <p className="text-brand-gray text-xs sm:text-sm uppercase tracking-wider font-bold mt-2">
+            Train under certified professionals
+          </p>
         </div>
+        <CoachesMarquee />
       </section>
 
       {/* TESTIMONIALS SLIDER */}
@@ -317,15 +283,15 @@ export default function Home() {
           {/* Left Column: Offer Content */}
           <div className="flex flex-col gap-5">
             <h2 className="font-bebas text-4xl sm:text-5xl text-white tracking-widest">
-              GET A FREE <span className="text-brand-yellow">COACHING</span> SESSION
+              BOOK A <span className="text-brand-yellow">COACHING</span> SESSION
             </h2>
             <p className="text-brand-gray text-sm leading-relaxed">
-              Submit your details now to book a free 1-day pass. Tour the facility, test the premium imported machines, and get a professional fat loss/strength assessment from Master Rajkumar.
+              Submit your details now to book a training session. Tour the facility, test the premium imported machines, and get a professional fat loss/strength assessment from Master Rajkumar.
             </p>
             <div className="flex flex-col gap-3 text-sm text-brand-gray font-bold mt-2">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-brand-yellow" />
-                <span>Zero obligations. Completely free first visit.</span>
+                <span>Zero obligations. Tour our premium facility.</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-brand-yellow" />
@@ -347,7 +313,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bebas text-3xl text-white tracking-wide">BOOKING REQUESTED!</h3>
                 <p className="text-brand-gray text-xs leading-relaxed max-w-xs">
-                  Thank you! Our gym manager will contact you within 2 hours to confirm your free training session. Get ready to train hard!
+                  Thank you! Our gym manager will contact you within 2 hours to confirm your training session. Get ready to train hard!
                 </p>
                 <button
                   onClick={() => setSubmitSuccess(false)}
@@ -433,7 +399,7 @@ export default function Home() {
                   disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-black font-extrabold text-sm uppercase py-3.5 rounded-xl hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] transition-all duration-300 flex items-center justify-center mt-2 cursor-pointer"
                 >
-                  {isSubmitting ? "Bookings Loading..." : "Claim Free Pass"}
+                  {isSubmitting ? "Bookings Loading..." : "Book Session"}
                 </button>
               </form>
             )}

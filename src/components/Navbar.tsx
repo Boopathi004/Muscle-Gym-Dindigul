@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Dumbbell, Menu, X, ShieldAlert } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ShieldAlert } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,8 +53,6 @@ export default function Navbar() {
     { name: "About", path: "/about" },
     { name: "Programs", path: "/programs" },
     { name: "Facilities", path: "/facilities" },
-    { name: "Trainers", path: "/trainers" },
-    { name: "Membership", path: "/membership" },
     { name: "Gallery", path: "/gallery" },
     { name: "Transformations", path: "/results" },
     { name: "Locations", path: "/locations" },
@@ -72,12 +71,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="p-1.5 sm:p-2 bg-gradient-to-br from-brand-yellow to-brand-orange rounded-lg text-brand-black transform transition-transform group-hover:rotate-12 duration-300">
-              <Dumbbell className="h-5 w-5 sm:h-6 sm:w-6 font-bold" />
-            </span>
-            <span className="font-bebas text-xl sm:text-2xl tracking-wider text-white group-hover:text-brand-yellow transition-colors duration-300">
-              MUSCLE <span className="text-brand-yellow">GYM</span>
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden flex-shrink-0 shadow-[0_0_12px_rgba(255,140,0,0.4)] border border-brand-orange/30 group-hover:shadow-[0_0_20px_rgba(255,140,0,0.6)] transition-all duration-300">
+              <Image
+                src="/logos/logo1.jpg"
+                alt="Muscle Gym Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <span className="font-bebas text-2xl sm:text-3xl tracking-widest text-white group-hover:text-brand-yellow transition-colors duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
+              MUSCLE <span className="text-brand-yellow drop-shadow-[0_0_8px_rgba(244,208,63,0.6)]">GYM</span>
             </span>
           </Link>
 

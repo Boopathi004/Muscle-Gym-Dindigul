@@ -34,15 +34,21 @@ export default function Trainers() {
                 {/* Main frame */}
                 <div className="relative w-full h-full rounded-3xl border-2 border-brand-yellow overflow-hidden shadow-[0_0_35px_rgba(244,208,63,0.2)]">
                   <Image
-                    src="/trainers/rajeshkumar.jpg"
+                    src="/trainers/coach1.jpg"
                     alt="Master Rajkumar — Head Coach & Founder, Muscle Gym Dindigul"
                     fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover object-top transition-all duration-300 group-hover:scale-110"
                     sizes="(max-width: 768px) 320px, 400px"
                     priority
                   />
                   {/* Premium overlay shading for depth */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  
+                  {/* Interactive view button overlay */}
+                  <div className="absolute left-0 right-0 top-0 m-4 flex h-[30px] w-[29px] items-center justify-start gap-1 overflow-hidden rounded-full bg-[rgba(51,51,51,0.8)] transition-all duration-300 group-hover:w-[72px] z-20 select-none">
+                    <Image width={28} height={28} src="https://www.lovart.ai/assets/play-s.svg" alt="Play" />
+                    <span className="text-[rgba(255,255,255,0.8)] sm:text-[14px] sm:font-[700]">View</span>
+                  </div>
                 </div>
               </div>
             </div>

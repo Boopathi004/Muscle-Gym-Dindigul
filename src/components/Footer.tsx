@@ -90,11 +90,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/membership" className="text-brand-gray hover:text-white hover:text-brand-yellow transition-colors duration-300 py-1 block">
-                  Membership Plans
-                </Link>
-              </li>
-              <li>
                 <Link href="/gallery" className="text-brand-gray hover:text-white hover:text-brand-yellow transition-colors duration-300 py-1 block">
                   Gallery & Transformations
                 </Link>
@@ -117,14 +112,14 @@ export default function Footer() {
                 <Clock className="h-5 w-5 text-brand-yellow shrink-0" />
                 <div>
                   <p className="font-bold text-white">Monday - Saturday</p>
-                  <p>05:00 AM - 10:00 PM</p>
+                  <p>05:30 AM - 09:30 PM</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <Clock className="h-5 w-5 text-brand-orange shrink-0" />
                 <div>
                   <p className="font-bold text-white">Sunday Timing</p>
-                  <p>06:00 AM - 12:00 PM</p>
+                  <p>05:30 AM - 10:00 AM</p>
                 </div>
               </div>
               <div className="text-xs italic bg-brand-dark-gray/20 border border-brand-dark-gray/30 p-2.5 rounded text-brand-gray">

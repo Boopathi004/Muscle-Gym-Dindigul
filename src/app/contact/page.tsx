@@ -11,7 +11,7 @@ export default function Contact() {
     email: "",
     phone: "",
     subject: "Membership Inquiry",
-    preferredBranch: "Begampur Branch",
+    preferredBranch: "Muscle Gym, Bagambur",
     preferredTime: "Morning (06:00 AM - 11:00 AM)",
     message: "",
   });
@@ -57,7 +57,7 @@ export default function Contact() {
           email: "",
           phone: "",
           subject: "Membership Inquiry",
-          preferredBranch: "Begampur Branch",
+          preferredBranch: "Muscle Gym, Bagambur",
           preferredTime: "Morning (06:00 AM - 11:00 AM)",
           message: "",
         });
@@ -115,8 +115,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-bebas text-lg text-white tracking-wide mb-1">Operating Hours</h4>
-                <p className="text-brand-gray text-xs leading-relaxed">Monday - Saturday: 05:00 AM - 10:00 PM</p>
-                <p className="text-brand-gray text-xs leading-relaxed">Sunday Batches: 06:00 AM - 12:00 PM</p>
+                <p className="text-brand-gray text-xs leading-relaxed">Monday - Saturday: 05:30 AM - 09:30 PM</p>
+                <p className="text-brand-gray text-xs leading-relaxed">Sunday Batches: 05:30 AM - 10:00 AM</p>
               </div>
             </div>
           </div>

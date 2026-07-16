@@ -12,11 +12,11 @@ const TRAINER_CARDS = [
   {
     tempId: 0,
     name: "Master RAJKUMAR",
-    specialty: "Head Coach · Bodybuilding & Powerlifting",
+    specialty: "Head Coach · General Secretary - Dindigul District Gym Owner's Association",
     experience: "18+ Years",
     badge: "⭐ HEAD COACH",
     highlight: "Gold Medalist — State Powerlifting",
-    imgSrc: "/trainers/rajeshkumar.jpg",
+    imgSrc: "/trainers/coach1.jpg",
     branch: "All Branches",
     instagram: "https://instagram.com/muscle_gym_dindigul",
   },
@@ -27,8 +27,8 @@ const TRAINER_CARDS = [
     experience: "6 Years",
     badge: "HIIT EXPERT",
     highlight: "Certified Group Fitness Instructor",
-    imgSrc: null,
-    branch: "Trichy Bypass Branch",
+    imgSrc: "/trainers/coach2.jpg",
+    branch: "Muscle Fitness Studio Unisex, Trichy Road",
     instagram: "https://instagram.com/muscle_gym_dindigul",
   },
   {
@@ -38,8 +38,19 @@ const TRAINER_CARDS = [
     experience: "5 Years",
     badge: "WOMEN'S SPECIALIST",
     highlight: "ISSA Certified · Female Fitness Expert",
-    imgSrc: null,
-    branch: "Palani Road Branch",
+    imgSrc: "/trainers/coach3.jpg",
+    branch: "Muscle Pro Fitness Studio Unisex, Palani Road",
+    instagram: "https://instagram.com/muscle_gym_dindigul",
+  },
+  {
+    tempId: 3,
+    name: "Selvam",
+    specialty: "Strength & Conditioning Coach",
+    experience: "4 Years",
+    badge: "STRENGTH EXPERT",
+    highlight: "Certified Fitness Instructor",
+    imgSrc: "/trainers/coach4.jpg",
+    branch: "Muscle Gym, Bagambur",
     instagram: "https://instagram.com/muscle_gym_dindigul",
   },
 ];
@@ -71,7 +82,7 @@ function TrainerCard({ position, trainer, handleMove, cardSize }: CardProps) {
   return (
     <div
       onClick={() => handleMove(position)}
-      className={`absolute left-1/2 top-1/2 cursor-pointer border-2 p-6 transition-all duration-500 ease-in-out ${
+      className={`group absolute left-1/2 top-1/2 cursor-pointer border-2 p-6 transition-all duration-500 ease-in-out ${
         isCenter
           ? "z-10 bg-gradient-to-br from-brand-yellow/10 to-brand-orange/5 border-brand-yellow"
           : "z-0 bg-brand-surface-card border-brand-dark-gray/50 hover:border-brand-yellow/40"
@@ -99,7 +110,7 @@ function TrainerCard({ position, trainer, handleMove, cardSize }: CardProps) {
 
       {/* Photo */}
       <div
-        className="mb-4 overflow-hidden bg-brand-dark-gray/30 border border-brand-dark-gray/50"
+        className="mb-4 overflow-hidden bg-brand-dark-gray/30 border border-brand-dark-gray/50 relative"
         style={{
           width: 52,
           height: 60,
@@ -107,13 +118,20 @@ function TrainerCard({ position, trainer, handleMove, cardSize }: CardProps) {
         }}
       >
         {trainer.imgSrc ? (
-          <Image
-            src={trainer.imgSrc}
-            alt={trainer.name}
-            width={52}
-            height={60}
-            className="object-cover object-top w-full h-full"
-          />
+          <>
+            <Image
+              src={trainer.imgSrc}
+              alt={trainer.name}
+              width={52}
+              height={60}
+              className="object-cover object-top w-full h-full transition-all duration-300 group-hover:scale-110"
+            />
+            {/* Interactive mini view button overlay */}
+            <div className="absolute left-0 right-0 top-0 m-0.5 flex h-[16px] w-[15px] items-center justify-start gap-0.5 overflow-hidden rounded-full bg-[rgba(51,51,51,0.8)] transition-all duration-300 group-hover:w-[38px] z-20 select-none">
+              <Image width={14} height={14} src="https://www.lovart.ai/assets/play-s.svg" alt="Play" />
+              <span className="text-[rgba(255,255,255,0.8)] text-[8px] font-bold">View</span>
+            </div>
+          </>
         ) : (
           <InitialsAvatar name={trainer.name} />
         )}

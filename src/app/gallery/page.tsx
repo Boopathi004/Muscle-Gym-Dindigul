@@ -1,153 +1,380 @@
 "use client";
 
-import React, { useState } from "react";
-import { Filter, Eye, X, Dumbbell, Sparkles } from "lucide-react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Filter, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+
+type Category = "all" | "achievements" | "transformations";
 
 interface GalleryItem {
   id: number;
-  category: "interior" | "equipment" | "sessions" | "transformations";
+  src: string;
+  category: Exclude<Category, "all">;
   title: string;
   desc: string;
-  bgGradient: string;
 }
 
+const items: GalleryItem[] = [
+  // ── Achievements ─────────────────────────────────────────────────────────
+  {
+    id: 1,
+    src: "/gallery/achievements/ach1.jpg",
+    category: "achievements",
+    title: "Championship Victory",
+    desc: "Our athletes dominating the regional bodybuilding championship stage.",
+  },
+  {
+    id: 2,
+    src: "/gallery/achievements/ach2.jpg",
+    category: "achievements",
+    title: "Competition Medals",
+    desc: "Medal winners proudly representing Muscle Gym Dindigul.",
+  },
+  {
+    id: 3,
+    src: "/gallery/achievements/ach3.jpg",
+    category: "achievements",
+    title: "Trophy Ceremony",
+    desc: "Award ceremony celebrating our competitors' hard work.",
+  },
+  {
+    id: 4,
+    src: "/gallery/achievements/ach4.jpg",
+    category: "achievements",
+    title: "Stage Performance",
+    desc: "Flawless physique presentation at the district-level competition.",
+  },
+  {
+    id: 5,
+    src: "/gallery/achievements/ach5.jpg",
+    category: "achievements",
+    title: "Team Champions",
+    desc: "Gold & silver medalists from our unisex training batch.",
+  },
+  {
+    id: 6,
+    src: "/gallery/achievements/ach6.jpg",
+    category: "achievements",
+    title: "Bodybuilding Contest",
+    desc: "Physique athletes in peak condition at the state-level event.",
+  },
+  {
+    id: 7,
+    src: "/gallery/achievements/ach7.jpg",
+    category: "achievements",
+    title: "Prize Distribution",
+    desc: "Exciting prize ceremony with our winning team.",
+  },
+  {
+    id: 8,
+    src: "/gallery/achievements/ach8.jpg",
+    category: "achievements",
+    title: "Fitness Showcase",
+    desc: "Bodybuilders with trophies at the inter-district competition.",
+  },
+  {
+    id: 9,
+    src: "/gallery/achievements/ach9.jpg",
+    category: "achievements",
+    title: "District Trophy",
+    desc: "Muscle Gym members receiving district-level athletic recognition.",
+  },
+  {
+    id: 10,
+    src: "/gallery/achievements/ach10.jpg",
+    category: "achievements",
+    title: "Champions Collage",
+    desc: "Highlight reel of our members' competition victories.",
+  },
+  {
+    id: 11,
+    src: "/gallery/achievements/ach11.jpg",
+    category: "achievements",
+    title: "Fat Loss Achievement",
+    desc: "Member's documented fat loss journey — from 102 kg down to competition-ready conditioning.",
+  },
+  {
+    id: 12,
+    src: "/gallery/achievements/ach12.jpg",
+    category: "achievements",
+    title: "Strength Achievement",
+    desc: "Powerlifting milestone — from beginner to advanced strength in 4 months.",
+  },
+  {
+    id: 13,
+    src: "/gallery/achievements/ach13.jpg",
+    category: "achievements",
+    title: "Machine Gains",
+    desc: "Isolation work achievement — muscle definition built through dedicated cable and machine training.",
+  },
+  {
+    id: 14,
+    src: "/gallery/achievements/ach14.jpg",
+    category: "achievements",
+    title: "Coach-Guided Win",
+    desc: "Head coach demonstrating technique — a milestone moment in a member's personalised programme.",
+  },
+  {
+    id: 15,
+    src: "/gallery/achievements/ach15.jpg",
+    category: "achievements",
+    title: "Power Rack PR",
+    desc: "Olympic squat and bench press personal record — a major strength achievement.",
+  },
+  {
+    id: 16,
+    src: "/gallery/achievements/ach16.jpg",
+    category: "achievements",
+    title: "Muscle Building Win",
+    desc: "Lean muscle building achievement documented over a 6-month hypertrophy plan.",
+  },
+  {
+    id: 101,
+    src: "/gallery/achievements/ach17.jpeg",
+    category: "achievements",
+    title: "Championship Success",
+    desc: "A proud moment showcasing dedication and hard work at the championship.",
+  },
+  {
+    id: 102,
+    src: "/gallery/achievements/ach18.jpeg",
+    category: "achievements",
+    title: "Medal Winner",
+    desc: "Celebrating an incredible victory and bringing home the medal.",
+  },
+  {
+    id: 103,
+    src: "/gallery/achievements/ach19.jpeg",
+    category: "achievements",
+    title: "Trophy Presentation",
+    desc: "Outstanding performance rewarded with a well-deserved trophy.",
+  },
+
+  // ── Transformations ───────────────────────────────────────────────────────
+  {
+    id: 17,
+    src: "/gallery/transformations/trans1.jpg",
+    category: "transformations",
+    title: "Elite Physique",
+    desc: "Member showcasing incredible muscle definition — results from 6 months of structured training.",
+  },
+  {
+    id: 18,
+    src: "/gallery/transformations/trans2.jpg",
+    category: "transformations",
+    title: "Power Training",
+    desc: "Functional strength transformation combining boxing bag and sledgehammer conditioning.",
+  },
+  {
+    id: 19,
+    src: "/gallery/transformations/trans3.jpg",
+    category: "transformations",
+    title: "Tyre Flip Progress",
+    desc: "Explosive functional training milestone — tyre flips as part of the transformation journey.",
+  },
+  {
+    id: 20,
+    src: "/gallery/transformations/trans4.jpg",
+    category: "transformations",
+    title: "Rope Training",
+    desc: "Battle rope conditioning results — improved cardiovascular endurance and upper-body strength.",
+  },
+  {
+    id: 21,
+    src: "/gallery/transformations/trans5.jpg",
+    category: "transformations",
+    title: "Iron Chains",
+    desc: "Variable resistance chain training milestone for our advanced transformation members.",
+  },
+  {
+    id: 22,
+    src: "/gallery/transformations/trans6.jpg",
+    category: "transformations",
+    title: "Body Recomposition",
+    desc: "Dramatic body recomposition achieved under expert supervision on the main training floor.",
+  },
+  {
+    id: 23,
+    src: "/gallery/transformations/trans7.jpg",
+    category: "transformations",
+    title: "Morning Session Result",
+    desc: "Consistent early morning training over 5 months — visible physique transformation.",
+  },
+  {
+    id: 24,
+    src: "/gallery/transformations/trans9.jpg",
+    category: "transformations",
+    title: "Group Progress",
+    desc: "Batch transformation — group training members after 90-day structured programme.",
+  },
+  {
+    id: 25,
+    src: "/gallery/transformations/trans11.jpg",
+    category: "transformations",
+    title: "Cardio & Core",
+    desc: "Cardio-focused transformation with dedicated core conditioning results.",
+  },
+  {
+    id: 26,
+    src: "/gallery/transformations/trans13.jpg",
+    category: "transformations",
+    title: "Motivational Milestone",
+    desc: "A member's 3-month milestone photo — the Muscle Gym transformation programme in action.",
+  },
+  {
+    id: 28,
+    src: "/gallery/transformations/trans18.jpg",
+    category: "transformations",
+    title: "Pro-Level Physique",
+    desc: "Member reaching competition-standard conditioning through the Muscle Gym Pro programme.",
+  },
+];
+
+const categories: { value: Category; label: string }[] = [
+  { value: "all", label: "All Photos" },
+  { value: "achievements", label: "Achievements" },
+  { value: "transformations", label: "Transformations" },
+];
+
+// ── Shuffle grid data — 16 real site images ──────────────────────────────────
+const shuffleData = [
+  { id: 1,  src: "/gallery/achievements/ach1.jpg" },
+  { id: 2,  src: "/gallery/achievements/ach2.jpg" },
+  { id: 3,  src: "/gallery/achievements/ach3.jpg" },
+  { id: 4,  src: "/gallery/achievements/ach4.jpg" },
+  { id: 5,  src: "/gallery/achievements/ach5.jpg" },
+  { id: 6,  src: "/gallery/achievements/ach6.jpg" },
+  { id: 7,  src: "/gallery/achievements/ach7.jpg" },
+  { id: 8,  src: "/gallery/achievements/ach8.jpg" },
+  { id: 9,  src: "/gallery/transformations/trans1.jpg" },
+  { id: 10, src: "/gallery/transformations/trans2.jpg" },
+  { id: 11, src: "/gallery/transformations/trans3.jpg" },
+  { id: 12, src: "/gallery/transformations/trans4.jpg" },
+  { id: 13, src: "/gallery/transformations/trans5.jpg" },
+  { id: 14, src: "/gallery/transformations/trans6.jpg" },
+  { id: 15, src: "/gallery/transformations/trans7.jpg" },
+  { id: 16, src: "/gallery/transformations/trans9.jpg" },
+  { id: 101, src: "/gallery/achievements/ach17.jpeg" },
+  { id: 102, src: "/gallery/achievements/ach18.jpeg" },
+  { id: 103, src: "/gallery/achievements/ach19.jpeg" },
+];
+
+const shuffleArray = (arr: typeof shuffleData) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+const generateSquares = (isInitial: boolean = false) => {
+  const data = isInitial ? shuffleData : shuffleArray(shuffleData);
+  return data.map((sq) => (
+    <motion.div
+      key={sq.id}
+      layout
+      transition={{ duration: 1.5, type: "spring" }}
+      className="w-full h-full rounded-lg overflow-hidden"
+      style={{
+        backgroundImage: `url("${encodeURI(sq.src)}")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    />
+  ));
+};
+
+const ShuffleGrid = () => {
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [squares, setSquares] = useState(() => generateSquares(true));
+
+  useEffect(() => {
+    const tick = () => {
+      setSquares(generateSquares());
+      timeoutRef.current = setTimeout(tick, 3000);
+    };
+    timeoutRef.current = setTimeout(tick, 3000);
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+  }, []);
+
+  return (
+    <div className="grid grid-cols-4 grid-rows-4 h-[340px] sm:h-[400px] gap-1">
+      {squares}
+    </div>
+  );
+};
+
 export default function Gallery() {
-  const [filter, setFilter] = useState<"all" | "interior" | "equipment" | "sessions" | "transformations">("all");
+  const [filter, setFilter] = useState<Category>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const minSwipeDistance = 50;
-
-  const categories = [
-    { value: "all", label: "All Photos" },
-    { value: "interior", label: "Gym Interior" },
-    { value: "equipment", label: "Premium Gear" },
-    { value: "sessions", label: "Training Sessions" },
-    { value: "transformations", label: "Transformations" },
-  ] as const;
-
-  // Curated premium abstract gallery cards representing gym activity
-  const items: GalleryItem[] = [
-    {
-      id: 1,
-      category: "interior",
-      title: "Begampur Main Floor",
-      desc: "Spacious AC gym floor setup with premium imported machines and full safety padding.",
-      bgGradient: "from-brand-orange/40 via-brand-black to-brand-black",
-    },
-    {
-      id: 2,
-      category: "equipment",
-      title: "Imported Weight Stacks",
-      desc: "Heavy duty pulley machines, lat pulldowns, and compound seating for isolated muscle target.",
-      bgGradient: "from-brand-yellow/30 via-brand-black to-brand-black",
-    },
-    {
-      id: 3,
-      category: "sessions",
-      title: "Master Rajkumar Coaching Batch",
-      desc: "Head Coach Rajkumar demonstrating progressive overhead lifts and posture adjustments.",
-      bgGradient: "from-brand-orange/30 via-brand-black to-brand-black",
-    },
-    {
-      id: 4,
-      category: "transformations",
-      title: "Arun's 6-Month Success",
-      desc: "Incredible fat loss transformation logging -18kg fat loss and major muscle hypertrophy.",
-      bgGradient: "from-brand-yellow/40 via-brand-black to-brand-black",
-    },
-    {
-      id: 5,
-      category: "interior",
-      title: "Trichy Bypass Cardio Zone",
-      desc: "Advanced imported treadmills and metabolic spin bikes looking out to DMart road.",
-      bgGradient: "from-brand-yellow/30 via-brand-black to-brand-black",
-    },
-    {
-      id: 6,
-      category: "equipment",
-      title: "Heavy Barbell Platform",
-      desc: "Olympic-grade competition bars and rubberized bumper weight plates for heavy compounds.",
-      bgGradient: "from-brand-orange/40 via-brand-black to-brand-black",
-    },
-    {
-      id: 7,
-      category: "sessions",
-      title: "Unisex Morning Group Workout",
-      desc: "High energy metabolic circuit containing battle ropes, box jumps, and kettlebell swings.",
-      bgGradient: "from-brand-yellow/45 via-brand-black to-brand-black",
-    },
-    {
-      id: 8,
-      category: "transformations",
-      title: "Karthik's Strength Progress",
-      desc: "Powerlifting transformation adding 40kg to squat and deadlift maxes safely.",
-      bgGradient: "from-brand-orange/35 via-brand-black to-brand-black",
-    },
-  ];
-
-  const filteredItems = filter === "all" ? items : items.filter((item) => item.category === filter);
+  const filtered = filter === "all" ? items : items.filter((i) => i.category === filter);
 
   const openLightbox = (id: number) => {
-    const index = items.findIndex((item) => item.id === id);
-    if (index !== -1) setLightboxIndex(index);
+    const idx = filtered.findIndex((i) => i.id === id);
+    if (idx !== -1) setLightboxIndex(idx);
   };
 
-  const nextImage = (e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    if (lightboxIndex !== null) {
-      setLightboxIndex((lightboxIndex + 1) % items.length);
-    }
-  };
+  const closeLightbox = () => setLightboxIndex(null);
 
-  const prevImage = (e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    if (lightboxIndex !== null) {
-      setLightboxIndex((lightboxIndex - 1 + items.length) % items.length);
-    }
-  };
+  const navigate = useCallback(
+    (dir: 1 | -1) => {
+      if (lightboxIndex === null) return;
+      setLightboxIndex((lightboxIndex + dir + filtered.length) % filtered.length);
+    },
+    [lightboxIndex, filtered.length]
+  );
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
+  const onTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe) {
-      nextImage();
-    }
-    if (isRightSwipe) {
-      prevImage();
-    }
+    if (touchStart - touchEnd > 50) navigate(1);
+    if (touchEnd - touchStart > 50) navigate(-1);
   };
+
+  const current = lightboxIndex !== null ? filtered[lightboxIndex] : null;
 
   return (
     <div className="relative min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* HEADER */}
-        <div className="text-center mb-16">
-          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white">
-            GYM <span className="text-brand-yellow">GALLERY</span>
-          </h1>
-          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-3">
-            Explore our branch interiors, heavy strength machinery, and real member achievements.
-          </p>
+
+        {/* ── SHUFFLE HERO ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 mb-20">
+          {/* Left: text */}
+          <div>
+            <span className="block mb-3 text-xs font-bold uppercase tracking-widest text-brand-yellow">
+              Real Moments · Real Results
+            </span>
+            <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white leading-none">
+              GYM <span className="text-brand-yellow">GALLERY</span>
+            </h1>
+            <p className="text-brand-gray text-sm sm:text-base max-w-md mt-4">
+              Explore our athletes, achievements, and transformation journeys.
+              Every photo is a real moment from Muscle Gym Dindigul.
+            </p>
+            <a
+              href="/join"
+              className="inline-flex items-center gap-2 mt-6 bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-black font-extrabold text-xs uppercase px-7 py-3 rounded-full hover:scale-105 transition-transform tracking-wider shadow-[0_0_15px_rgba(255,140,0,0.3)]"
+            >
+              Join Now
+            </a>
+          </div>
+          {/* Right: animated shuffle grid */}
+          <ShuffleGrid />
         </div>
 
-        {/* FILTER BAR */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
+        {/* ── FILTER BAR ── */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
           <span className="text-brand-gray text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 mr-2">
-            <Filter className="h-4 w-4" /> Filter Categories:
+            <Filter className="h-4 w-4" /> Filter:
           </span>
           {categories.map((cat) => (
             <button
@@ -155,8 +382,8 @@ export default function Gallery() {
               onClick={() => setFilter(cat.value)}
               className={`px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                 filter === cat.value
-                  ? "bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-black shadow-[0_0_15px_rgba(255,140,0,0.3)]"
-                  : "bg-brand-surface-card border border-brand-dark-gray/50 text-brand-gray hover:text-white"
+                  ? "bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-black shadow-[0_0_18px_rgba(255,180,0,0.35)]"
+                  : "bg-brand-surface-card border border-brand-dark-gray/50 text-brand-gray hover:text-white hover:border-brand-yellow/40"
               }`}
             >
               {cat.label}
@@ -164,105 +391,126 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* GALLERY GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-stretch">
-          {filteredItems.map((item) => (
+        {/* ── GALLERY GRID ── */}
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {filtered.map((item) => (
             <div
               key={item.id}
               onClick={() => openLightbox(item.id)}
-              className="group relative cursor-pointer glass-card rounded-2xl border border-brand-dark-gray/50 h-64 overflow-hidden flex flex-col justify-between p-6 hover:border-brand-yellow/30 hover:scale-[1.02] transition-all duration-300"
+              className="group relative break-inside-avoid cursor-pointer rounded-xl overflow-hidden border border-brand-dark-gray/40 hover:border-brand-yellow/40 transition-all duration-300"
             >
-              {/* Glowing decorative gradient backplane */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${item.bgGradient} opacity-40 group-hover:opacity-60 transition-opacity -z-10`} />
-              
-              <div className="flex justify-between items-start">
-                <span className="text-[10px] bg-brand-dark-gray/40 border border-brand-dark-gray/60 px-2 py-0.5 rounded text-brand-gray font-bold uppercase tracking-wider">
-                  {item.category}
-                </span>
-                <span className="p-1.5 bg-brand-black/50 rounded-lg text-brand-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Eye className="h-4 w-4" />
-                </span>
+              {/* Actual photo */}
+              <div className="relative w-full">
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  width={600}
+                  height={450}
+                  className="w-full h-auto object-cover transition-transform duration-150 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
               </div>
 
-              <div>
-                <h3 className="font-bebas text-xl text-white tracking-wide mb-1 group-hover:text-brand-yellow transition-colors">
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <span className="text-[9px] font-bold uppercase tracking-widest text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/30 px-2 py-0.5 rounded w-fit mb-1">
+                  {item.category}
+                </span>
+                <h3 className="font-bebas text-lg text-white tracking-wide leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-brand-gray text-[11px] leading-relaxed line-clamp-2">
+                <p className="text-brand-gray text-[10px] leading-relaxed line-clamp-2 mt-0.5">
                   {item.desc}
                 </p>
+              </div>
+
+              {/* Zoom icon */}
+              <div className="absolute top-3 right-3 p-2 bg-brand-black/60 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ZoomIn className="h-4 w-4 text-brand-yellow" />
               </div>
             </div>
           ))}
         </div>
 
-        {/* LIGHTBOX MODAL */}
-        {lightboxIndex !== null && (
-          <div
-            onClick={() => setLightboxIndex(null)}
-            className="fixed inset-0 z-50 bg-brand-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
-          >
-            {/* Close Button - minimum 44px touch target */}
-            <button
-              onClick={() => setLightboxIndex(null)}
-              className="absolute top-4 right-4 p-3.5 rounded-full bg-brand-dark-gray/20 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors z-10 cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label="Close lightbox"
-            >
-              <X className="h-6 w-6" />
-            </button>
-
-            {/* Modal Body */}
-            <div
-              onClick={(e) => e.stopPropagation()}
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
-              className="glass-card max-w-2xl w-full rounded-2xl sm:rounded-3xl border border-brand-yellow/20 overflow-hidden shadow-2xl relative"
-            >
-              {/* Dynamic decorative backdrop */}
-              <div className={`absolute inset-0 bg-gradient-to-tr ${items[lightboxIndex].bgGradient} opacity-20 -z-10`} />
-              
-              <div className="h-44 sm:h-72 bg-gradient-to-br from-brand-yellow/10 to-brand-orange/5 flex flex-col items-center justify-center text-brand-yellow/30 border-b border-brand-dark-gray/35">
-                <Dumbbell className="h-14 w-14 sm:h-20 sm:w-20 animate-bounce" />
-                <span className="text-[10px] text-brand-gray font-bold tracking-widest mt-2 uppercase">Muscle Gym Interactive View</span>
-              </div>
-
-              <div className="p-6 sm:p-8">
-                <span className="text-xs bg-brand-yellow/10 border border-brand-yellow/30 px-3 py-1 rounded-full text-brand-yellow font-extrabold uppercase tracking-widest">
-                  {items[lightboxIndex].category}
-                </span>
-                <h2 className="font-bebas text-2xl sm:text-3xl text-white tracking-wide mt-4 mb-2">
-                  {items[lightboxIndex].title}
-                </h2>
-                <p className="text-brand-gray text-xs sm:text-sm leading-relaxed">
-                  {items[lightboxIndex].desc}
-                </p>
-
-                <div className="lg:hidden text-[9px] text-brand-gray/50 uppercase tracking-widest mt-2 text-center">
-                  ← Swipe Left / Right to navigate →
-                </div>
-
-                {/* Navigation arrows inside lightbox - minimum 44px touch targets */}
-                <div className="flex justify-between items-center mt-6 sm:mt-8 pt-4 border-t border-brand-dark-gray/30">
-                  <button
-                    onClick={(e) => prevImage(e)}
-                    className="text-xs font-extrabold text-brand-gray hover:text-brand-yellow uppercase tracking-wider cursor-pointer p-3 min-h-[44px] min-w-[80px] text-left"
-                  >
-                    ← Prev
-                  </button>
-                  <button
-                    onClick={(e) => nextImage(e)}
-                    className="text-xs font-extrabold text-brand-gray hover:text-brand-yellow uppercase tracking-wider cursor-pointer p-3 min-h-[44px] min-w-[80px] text-right"
-                  >
-                    Next →
-                  </button>
-                </div>
-              </div>
-            </div>
+        {/* Empty state */}
+        {filtered.length === 0 && (
+          <div className="text-center py-24 text-brand-gray">
+            <p className="text-lg">No photos in this category yet.</p>
           </div>
         )}
-
       </div>
+
+      {/* ── LIGHTBOX ── */}
+      {current && (
+        <div
+          onClick={closeLightbox}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          className="fixed inset-0 z-50 bg-brand-black/97 backdrop-blur-sm flex items-center justify-center p-4"
+        >
+          {/* Close */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 p-3 rounded-full bg-brand-dark-gray/60 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors z-10 cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          {/* Prev */}
+          <button
+            onClick={(e) => { e.stopPropagation(); navigate(-1); }}
+            className="absolute left-3 sm:left-6 p-3 rounded-full bg-brand-dark-gray/60 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
+          {/* Next */}
+          <button
+            onClick={(e) => { e.stopPropagation(); navigate(1); }}
+            className="absolute right-3 sm:right-6 p-3 rounded-full bg-brand-dark-gray/60 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label="Next"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Image container */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center"
+          >
+            <div className="relative w-full max-h-[75vh] flex items-center justify-center">
+              <Image
+                src={current.src}
+                alt={current.title}
+                width={1200}
+                height={900}
+                className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-brand-dark-gray/40"
+                priority
+                sizes="(max-width: 768px) 100vw, 80vw"
+              />
+            </div>
+
+            {/* Caption */}
+            <div className="mt-4 text-center px-4">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/30 px-3 py-0.5 rounded-full">
+                {current.category}
+              </span>
+              <h2 className="font-bebas text-2xl sm:text-3xl text-white tracking-wide mt-2">
+                {current.title}
+              </h2>
+              <p className="text-brand-gray text-xs sm:text-sm mt-1 max-w-md mx-auto">
+                {current.desc}
+              </p>
+              <p className="text-brand-dark-gray text-[10px] mt-3 uppercase tracking-widest">
+                {lightboxIndex! + 1} / {filtered.length}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -2,7 +2,8 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Flame, ShieldAlert, Award } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Sparkles, Flame, Award, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 export default function Results() {
   // Slider ratio state (percentage of "after" showing from left, 0 to 100)
@@ -50,6 +51,42 @@ export default function Results() {
       desc: "Designed engaging cardiovascular stamina templates and functional core workouts. Rebuilt mobility and stamina after a prolonged desk job.",
     },
   ];
+
+  // Photo grid — only the 12 remaining transformation images
+  // (trans8, trans10, trans12, trans14, trans15, trans16 moved to achievements)
+  const photos = [
+    { id: 1,  src: "/gallery/transformations/trans1.jpg",  title: "Elite Physique" },
+    { id: 2,  src: "/gallery/transformations/trans2.jpg",  title: "Power Training" },
+    { id: 3,  src: "/gallery/transformations/trans3.jpg",  title: "Tyre Flip Progress" },
+    { id: 4,  src: "/gallery/transformations/trans4.jpg",  title: "Rope Training" },
+    { id: 5,  src: "/gallery/transformations/trans5.jpg",  title: "Iron Chains" },
+    { id: 6,  src: "/gallery/transformations/trans6.jpg",  title: "Body Recomposition" },
+    { id: 7,  src: "/gallery/transformations/trans7.jpg",  title: "Morning Session Result" },
+    { id: 8,  src: "/gallery/transformations/trans9.jpg",  title: "Group Progress" },
+    { id: 9,  src: "/gallery/transformations/trans11.jpg", title: "Cardio & Core" },
+    { id: 10, src: "/gallery/transformations/trans13.jpg", title: "Motivational Milestone" },
+    { id: 11, src: "/gallery/transformations/trans18.jpg", title: "Pro-Level Physique" },
+  ];
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const openLightbox = (idx: number) => setLightboxIndex(idx);
+  const closeLightbox = () => setLightboxIndex(null);
+  const navigate = (dir: 1 | -1) => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex((lightboxIndex + dir + photos.length) % photos.length);
+  };
+  const onTouchStart = (e: React.TouchEvent) => { setTouchEnd(null); setTouchStart(e.targetTouches[0].clientX); };
+  const onTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    if (touchStart - touchEnd > 50) navigate(1);
+    if (touchEnd - touchStart > 50) navigate(-1);
+  };
+
+  const currentPhoto = lightboxIndex !== null ? photos[lightboxIndex] : null;
 
   return (
     <div className="relative min-h-screen py-16">
@@ -126,6 +163,54 @@ export default function Results() {
           </div>
         </section>
 
+        {/* ── REAL TRANSFORMATION PHOTO GRID ── */}
+        <section className="mb-24">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-dark-gray/30 border border-brand-yellow/10 rounded-full w-max mb-4 mx-auto">
+              <Sparkles className="h-4 w-4 text-brand-yellow" />
+              <span className="text-xs font-semibold text-brand-yellow uppercase tracking-wider">Real Members · Real Results</span>
+            </div>
+            <h2 className="font-bebas text-3xl sm:text-4xl text-white tracking-widest uppercase">
+              TRANSFORMATION <span className="text-brand-yellow">PHOTO GALLERY</span>
+            </h2>
+            <p className="text-brand-gray text-xs sm:text-sm max-w-lg mx-auto mt-2">
+              Every photo you see below is a real Muscle Gym Dindigul member&apos;s journey — documented, genuine, and verifiable.
+            </p>
+          </div>
+
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+            {photos.map((photo, idx) => (
+              <div
+                key={photo.id}
+                onClick={() => openLightbox(idx)}
+                className="group relative break-inside-avoid cursor-pointer rounded-xl overflow-hidden border border-brand-dark-gray/40 hover:border-brand-yellow/40 transition-all duration-300"
+              >
+                <div className="relative w-full">
+                  <Image
+                    src={photo.src}
+                    alt={photo.title}
+                    width={600}
+                    height={450}
+                    className="w-full h-auto object-cover transition-transform duration-150 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
+                </div>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/30 px-2 py-0.5 rounded w-fit mb-1">
+                    Transformation
+                  </span>
+                  <h3 className="font-bebas text-lg text-white tracking-wide leading-tight">{photo.title}</h3>
+                </div>
+                {/* Zoom icon */}
+                <div className="absolute top-3 right-3 p-2 bg-brand-black/60 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ZoomIn className="h-4 w-4 text-brand-yellow" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* TRANSFORMATION CARDS GRID */}
         <section>
           <div className="text-center mb-12">
@@ -150,7 +235,7 @@ export default function Results() {
                   </h4>
 
                   <p className="text-brand-gray text-xs leading-relaxed mb-6">
-                    "{card.desc}"
+                    &ldquo;{card.desc}&rdquo;
                   </p>
                 </div>
 
@@ -188,7 +273,7 @@ export default function Results() {
             READY TO WRITE YOUR OWN SUCCESS STORY?
           </h3>
           <p className="text-brand-gray text-xs sm:text-sm max-w-lg mx-auto mt-2 mb-6">
-            Enroll today under Master Rajkumar's guidance and begin tracking your physical progression.
+            Enroll today under Master Rajkumar&apos;s guidance and begin tracking your physical progression.
           </p>
           <Link
             href="/join"
@@ -199,6 +284,73 @@ export default function Results() {
         </section>
 
       </div>
+
+      {/* ── LIGHTBOX ── */}
+      {currentPhoto && (
+        <div
+          onClick={closeLightbox}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          className="fixed inset-0 z-50 bg-brand-black/97 backdrop-blur-sm flex items-center justify-center p-4"
+        >
+          {/* Close */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 p-3 rounded-full bg-brand-dark-gray/60 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors z-10 cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          {/* Prev */}
+          <button
+            onClick={(e) => { e.stopPropagation(); navigate(-1); }}
+            className="absolute left-3 sm:left-6 p-3 rounded-full bg-brand-dark-gray/60 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
+          {/* Next */}
+          <button
+            onClick={(e) => { e.stopPropagation(); navigate(1); }}
+            className="absolute right-3 sm:right-6 p-3 rounded-full bg-brand-dark-gray/60 hover:bg-brand-yellow text-white hover:text-brand-black transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label="Next"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Image */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center"
+          >
+            <div className="relative w-full max-h-[75vh] flex items-center justify-center">
+              <Image
+                src={currentPhoto.src}
+                alt={currentPhoto.title}
+                width={1200}
+                height={900}
+                className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-brand-dark-gray/40"
+                priority
+                sizes="(max-width: 768px) 100vw, 80vw"
+              />
+            </div>
+            <div className="mt-4 text-center px-4">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/30 px-3 py-0.5 rounded-full">
+                Transformation
+              </span>
+              <h2 className="font-bebas text-2xl sm:text-3xl text-white tracking-wide mt-2">
+                {currentPhoto.title}
+              </h2>
+              <p className="text-brand-dark-gray text-[10px] mt-3 uppercase tracking-widest">
+                {lightboxIndex! + 1} / {photos.length}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

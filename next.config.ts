@@ -20,6 +20,8 @@ const nextConfig: NextConfig = {
     // Device sizes optimized for mobile-first
     deviceSizes: [375, 414, 640, 750, 828, 1080, 1200, 1920],
     imageSizes: [64, 128, 224, 256, 384],
+    // Cache optimized images for 30 days in the browser
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
 };
 

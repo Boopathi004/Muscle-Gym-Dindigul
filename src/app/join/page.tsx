@@ -14,7 +14,7 @@ function JoinForm() {
     email: "",
     phone: "",
     plan: "Pro Cardio Plan",
-    branch: "Begampur Branch",
+    branch: "Muscle Gym, Bagambur",
     fitnessGoal: "Muscle Gain",
     message: "",
   });
@@ -68,7 +68,7 @@ function JoinForm() {
           email: "",
           phone: "",
           plan: "Pro Cardio Plan",
-          branch: "Begampur Branch",
+          branch: "Muscle Gym, Bagambur",
           fitnessGoal: "Muscle Gain",
           message: "",
         });
