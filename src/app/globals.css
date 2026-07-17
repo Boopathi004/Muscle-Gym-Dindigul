@@ -48,25 +48,9 @@ body.nav-open {
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-::-webkit-scrollbar-thumb {
-  background: #FF8C00;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #F4D03F;
-}
-
-/* Hide scrollbar on mobile for cleaner look */
-@media (max-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
+html {
+  scrollbar-color: #FF8C00 #000000;
+  scrollbar-width: thin;
 }
 
 /* Utilities */
