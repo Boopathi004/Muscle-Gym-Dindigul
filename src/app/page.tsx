@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* STATS STRIP */}
-      <section className="bg-brand-black/80 border-y border-brand-dark-gray/30 py-8 relative">
+      <section className="bg-brand-black/80 border-y border-brand-dark-gray/30 py-8 relative reveal-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
           <div className="flex flex-col gap-1">
             <span className="font-bebas text-4xl sm:text-5xl md:text-6xl text-brand-yellow text-neon-glow">3</span>
@@ -167,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
         <div className="text-center mb-16">
           <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
             WHY <span className="text-brand-yellow">MUSCLE GYM</span> DINDIGUL
@@ -211,7 +211,7 @@ export default function Home() {
       </section>
 
       {/* EXPERT COACHES STAFF */}
-      <section className="relative py-12 sm:py-24 bg-brand-black/40 border-y border-brand-dark-gray/30 overflow-hidden">
+      <section className="relative py-12 sm:py-24 bg-brand-black/40 border-y border-brand-dark-gray/30 overflow-hidden reveal-on-scroll">
         <div className="text-center mb-10">
           <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
             MEET OUR <span className="text-brand-yellow">COACHING STAFF</span>
@@ -224,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS SLIDER */}
-      <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden reveal-on-scroll">
         <div className="text-center mb-16">
           <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
             TRANSFORMATION <span className="text-brand-orange">REVIEWS</span>
@@ -277,7 +277,7 @@ export default function Home() {
       </section>
 
       {/* QUICK CONSULTATION / LEAD CAPTURE */}
-      <section className="py-12 sm:py-24 bg-gradient-to-t from-brand-surface to-brand-black border-t border-brand-dark-gray/30 relative">
+      <section className="py-12 sm:py-24 bg-gradient-to-t from-brand-surface to-brand-black border-t border-brand-dark-gray/30 relative reveal-on-scroll">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
           
           {/* Left Column: Offer Content */}

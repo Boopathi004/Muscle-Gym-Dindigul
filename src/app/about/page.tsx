@@ -57,7 +57,7 @@ export default function About() {
         </div>
 
         {/* OWNER / COACH PROFILE */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center mb-16 sm:mb-28">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center mb-16 sm:mb-28 reveal-on-scroll">
           <div className="lg:col-span-5 relative group">
             {/* Glowing frame */}
             <div className="absolute -inset-1.5 bg-gradient-to-r from-brand-yellow to-brand-orange rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000 -z-10" />
@@ -131,7 +131,7 @@ export default function About() {
         </section>
 
         {/* BRANCH MANAGER — PALANI ROAD */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center mb-16 sm:mb-28">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center mb-16 sm:mb-28 reveal-on-scroll">
           {/* Text left side */}
           <div className="lg:col-span-7 flex flex-col gap-6 order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-dark-gray/30 border border-brand-yellow/20 rounded-full w-max">
@@ -196,7 +196,7 @@ export default function About() {
         </section>
 
 
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 mb-16 sm:mb-28">
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 mb-16 sm:mb-28 reveal-on-scroll">
           <div className="glass-card p-8 rounded-2xl border border-brand-dark-gray/50 flex flex-col gap-4">
             <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center text-brand-yellow">
               <ShieldCheck className="h-6 w-6" />
@@ -229,7 +229,7 @@ export default function About() {
         </section>
 
         {/* GLOWING TIMELINE */}
-        <section className="relative mb-28">
+        <section className="relative mb-28 reveal-on-scroll">
           <div className="text-center mb-16">
             <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
               GYM <span className="text-brand-orange">TIMELINE</span>
