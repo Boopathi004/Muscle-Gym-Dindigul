@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 /* ----------------------------------------------------------------
  * ScrollReelCoaches
@@ -120,11 +121,12 @@ function Featured({
         boxShadow: isActive ? FEATURED_SHADOW : "none" 
       }}
     >
-      <img
+      <Image
         src={src}
         alt={alt ?? ""}
-        loading="lazy"
+        fill
         className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 hover:scale-105"
+        sizes="(max-width: 768px) 100vw, 350px"
       />
       {/* subtle gradient sheen for active element */}
       {isActive ? (

@@ -72,7 +72,7 @@ export default function About() {
               />
               {/* Interactive view button overlay */}
               <div className="absolute left-0 right-0 top-0 m-4 flex h-[30px] w-[29px] items-center justify-start gap-1 overflow-hidden rounded-full bg-[rgba(51,51,51,0.8)] transition-all duration-300 group-hover:w-[72px] z-20 select-none">
-                <Image width={28} height={28} src="https://www.lovart.ai/assets/play-s.svg" alt="Play" />
+                <Image width={28} height={28} src="/play-s.svg" alt="Play" />
                 <span className="text-[rgba(255,255,255,0.8)] sm:text-[14px] sm:font-[700]">View</span>
               </div>
               {/* Dark gradient overlay with info at the bottom */}
@@ -181,7 +181,7 @@ export default function About() {
                 />
                 {/* Interactive view button overlay */}
                 <div className="absolute left-0 right-0 top-0 m-4 flex h-[30px] w-[29px] items-center justify-start gap-1 overflow-hidden rounded-full bg-[rgba(51,51,51,0.8)] transition-all duration-300 group-hover:w-[72px] z-20 select-none">
-                  <Image width={28} height={28} src="https://www.lovart.ai/assets/play-s.svg" alt="Play" />
+                  <Image width={28} height={28} src="/play-s.svg" alt="Play" />
                   <span className="text-[rgba(255,255,255,0.8)] sm:text-[14px] sm:font-[700]">View</span>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6">
