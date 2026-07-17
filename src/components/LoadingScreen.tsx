@@ -26,32 +26,39 @@ const LOGOS = [
 ];
 
 export default function LoadingScreen() {
-  const [isLoading, setIsLoading] = useState(true);
+  // Only show once per browser session — not on back-navigation or internal routing
+  const [isLoading, setIsLoading] = useState(false);
   const [activeLogoIndex, setActiveLogoIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
   
   const progress = useMotionValue(0);
-  // Optional chaining is safer if useTransform errors on hydration, though Framer Motion handles it
   const progressPercentage = useTransform(progress, (latest) => `${Math.round(latest)}%`);
   const progressScaleX = useTransform(progress, (v) => v / 100);
 
   useEffect(() => {
-    // Start progress animation: 0 to 100 over 3.2s
+    // Check if we already showed the loading screen this session
+    const alreadyShown = sessionStorage.getItem("muscleGymLoadingShown");
+    if (alreadyShown) {
+      setIsLoading(false);
+      return;
+    }
+
+    // First time — mark it and show loading screen
+    sessionStorage.setItem("muscleGymLoadingShown", "1");
+    setIsLoading(true);
+
     const progressControl = animate(progress, 100, {
       duration: 3.2,
       ease: "linear",
     });
 
-    // Cycle logos: Total ~3.2s duration, switch every ~1.05s
     const logo1Timer = setTimeout(() => setActiveLogoIndex(1), 1050);
     const logo2Timer = setTimeout(() => setActiveLogoIndex(2), 2100);
     
-    // Trigger exit at 3.2s
     const exitTimer = setTimeout(() => {
       setIsExiting(true);
     }, 3200);
 
-    // Unmount component at 4.0s (after 0.8s exit animation)
     const hideTimer = setTimeout(() => {
       setIsLoading(false);
     }, 4000);
