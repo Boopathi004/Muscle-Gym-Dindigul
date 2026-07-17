@@ -347,7 +347,7 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── SHUFFLE HERO ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 sm:gap-8 mb-12 sm:mb-20">
           {/* Left: text */}
           <div>
             <span className="block mb-3 text-xs font-bold uppercase tracking-widest text-brand-yellow">
@@ -367,9 +367,12 @@ export default function Gallery() {
               Join Now
             </a>
           </div>
-          {/* Right: animated shuffle grid */}
-          <ShuffleGrid />
+          {/* Right: animated shuffle grid — hidden on small mobile to avoid overflow */}
+          <div className="hidden md:block">
+            <ShuffleGrid />
+          </div>
         </div>
+
 
         {/* ── FILTER BAR ── */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">

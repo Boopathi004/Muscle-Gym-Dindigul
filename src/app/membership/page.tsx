@@ -201,14 +201,14 @@ export default function Membership() {
             <span className="animate-pulse text-brand-yellow font-black">↔</span>
           </div>
 
-          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-brand-orange scrollbar-track-transparent glass-card rounded-2xl border border-brand-dark-gray/60">
-            <table className="w-full text-left border-collapse text-xs md:text-sm">
+          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-brand-orange scrollbar-track-transparent glass-card rounded-2xl border border-brand-dark-gray/60 scroll-hint">
+                <table className="w-full text-left border-collapse text-xs md:text-sm min-w-[480px]">
               <thead>
                 <tr className="border-b border-brand-dark-gray/60 font-bebas text-base text-brand-yellow uppercase tracking-widest bg-brand-surface-card/45">
-                  <th className="p-4 md:p-6 text-left">Gym Amenity / Feature</th>
-                  <th className="p-4 md:p-6 text-center">Starter</th>
-                  <th className="p-4 md:p-6 text-center">Pro Cardio</th>
-                  <th className="p-4 md:p-6 text-center">Transformation</th>
+                  <th className="p-4 md:p-6 text-left min-w-[160px]">Gym Amenity / Feature</th>
+                  <th className="p-4 md:p-6 text-center min-w-[90px]">Starter</th>
+                  <th className="p-4 md:p-6 text-center min-w-[90px]">Pro Cardio</th>
+                  <th className="p-4 md:p-6 text-center min-w-[110px]">Transformation</th>
                 </tr>
               </thead>
               <tbody>

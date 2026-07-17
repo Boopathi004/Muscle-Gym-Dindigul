@@ -81,7 +81,7 @@ export default function CoachesMarquee() {
           <div
             key={i}
             onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
-            className="relative w-[320px] sm:w-[380px] h-[500px] sm:h-[560px] shrink-0 bg-black rounded-3xl overflow-hidden flex flex-col border border-brand-dark-gray/40 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.5)] cursor-pointer group"
+            className="relative w-[270px] sm:w-[320px] md:w-[380px] h-[480px] sm:h-[500px] md:h-[560px] shrink-0 bg-black rounded-3xl overflow-hidden flex flex-col border border-brand-dark-gray/40 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.5)] cursor-pointer group"
           >
             {/* Background Image - Large & Full Width */}
             <div className="absolute inset-0">

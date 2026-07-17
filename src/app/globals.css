@@ -156,15 +156,32 @@ body.nav-open {
 
 /* Ensure touch targets are at least 44px for accessibility */
 @media (max-width: 768px) {
-  button, a, select, input, textarea {
+  button, a {
     min-height: 44px;
   }
-  
+
+  /* Prevent text overflow on small screens */
+  h1, h2, h3, h4 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
   /* Improve tap highlighting */
   a, button {
     -webkit-tap-highlight-color: rgba(244, 208, 63, 0.15);
   }
+
+  /* Prevent horizontal scroll caused by full-width elements */
+  img, video, iframe {
+    max-width: 100%;
+  }
 }
+
+/* Prevent x-overflow on all pages */
+.page-container {
+  overflow-x: hidden;
+}
+
 
 /* Smooth scroll but respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {

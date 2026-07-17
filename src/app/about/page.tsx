@@ -57,7 +57,7 @@ export default function About() {
         </div>
 
         {/* OWNER / COACH PROFILE */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-28">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center mb-16 sm:mb-28">
           <div className="lg:col-span-5 relative group">
             {/* Glowing frame */}
             <div className="absolute -inset-1.5 bg-gradient-to-r from-brand-yellow to-brand-orange rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000 -z-10" />
@@ -95,7 +95,7 @@ export default function About() {
               <h2 className="font-bebas text-4xl sm:text-5xl text-white tracking-wide">
                 Master <span className="text-brand-yellow">Rajkumar</span>
               </h2>
-              <div className="flex items-center gap-4 bg-brand-black/30 border border-brand-dark-gray/40 p-3 rounded-2xl w-max">
+              <div className="flex items-center gap-3 sm:gap-4 bg-brand-black/30 border border-brand-dark-gray/40 p-3 rounded-2xl w-full sm:w-max overflow-hidden">
                 <div className="relative">
                   <div className="absolute inset-0 bg-brand-yellow blur-md opacity-30 rounded-full" />
                   <Image src="/logos/logo1.jpg" alt="Muscle Gym Begampur Logo" width={80} height={80} className="relative object-contain rounded-full border-2 border-brand-yellow/50" />
@@ -131,7 +131,7 @@ export default function About() {
         </section>
 
         {/* BRANCH MANAGER — PALANI ROAD */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-28">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center mb-16 sm:mb-28">
           {/* Text left side */}
           <div className="lg:col-span-7 flex flex-col gap-6 order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-dark-gray/30 border border-brand-yellow/20 rounded-full w-max">
@@ -196,7 +196,7 @@ export default function About() {
         </section>
 
 
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-28">
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 mb-16 sm:mb-28">
           <div className="glass-card p-8 rounded-2xl border border-brand-dark-gray/50 flex flex-col gap-4">
             <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center text-brand-yellow">
               <ShieldCheck className="h-6 w-6" />
@@ -239,7 +239,8 @@ export default function About() {
             </p>
           </div>
 
-          <div className="relative border-l-2 border-brand-orange/30 ml-4 md:ml-32 md:pl-8 flex flex-col gap-12 py-4">
+          <div className="relative border-l-2 border-brand-orange/30 ml-4 md:ml-16 lg:ml-32 pl-6 md:pl-8 flex flex-col gap-10 sm:gap-12 py-4">
+
             {milestones.map((ms, index) => (
               <div key={index} className="relative pl-6 md:pl-8 group">
                 {/* Timeline node */}

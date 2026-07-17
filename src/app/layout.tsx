@@ -50,10 +50,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased">
+      <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
         <LoadingScreen />
         <Navbar />
-        <main className="flex-grow pt-16 sm:pt-20">{children}</main>
+        <main className="flex-grow pt-16 sm:pt-20 overflow-x-hidden">{children}</main>
         <Footer />
         {/* Floating social buttons — visible on all pages */}
         <SocialFloat />
