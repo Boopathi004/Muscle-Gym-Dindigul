@@ -54,7 +54,7 @@ export default function SocialFloat() {
 
       {/* Instagram Button */}
       <a
-        href="https://www.instagram.com/musclegymdindigul"
+        href="https://www.instagram.com/muscle_gym_dindigul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setHovered("ig")}
