@@ -353,10 +353,10 @@ export default function Gallery() {
             <span className="block mb-3 text-xs font-bold uppercase tracking-widest text-brand-yellow">
               Real Moments · Real Results
             </span>
-            <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white leading-none">
+            <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white leading-none page-heading-left">
               GYM <span className="text-brand-yellow">GALLERY</span>
             </h1>
-            <p className="text-brand-gray text-sm sm:text-base max-w-md mt-4">
+            <p className="text-brand-gray text-sm sm:text-base max-w-md mt-6">
               Explore our athletes, achievements, and transformation journeys.
               Every photo is a real moment from Muscle Gym Dindigul.
             </p>

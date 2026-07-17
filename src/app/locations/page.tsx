@@ -67,10 +67,10 @@ export default function Locations() {
         
         {/* HEADER */}
         <div className="text-center mb-16">
-          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white">
+          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white page-heading">
             OUR <span className="text-brand-yellow">BRANCHES</span>
           </h1>
-          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-3">
+          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-6">
             Train at any of our three fully-equipped premium locations across Dindigul.
           </p>
         </div>

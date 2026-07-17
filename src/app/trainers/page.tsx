@@ -13,10 +13,10 @@ export default function Trainers() {
         
         {/* HEADER */}
         <div className="text-center mb-20">
-          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white">
+          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white page-heading">
             EXPERT <span className="text-brand-yellow">COACHES</span>
           </h1>
-          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-3">
+          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-6">
             Train under certified professionals who track your movements, plan your macros, and keep you accountable.
           </p>
         </div>

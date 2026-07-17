@@ -89,10 +89,10 @@ export default function Membership() {
         
         {/* HEADER */}
         <div className="text-center mb-10">
-          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white">
+          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white page-heading">
             MEMBERSHIP <span className="text-brand-yellow">PLANS</span>
           </h1>
-          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-3">
+          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-6">
             Choose the membership tier that fits your timeline and training objectives.
           </p>
         </div>

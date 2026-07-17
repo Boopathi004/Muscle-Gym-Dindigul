@@ -48,10 +48,10 @@ export default function About() {
         
         {/* HEADER */}
         <div className="text-center mb-20">
-          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white">
+          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white page-heading">
             OUR <span className="text-brand-yellow">STORY</span> & MENTORSHIP
           </h1>
-          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-3">
+          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-6">
             Building strength, discipline, and healthy lifestyles across Dindigul since 2012.
           </p>
         </div>

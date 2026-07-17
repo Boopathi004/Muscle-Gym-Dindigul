@@ -323,3 +323,38 @@ a:active,
   transform: translateY(0);
 }
 
+/* Premium Page Headings styling */
+.page-heading {
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 140, 0, 0.15);
+}
+
+.page-heading::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #F4D03F, #FF8C00);
+  border-radius: 2px;
+  margin: 16px auto 0 auto;
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.6);
+}
+
+.page-heading-left {
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 140, 0, 0.15);
+}
+
+.page-heading-left::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #F4D03F, #FF8C00);
+  border-radius: 2px;
+  margin: 16px 0 0 0;
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.6);
+}
+

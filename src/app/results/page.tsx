@@ -94,10 +94,10 @@ export default function Results() {
         
         {/* HEADER */}
         <div className="text-center mb-16">
-          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white">
+          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white page-heading">
             MEMBER <span className="text-brand-yellow">TRANSFORMATIONS</span>
           </h1>
-          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-3">
+          <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-6">
             Review real, verifiable physical achievements from our Dindigul fitness family.
           </p>
         </div>
