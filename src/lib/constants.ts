@@ -3,7 +3,7 @@ export const INITIAL_BRANCHES = [
     id: 1,
     name: "Muscle Gym, Bagambur",
     address: "1st Floor, Vaigai Complex, Near Rasi Petrol Bunk, K.Paraipatti, Begampur, Dindigul-624002",
-    phone: ["9787045050", "9944579994"],
+    phone: ["9944579994", "9787045050"],
     coordinates: { lat: 10.3541, lng: 77.9622 },
     hours: { weekdays: "05:30 AM - 09:30 PM", sunday: "05:30 AM - 10:00 AM" },
     amenities: ["AC Gym Floor", "Premium Imported Equipment", "Lockers & Showers", "Supplements Store", "Personal Training"],

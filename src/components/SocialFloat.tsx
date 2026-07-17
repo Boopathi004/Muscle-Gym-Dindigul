@@ -89,7 +89,7 @@ export default function SocialFloat() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20joining%20Muscle%20Gym%20Dindigul!"
+        href="https://wa.me/919944579994?text=Hi%2C%20I'm%20interested%20in%20joining%20Muscle%20Gym%20Dindigul!"
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setHovered("wa")}

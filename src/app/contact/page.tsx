@@ -92,7 +92,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-bebas text-lg text-white tracking-wide mb-1">Phone Contacts</h4>
-                <p className="text-brand-gray text-xs leading-relaxed">Begampur: 9787045050, 9944579994</p>
+                <p className="text-brand-gray text-xs leading-relaxed">Begampur: 9944579994, 9787045050</p>
                 <p className="text-brand-gray text-xs leading-relaxed">Trichy Bypass: 9787045050</p>
                 <p className="text-brand-gray text-xs leading-relaxed">Palani Road: 9600578808</p>
               </div>
