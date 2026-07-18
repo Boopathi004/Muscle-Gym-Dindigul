@@ -32,9 +32,7 @@ export default function Home() {
 
   // Auto-slide testimonials
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % INITIAL_TESTIMONIALS.length);
-    }, 6000);
+    const timer = setInterval(() => setActiveTestimonial((prev) => (prev + 1) % INITIAL_TESTIMONIALS.length), 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -88,7 +86,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen" id="homePage">
       {/* Background grid */}
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none -z-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-black/50 to-brand-black pointer-events-none -z-10" />
