@@ -8,20 +8,20 @@ const LOGOS = [
   {
     id: "logo1",
     src: "/logos/logo1.jpg",
-    glowColor: "rgba(255, 107, 0, 0.35)", // Primary Orange glow
-    glowColorHex: "#FF6B00",
+    glowColor: "rgba(255, 137, 59, 0.35)", // Primary Orange glow
+    glowColorHex: "#FF893B",
   },
   {
     id: "logo2",
     src: "/logos/logo2.png",
-    glowColor: "rgba(255, 107, 0, 0.35)", // Primary Orange glow
-    glowColorHex: "#FF6B00",
+    glowColor: "rgba(255, 137, 59, 0.35)", // Primary Orange glow
+    glowColorHex: "#FF893B",
   },
   {
     id: "logo3",
     src: "/logos/logo3.png",
-    glowColor: "rgba(232, 255, 0, 0.35)", // Lemon Yellow glow
-    glowColorHex: "#E8FF00",
+    glowColor: "rgba(255, 235, 59, 0.35)", // Lemon Yellow glow
+    glowColorHex: "#FFEB3B",
   },
 ];
 
@@ -88,12 +88,12 @@ export default function LoadingScreen() {
         <motion.div 
           animate={{ x: [0, 50, -50, 0], y: [0, -50, 50, 0] }} 
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#FF6B00] rounded-full blur-[100px]"
+          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#FF893B] rounded-full blur-[100px]"
         />
         <motion.div 
           animate={{ x: [0, -60, 60, 0], y: [0, 60, -60, 0] }} 
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#E8FF00] rounded-full blur-[100px]"
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#FFEB3B] rounded-full blur-[100px]"
         />
         <motion.div 
           animate={{ x: [0, 40, -40, 0], y: [0, -40, 40, 0] }} 
@@ -112,7 +112,7 @@ export default function LoadingScreen() {
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             className="absolute inset-[-6px] rounded-full border-[2px] border-transparent"
             style={{
-              background: "linear-gradient(#111111, #111111) padding-box, linear-gradient(135deg, #FF6B00, #E8FF00, #8C8C8C) border-box",
+              background: "linear-gradient(#111111, #111111) padding-box, linear-gradient(135deg, #FF893B, #FFEB3B, #8C8C8C) border-box",
             }}
           />
 
@@ -166,7 +166,7 @@ export default function LoadingScreen() {
               style={{
                 width: "100%",
                 scaleX: progressScaleX,
-                background: "linear-gradient(90deg, #FF6B00, #E8FF00)"
+                background: "linear-gradient(90deg, #FF893B, #FFEB3B)"
               }}
             />
           </div>

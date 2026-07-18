@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Wind, ShowerHead, Lock, Flame, Sparkles } from "lucide-react";
+import { Wind, ShowerHead, Cloud, Flame, Sparkles } from "lucide-react";
 
 // Video source map for the equipment showcase
 const VIDEO_MAP = {
@@ -16,7 +16,7 @@ export default function Facilities() {
   const amenities = [
     { icon: <Wind className="h-6 w-6" />, name: "Fully Air Conditioned", desc: "Keep body temperatures regulated and oxygen flow high during heavy compounds." },
     { icon: <ShowerHead className="h-6 w-6" />, name: "Private Shower Cabinets", desc: "Spacious, clean shower areas and changing rooms available for unisex timings." },
-    { icon: <Lock className="h-6 w-6" />, name: "Secure Locker Storage", desc: "Store personal accessories, supplements, and workout bags safely." },
+    { icon: <Cloud className="h-6 w-6" />, name: "Steam Room", desc: "Relax and detoxify your body after an intense workout session (Branch 3 only)." },
     { icon: <Flame className="h-6 w-6" />, name: "Supplements Bar", desc: "Affordable dynamic hydration shakes, BCAAs, and premium whey supplements." },
   ];
 

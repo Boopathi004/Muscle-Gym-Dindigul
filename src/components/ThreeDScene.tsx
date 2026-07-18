@@ -58,7 +58,7 @@ function GlowParticles() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[posA, 3]} />
         </bufferGeometry>
-        <pointsMaterial size={0.055} color="#FF8C00" transparent opacity={0.65} sizeAttenuation blending={THREE.AdditiveBlending} depthWrite={false} />
+        <pointsMaterial size={0.055} color="#FF893B" transparent opacity={0.65} sizeAttenuation blending={THREE.AdditiveBlending} depthWrite={false} />
       </points>
       <points ref={refB}>
         <bufferGeometry>
@@ -81,7 +81,7 @@ function FloorHalo() {
   return (
     <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.0, 0]}>
       <circleGeometry args={[2.0, 48]} />
-      <meshBasicMaterial color="#F4D03F" transparent opacity={0.18} blending={THREE.AdditiveBlending} depthWrite={false} />
+      <meshBasicMaterial color="#FFEB3B" transparent opacity={0.18} blending={THREE.AdditiveBlending} depthWrite={false} />
     </mesh>
   );
 }
@@ -114,15 +114,15 @@ function StaticDumbbellFallback() {
           {/* Handle */}
           <rect x="55" y="35" width="90" height="10" rx="5" fill="#c0c0c0" />
           {/* Brand accent center */}
-          <rect x="85" y="33" width="30" height="14" rx="4" fill="#F4D03F" opacity="0.9" />
+          <rect x="85" y="33" width="30" height="14" rx="4" fill="#FFEB3B" opacity="0.9" />
           {/* Left plates */}
           <rect x="28" y="20" width="12" height="40" rx="4" fill="#e63946" />
           <rect x="38" y="24" width="10" height="32" rx="3" fill="#2196F3" />
-          <rect x="46" y="28" width="9" height="24" rx="3" fill="#F4D03F" />
+          <rect x="46" y="28" width="9" height="24" rx="3" fill="#FFEB3B" />
           {/* Right plates */}
           <rect x="160" y="20" width="12" height="40" rx="4" fill="#e63946" />
           <rect x="152" y="24" width="10" height="32" rx="3" fill="#2196F3" />
-          <rect x="145" y="28" width="9" height="24" rx="3" fill="#F4D03F" />
+          <rect x="145" y="28" width="9" height="24" rx="3" fill="#FFEB3B" />
           {/* End caps */}
           <rect x="18" y="28" width="12" height="24" rx="5" fill="#a0a0a0" />
           <rect x="170" y="28" width="12" height="24" rx="5" fill="#a0a0a0" />
@@ -191,7 +191,7 @@ export default function ThreeDScene() {
           <PerspectiveCamera makeDefault position={[0, 0.4, 5.8]} fov={46} />
 
           <ambientLight intensity={0.35} />
-          <directionalLight position={[-4, 5, 3]} intensity={2.8} color="#F4D03F" />
+          <directionalLight position={[-4, 5, 3]} intensity={2.8} color="#FFEB3B" />
           <pointLight position={[5, 1, -2]} intensity={18} color="#4FC3F7" />
           <pointLight position={[0, -3, -4]} intensity={22} color="#FF6D00" />
 

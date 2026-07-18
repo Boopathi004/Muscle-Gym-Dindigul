@@ -188,6 +188,11 @@ export default function Locations() {
                         <div>
                           <p className="font-bold text-white">Mon - Sat: {branch.hours.weekdays}</p>
                           <p>Sun: {branch.hours.sunday}</p>
+                          {branch.hours.womens && (
+                            <p className="mt-1 inline-flex items-center gap-1.5 bg-pink-500/10 border border-pink-400/30 text-pink-300 text-xs font-bold px-2.5 py-1 rounded-full">
+                              <span>♀</span> Women Only: {branch.hours.womens}
+                            </p>
+                          )}
                         </div>
                       </div>
                       <div className="flex gap-2 items-start">
@@ -223,13 +228,13 @@ export default function Locations() {
                       <MapPin className="h-4 w-4" /> Get Directions
                     </a>
                     <a
-                      href={`tel:${branch.phone[0]}`}
+                      href={`tel:${branch.contactNumber}`}
                       className="w-full bg-brand-dark-gray/35 border border-brand-dark-gray/70 hover:border-brand-yellow hover:text-brand-yellow text-center py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]"
                     >
                       <Phone className="h-4 w-4" /> Call Branch
                     </a>
                     <a
-                      href={`https://wa.me/91${branch.phone[0]}?text=Hi,%20I'm%20interested%20in%20joining%20the%20${encodeURIComponent(branch.name)}!`}
+                      href={`https://wa.me/91${branch.contactNumber}?text=Hi,%20I'm%20interested%20in%20joining%20the%20${encodeURIComponent(branch.name)}!`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full bg-brand-dark-gray/35 border border-brand-dark-gray/70 hover:border-brand-orange hover:text-brand-orange text-center py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]"

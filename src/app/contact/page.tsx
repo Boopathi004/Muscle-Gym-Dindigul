@@ -50,7 +50,7 @@ export default function Contact() {
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ["#F4D03F", "#FF8C00", "#ffffff"]
+          colors: ["#FFEB3B", "#FF893B", "#ffffff"]
         });
         setFormData({
           name: "",
@@ -115,7 +115,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-bebas text-lg text-white tracking-wide mb-1">Operating Hours</h4>
-                <p className="text-brand-gray text-xs leading-relaxed">Monday - Saturday: 05:30 AM - 09:30 PM</p>
+                <p className="text-brand-gray text-xs leading-relaxed">Monday - Saturday: 05:30 AM - 09:00 PM</p>
                 <p className="text-brand-gray text-xs leading-relaxed">Sunday Batches: 05:30 AM - 10:00 AM</p>
               </div>
             </div>

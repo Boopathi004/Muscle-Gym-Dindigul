@@ -194,8 +194,8 @@ export default function SocialFloat() {
           position: fixed;
           width: 8px;
           height: 8px;
-          background: radial-gradient(circle, rgba(244,208,63,0.8) 0%, rgba(255,140,0,0) 75%);
-          border: 2px solid #FF8C00;
+          background: radial-gradient(circle, rgba(255,235,59,0.8) 0%, rgba(255,137,59,0) 75%);
+          border: 2px solid #FF893B;
           border-radius: 50%;
           transform: translate(-50%, -50%);
           pointer-events: none;

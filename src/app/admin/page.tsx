@@ -179,8 +179,8 @@ function AdminLogin({ onSuccess }: { onSuccess: () => void }) {
             disabled={loading || !password}
             style={{
               background: loading
-                ? "rgba(244,208,63,0.3)"
-                : "linear-gradient(135deg, #F4D03F, #FF8C00)",
+                ? "rgba(255,235,59,0.3)"
+                : "linear-gradient(135deg, #FFEB3B, #FF893B)",
               color: "#000",
               border: "none",
               borderRadius: "12px",
@@ -191,7 +191,7 @@ function AdminLogin({ onSuccess }: { onSuccess: () => void }) {
               textTransform: "uppercase",
               cursor: loading || !password ? "not-allowed" : "pointer",
               transition: "all 0.2s ease",
-              boxShadow: loading ? "none" : "0 0 24px rgba(244,208,63,0.3)",
+              boxShadow: loading ? "none" : "0 0 24px rgba(255,235,59,0.3)",
               marginTop: "4px",
             }}
           >

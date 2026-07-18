@@ -9,7 +9,7 @@ import {
   MessageSquare, Sparkles, CheckCircle2
 } from "lucide-react";
 import TiltCard from "@/components/TiltCard";
-import CoachesMarquee from "@/components/CoachesMarquee";
+
 import { INITIAL_BRANCHES, INITIAL_PROGRAMS, INITIAL_TESTIMONIALS } from "@/lib/constants";
 
 
@@ -66,7 +66,7 @@ export default function Home() {
             particleCount: 100,
             spread: 70,
             origin: { y: 0.6 },
-            colors: ["#F4D03F", "#FF8C00", "#ffffff"]
+            colors: ["#FFEB3B", "#FF893B", "#ffffff"]
           });
         });
         // Reset form
@@ -208,18 +208,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXPERT COACHES STAFF */}
-      <section className="relative py-12 sm:py-24 bg-brand-black/40 border-y border-brand-dark-gray/30 overflow-hidden reveal-on-scroll">
-        <div className="text-center mb-10">
-          <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
-            MEET OUR <span className="text-brand-yellow">COACHING STAFF</span>
-          </h2>
-          <p className="text-brand-gray text-xs sm:text-sm uppercase tracking-wider font-bold mt-2">
-            Train under certified professionals
-          </p>
-        </div>
-        <CoachesMarquee />
-      </section>
+
 
       {/* TESTIMONIALS SLIDER */}
       <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden reveal-on-scroll">

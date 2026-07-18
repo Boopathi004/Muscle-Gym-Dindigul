@@ -32,8 +32,8 @@ export default function Footer() {
               <span className="p-2 bg-gradient-to-br from-brand-yellow to-brand-orange rounded-lg text-brand-black">
                 <Dumbbell className="h-6 w-6 font-bold" />
               </span>
-              <span className="font-bebas text-2xl tracking-wider text-white">
-                MUSCLE <span className="text-brand-yellow">GYM</span>
+              <span className="font-bebas text-2xl tracking-wider text-brand-yellow">
+                MUSCLE <span className="text-white">GYM</span>
               </span>
             </Link>
             <p className="text-brand-gray text-sm leading-relaxed mt-2">
@@ -112,7 +112,7 @@ export default function Footer() {
                 <Clock className="h-5 w-5 text-brand-yellow shrink-0" />
                 <div>
                   <p className="font-bold text-white">Monday - Saturday</p>
-                  <p>05:30 AM - 09:30 PM</p>
+                  <p>05:30 AM - 09:00 PM</p>
                 </div>
               </div>
               <div className="flex gap-3">

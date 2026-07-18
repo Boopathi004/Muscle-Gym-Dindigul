@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Muscle Gym Dindigul",
   },
+  icons: {
+    icon: "/logos/extract_the_bodybuilder_silhouette_from_the_reference_logo._remove_the_gold.png",
+  },
 };
 
 export default function RootLayout({
@@ -49,11 +52,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="icon" href="/logos/extract_the_bodybuilder_silhouette_from_the_reference_logo._remove_the_gold.png" type="image/png" />
       </head>
       <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
         <LoadingScreen />
         <Navbar />
-        <main className="flex-grow pt-16 sm:pt-20 overflow-x-hidden">{children}</main>
+        <main className="flex-grow pt-16 sm:pt-20">{children}</main>
         <Footer />
         {/* Floating social buttons — visible on all pages */}
         <SocialFloat />

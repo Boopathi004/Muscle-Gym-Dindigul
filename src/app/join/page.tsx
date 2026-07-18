@@ -61,7 +61,7 @@ function JoinForm() {
           particleCount: 120,
           spread: 80,
           origin: { y: 0.55 },
-          colors: ["#F4D03F", "#FF8C00", "#ffffff"]
+          colors: ["#FFEB3B", "#FF893B", "#ffffff"]
         });
         setFormData({
           name: "",

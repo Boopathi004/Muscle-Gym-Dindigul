@@ -8,7 +8,7 @@ import * as THREE from "three";
 const PLATE_COLORS = [
   { base: "#e63946", emissive: "#e63946" }, // red   — heaviest
   { base: "#2196F3", emissive: "#2196F3" }, // blue
-  { base: "#F4D03F", emissive: "#F4D03F" }, // yellow (brand)
+  { base: "#FFEB3B", emissive: "#FFEB3B" }, // yellow (brand)
   { base: "#4CAF50", emissive: "#4CAF50" }, // green  — lightest
 ];
 
@@ -61,10 +61,10 @@ function KnurlRing({ y }: { y: number }) {
     <mesh position={[0, y, 0]}>
       <cylinderGeometry args={[0.08, 0.08, 0.03, 18]} />
       <meshStandardMaterial
-        color="#FF8C00"
+        color="#FF893B"
         metalness={0.9}
         roughness={0.2}
-        emissive="#FF8C00"
+        emissive="#FF893B"
         emissiveIntensity={0.3}
       />
     </mesh>
@@ -135,8 +135,8 @@ export default function DumbbellModel() {
       <mesh>
         <cylinderGeometry args={[0.075, 0.075, 0.7, 24]} />
         <meshStandardMaterial
-          color="#F4D03F"
-          emissive="#F4D03F"
+          color="#FFEB3B"
+          emissive="#FFEB3B"
           emissiveIntensity={0.4}
           metalness={0.6}
           roughness={0.3}

@@ -22,19 +22,19 @@ export default function About() {
       desc: "Replaced standard weight rigs with premium imported biomechanically sound machines. Crossed 1,500+ satisfied member transformations.",
     },
     {
-      year: "2020",
+      year: "2024",
       title: "Muscle Fitness Studio Unisex, Trichy Road — Expansion",
       desc: "Opened our massive second branch near DMart Bypass as Muscle Fitness Studio Unisex, Trichy Road, introducing advanced lifting platforms and elite cardio conditioning zones.",
     },
     {
-      year: "2024",
+      year: "2026",
       title: "Muscle Pro Fitness Studio Unisex, Palani Road — Launch",
       desc: "Launched our third branch opposite the Income Tax office as Muscle Pro Fitness Studio Unisex, Palani Road, establishing the brand as Dindigul's dominant fitness network.",
     },
     {
       year: "2026",
-      title: "Going Premium Digital",
-      desc: "Unifying all three branches under a single high-fidelity, 3D-driven digital experience and custom member tracking.",
+      title: "Muscle Gym, Bagambur — Branch Upgrade",
+      desc: "Upgraded the flagship Muscle Gym Bagambur branch with the latest imported equipment and expanded training zones, delivering a next-level workout experience for our members.",
     },
   ];
 
@@ -77,8 +77,16 @@ export default function About() {
               </div>
               {/* Dark gradient overlay with info at the bottom */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end p-8">
-                <h3 className="font-bebas text-3xl text-white tracking-wider">{rajkumar.name}</h3>
-                <p className="text-brand-yellow text-xs font-bold uppercase tracking-wider mt-1">{rajkumar.specialty}</p>
+                <h3 className="font-bebas tracking-wider flex items-baseline gap-1.5">
+                  <span className="text-xl text-brand-yellow">Master</span>
+                  <span className="text-3xl text-white">Rajkumar</span>
+                </h3>
+                <p className="text-brand-yellow text-xs font-bold uppercase tracking-wider mt-1 leading-relaxed">
+                  FOUNDER / HEAD OF ALL MUSCLE BRANCHES
+                </p>
+                <p className="text-brand-yellow text-[10px] font-bold uppercase tracking-wider mt-0.5 leading-snug">
+                  GENERAL SECRETARY &mdash; DINDIGUL DISTRICT GYM OWNERS ASSOCIATION
+                </p>
                 <div className="w-max bg-brand-yellow text-brand-black border border-brand-yellow px-3.5 py-1.5 rounded-full mt-3.5 text-[10px] font-extrabold uppercase tracking-widest">
                   🏆 18+ Years Expert Coach
                 </div>
@@ -92,8 +100,9 @@ export default function About() {
               <span className="text-xs font-semibold text-brand-yellow uppercase tracking-wider">Meet the founder</span>
             </div>
             <div className="flex flex-col gap-2">
-              <h2 className="font-bebas text-4xl sm:text-5xl text-white tracking-wide">
-                Master <span className="text-brand-yellow">Rajkumar</span>
+              <h2 className="font-bebas flex flex-col leading-none tracking-wide">
+                <span className="text-base sm:text-lg text-brand-gray tracking-[0.3em] uppercase">Master</span>
+                <span className="text-5xl sm:text-7xl text-brand-yellow drop-shadow-[0_0_12px_rgba(244,208,63,0.5)]">Rajkumar</span>
               </h2>
               <div className="flex items-center gap-3 sm:gap-4 bg-brand-black/30 border border-brand-dark-gray/40 p-3 rounded-2xl w-full sm:w-max overflow-hidden">
                 <div className="relative">
@@ -113,12 +122,6 @@ export default function About() {
             <p className="text-brand-gray text-base leading-relaxed">
               {rajkumar.bio}
             </p>
-            <div className="bg-brand-surface-card/60 border border-brand-dark-gray/60 p-6 rounded-2xl flex flex-col gap-3">
-              <span className="text-xs font-bold text-brand-orange uppercase tracking-widest block">Credentials & Background:</span>
-              <p className="text-white text-sm font-medium leading-relaxed">
-                {rajkumar.certifications}
-              </p>
-            </div>
             <div className="flex gap-4 items-center">
               <Link 
                 href="/join"
@@ -130,54 +133,64 @@ export default function About() {
           </div>
         </section>
 
-        {/* BRANCH MANAGER — PALANI ROAD */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center mb-16 sm:mb-28 reveal-on-scroll">
-          {/* Text left side */}
-          <div className="lg:col-span-7 flex flex-col gap-6 order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-dark-gray/30 border border-brand-yellow/20 rounded-full w-max">
-              <ShieldCheck className="h-4 w-4 text-brand-yellow" />
-              <span className="text-xs font-semibold text-brand-yellow uppercase tracking-wider">Branch Manager · Palani Road</span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h2 className="font-bebas text-3xl sm:text-4xl text-white tracking-wide">
-                Meet Our <span className="text-brand-yellow">Branch Manager</span>
-              </h2>
-              <div className="flex items-center gap-4 bg-brand-black/30 border border-brand-dark-gray/40 p-3 rounded-2xl w-max">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-brand-orange blur-md opacity-20 rounded-full" />
-                  <Image src="/logos/logo2.png" alt="Muscle Pro Fitness Studio Logo" width={80} height={80} className="relative object-contain rounded-xl border border-brand-orange/30 p-1" />
-                </div>
-                <div className="flex flex-col justify-center">
-                  <span className="font-bebas text-2xl sm:text-3xl tracking-widest uppercase">
-                    <span className="text-brand-orange">Muscle Pro</span> <span className="text-white">Studio</span>
-                  </span>
-                  <span className="text-white text-xs font-bold tracking-widest uppercase flex items-center gap-1.5 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow animate-pulse" /> Palani Road Branch
-                  </span>
-                </div>
-              </div>
-            </div>
-            <p className="text-brand-gray text-base leading-relaxed">
-              A decorated Ex-Army veteran who brings unmatched discipline, resilience, and leadership to Muscle Pro Fitness Studio Unisex on Palani Road. His military background and hands-on approach inspire every member to train harder, stay consistent, and push beyond their limits — embodying the true spirit of strength and dedication.
+        {/* MANAGING OWNERS SECTION */}
+        <section className="mb-20 sm:mb-28 reveal-on-scroll">
+          <div className="text-center mb-12">
+            <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white page-heading">
+              MANAGING <span className="text-brand-yellow">OWNERS</span>
+            </h2>
+            <p className="text-brand-gray text-xs sm:text-sm uppercase tracking-wider font-bold mt-2">
+              Leading our Trichy and Palani Road branches
             </p>
-            <div className="bg-brand-surface-card/60 border border-brand-dark-gray/60 p-6 rounded-2xl flex flex-col gap-3">
-              <span className="text-xs font-bold text-brand-yellow uppercase tracking-widest block">Background & Role:</span>
-              <p className="text-white text-sm font-medium leading-relaxed">
-                Ex-Indian Army · Branch Manager — Muscle Pro Fitness Studio Unisex, Palani Road · Discipline & Strength Coach · Community Leadership Expert
-              </p>
-            </div>
           </div>
 
-          {/* Image right side — slightly smaller than founder */}
-          <div className="lg:col-span-5 relative group order-1 lg:order-2">
-            <div className="rounded-3xl border-2 border-brand-yellow/60 overflow-hidden shadow-[0_0_40px_rgba(244,208,63,0.25)] ring-4 ring-brand-yellow/10 max-w-[320px] mx-auto lg:mx-0 transition-all duration-500 group-hover:border-brand-yellow group-hover:shadow-[0_0_50px_rgba(244,208,63,0.4)]" style={{ aspectRatio: '4/5' }}>
-              <div className="relative w-full h-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
+            {/* TRICHY ROAD MANAGING OWNER */}
+            <div className="glass-card rounded-3xl border border-brand-dark-gray/50 p-6 sm:p-8 flex flex-col gap-6 hover:border-brand-orange/45 hover:shadow-[0_0_30px_rgba(255,140,0,0.08)] transition-all duration-500">
+              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border-2 border-brand-orange/60 shadow-[0_0_30px_rgba(255,140,0,0.2)] group">
                 <Image
-                  src="/trainers/manager_palani.jpeg"
-                  alt="Branch Manager — Muscle Pro Fitness Studio Unisex, Palani Road"
+                  src="/trainers/manager%20trichy.jpeg"
+                  alt="Mani Ratnam — Managing Owner, Muscle Fitness Studio Unisex, Trichy Road"
                   fill
                   className="object-cover object-top image-hover-anim"
-                  sizes="(max-width: 768px) 100vw, 320px"
+                  sizes="(max-width: 768px) 100vw, 450px"
+                />
+                {/* Interactive view button overlay */}
+                <div className="absolute left-0 right-0 top-0 m-4 flex h-[30px] w-[29px] items-center justify-start gap-1 overflow-hidden rounded-full bg-[rgba(51,51,51,0.8)] transition-all duration-300 group-hover:w-[72px] z-20 select-none">
+                  <Image width={28} height={28} src="/play-s.svg" alt="Play" />
+                  <span className="text-[rgba(255,255,255,0.8)] sm:text-[14px] sm:font-[700]">View</span>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6">
+                  <div className="inline-flex items-center gap-2 bg-brand-orange text-brand-black px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest w-max mb-2">
+                    👑 Owner · Head Trainer
+                  </div>
+                  <h3 className="font-bebas text-3xl text-white tracking-wide">Mani Ratnam</h3>
+                </div>
+              </div>
+              
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <Image src="/logos/logo2.png" alt="Muscle Fitness Studio Logo" width={60} height={60} className="object-contain rounded-lg border border-brand-orange/30 p-1 bg-black/40" />
+                  <div className="flex flex-col">
+                    <span className="font-bebas text-xl tracking-wider text-brand-yellow">Muscle Fitness Studio</span>
+                    <span className="text-brand-gray text-xs font-bold uppercase tracking-widest">Trichy Bypass Branch</span>
+                  </div>
+                </div>
+                <p className="text-brand-gray text-sm leading-relaxed">
+                  Managing owner and head trainer of the Trichy Road branch. He combines business operations with expert strength coaching to deliver life-changing member transformations.
+                </p>
+              </div>
+            </div>
+
+            {/* PALANI ROAD MANAGING OWNER (N. SUNDRAN) */}
+            <div className="glass-card rounded-3xl border border-brand-dark-gray/50 p-6 sm:p-8 flex flex-col gap-6 hover:border-brand-yellow/45 hover:shadow-[0_0_30px_rgba(244,208,63,0.08)] transition-all duration-500">
+              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border-2 border-brand-yellow/60 shadow-[0_0_30px_rgba(244,208,63,0.2)] group">
+                <Image
+                  src="/trainers/manager_palani.jpeg"
+                  alt="N. Sundaran — Managing Owner, Muscle Pro Fitness Studio Unisex, Palani Road"
+                  fill
+                  className="object-cover object-top image-hover-anim"
+                  sizes="(max-width: 768px) 100vw, 450px"
                 />
                 {/* Interactive view button overlay */}
                 <div className="absolute left-0 right-0 top-0 m-4 flex h-[30px] w-[29px] items-center justify-start gap-1 overflow-hidden rounded-full bg-[rgba(51,51,51,0.8)] transition-all duration-300 group-hover:w-[72px] z-20 select-none">
@@ -186,10 +199,23 @@ export default function About() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6">
                   <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-black px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest w-max mb-2">
-                    🎖️ Ex-Army · Branch Manager
+                    👑 Ex-Army · Owner
                   </div>
-                  <p className="text-brand-gray text-xs">Muscle Pro Fitness Studio Unisex, Palani Road</p>
+                  <h3 className="font-bebas text-3xl text-white tracking-wide">N. Sundaran</h3>
                 </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <Image src="/logos/logo3.png" alt="Muscle Pro Fitness Studio Logo" width={60} height={60} className="object-contain rounded-lg border border-brand-yellow/30 p-1 bg-black/40" />
+                  <div className="flex flex-col">
+                    <span className="font-bebas text-xl tracking-wider text-brand-yellow">Muscle Pro Studio</span>
+                    <span className="text-brand-gray text-xs font-bold uppercase tracking-widest">Palani Road Branch</span>
+                  </div>
+                </div>
+                <p className="text-brand-gray text-sm leading-relaxed">
+                  A decorated Ex-Indian Army veteran who brings discipline and leadership to the Palani Road branch. He focuses on premium training quality and coaching members to push beyond limits.
+                </p>
               </div>
             </div>
           </div>

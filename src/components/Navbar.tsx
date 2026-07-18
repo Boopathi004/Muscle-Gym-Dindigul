@@ -51,6 +51,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
+    { name: "Trainers", path: "/trainers" },
     { name: "Programs", path: "/programs" },
     { name: "Facilities", path: "/facilities" },
     { name: "Gallery", path: "/gallery" },
@@ -74,15 +75,16 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden flex-shrink-0 shadow-[0_0_12px_rgba(255,140,0,0.4)] border border-brand-orange/30 group-hover:shadow-[0_0_20px_rgba(255,140,0,0.6)] transition-all duration-300">
               <Image
-                src="/logos/logo1.jpg"
+                src="/logos/extract_the_bodybuilder_silhouette_from_the_reference_logo._remove_the_gold.png"
                 alt="Muscle Gym Logo"
                 fill
-                className="object-contain"
+                className="object-cover"
+                style={{ transform: "scale(1.8) translateY(-5%)" }}
                 priority
               />
             </div>
-            <span className="font-bebas text-2xl sm:text-3xl tracking-widest text-white group-hover:text-brand-yellow transition-colors duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
-              MUSCLE <span className="text-brand-yellow drop-shadow-[0_0_8px_rgba(244,208,63,0.6)]">GYM</span>
+            <span className="font-bebas text-2xl sm:text-3xl tracking-widest text-brand-yellow group-hover:text-white transition-colors duration-300 drop-shadow-[0_0_8px_rgba(255,235,59,0.5)]">
+              MUSCLE <span className="text-white group-hover:text-brand-yellow transition-colors duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">GYM</span>
             </span>
           </Link>
 

@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-yellow: #F4D03F;
-  --color-brand-orange: #FF8C00;
+  --color-brand-yellow: #FFEB3B;
+  --color-brand-orange: #FF893B;
   --color-brand-gray: #A9A9A9;
   --color-brand-dark-gray: #4A4A4A;
   --color-brand-light-gray: #E8E8E8;
@@ -47,11 +47,7 @@ body.nav-open {
   height: 100%;
 }
 
-/* Custom Scrollbar */
-html {
-  scrollbar-color: #FF8C00 #000000;
-  scrollbar-width: thin;
-}
+
 
 /* Utilities */
 .text-neon-glow {
@@ -319,7 +315,7 @@ a:active,
   display: block;
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, #F4D03F, #FF8C00);
+  background: linear-gradient(to right, #FFEB3B, #FF893B);
   border-radius: 2px;
   margin: 16px auto 0 auto;
   box-shadow: 0 0 12px rgba(255, 140, 0, 0.6);
@@ -336,7 +332,7 @@ a:active,
   display: block;
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, #F4D03F, #FF8C00);
+  background: linear-gradient(to right, #FFEB3B, #FF893B);
   border-radius: 2px;
   margin: 16px 0 0 0;
   box-shadow: 0 0 12px rgba(255, 140, 0, 0.6);
