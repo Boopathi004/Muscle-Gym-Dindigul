@@ -148,7 +148,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-brand-dark-gray/35 pt-8 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-gray">
-          <p>© {new Date().getFullYear()} Muscle Gym Dindigul. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} <span className="text-brand-yellow font-bold">Muscle</span> <span className="text-white font-bold">Gym</span> Dindigul. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors py-1 block">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors py-1 block">Terms of Service</Link>

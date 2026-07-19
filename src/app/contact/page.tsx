@@ -76,7 +76,7 @@ export default function Contact() {
         {/* HEADER */}
         <div className="text-center mb-16">
           <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white page-heading">
-            CONTACT <span className="text-brand-yellow">MUSCLE GYM</span>
+            CONTACT <span className="text-brand-yellow">MUSCLE</span> <span className="text-white">GYM</span>
           </h1>
           <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-6">
             Have questions about prices, offers, or personal training? Reach out directly.

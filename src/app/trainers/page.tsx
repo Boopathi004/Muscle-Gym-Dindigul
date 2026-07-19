@@ -32,7 +32,7 @@ const TRAINERS = [
     borderColor: "border-brand-orange/60",
     shadowColor: "shadow-[0_0_30px_rgba(255,140,0,0.2)]",
     hoverBorder: "hover:border-brand-orange/45 hover:shadow-[0_0_30px_rgba(255,140,0,0.08)]",
-    bio: "Managing owner and head trainer of the Trichy Road branch. Mani Ratnam combines business operations with expert strength coaching to deliver life-changing member transformations.",
+    bio: "Head trainer of the Trichy Road branch. Mani Ratnam combines expert strength coaching to deliver life-changing member transformations.",
   },
   {
     name: "Balaji",

@@ -219,7 +219,7 @@ export default function Join() {
         {/* HEADER */}
         <div className="text-center mb-16">
           <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl tracking-widest text-white page-heading">
-            JOIN <span className="text-brand-yellow">MUSCLE GYM</span>
+            JOIN <span className="text-brand-yellow">MUSCLE</span> <span className="text-white">GYM</span>
           </h1>
           <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-6">
             Secure your membership spot. Select your branch and goals, and start training.

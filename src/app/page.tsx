@@ -168,7 +168,7 @@ export default function Home() {
       <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
         <div className="text-center mb-16">
           <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
-            WHY <span className="text-brand-yellow">MUSCLE GYM</span> DINDIGUL
+            WHY <span className="text-brand-yellow">MUSCLE</span> <span className="text-white">GYM</span> DINDIGUL
           </h2>
           <p className="text-brand-gray text-sm sm:text-base max-w-xl mx-auto mt-3">
             Dindigul's premier health center offering an unparalleled gym atmosphere, specialized bodybuilding training, and premium amenities.

@@ -125,7 +125,7 @@ function AdminLogin({ onSuccess }: { onSuccess: () => void }) {
             ADMIN ACCESS
           </h1>
           <p className="text-brand-gray text-xs mt-1 text-center">
-            Muscle Gym Dindigul — Restricted Area
+            <span className="text-brand-yellow font-bold">Muscle</span> <span className="text-white font-bold">Gym</span> Dindigul — Restricted Area
           </p>
         </div>
 
@@ -207,7 +207,7 @@ function AdminLogin({ onSuccess }: { onSuccess: () => void }) {
         </form>
 
         <p className="text-center text-[10px] text-brand-gray/50 mt-6">
-          Authorized personnel only · Muscle Gym Dindigul © 2024
+          Authorized personnel only · <span className="text-brand-yellow font-bold">Muscle</span> <span className="text-white font-bold">Gym</span> Dindigul © 2024
         </p>
       </div>
 
