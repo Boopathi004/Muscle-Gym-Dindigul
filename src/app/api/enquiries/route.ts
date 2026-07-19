@@ -1,10 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Storage } from "@/lib/storage";
 
+const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
+
 export async function POST(req: NextRequest) {
   try {
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    const now = Date.now();
+    const rateData = rateLimitMap.get(ip);
+
+    if (rateData && now - rateData.timestamp < 3600000) {
+      if (rateData.count >= 5) {
+        return NextResponse.json({ error: "Too many requests. Try again later." }, { status: 429 });
+      }
+      rateData.count += 1;
+    } else {
+      rateLimitMap.set(ip, { count: 1, timestamp: now });
+    }
+
     const body = await req.json();
-    const { name, email, phone, subject, message, preferredBranch, preferredTime } = body;
+    const { name, email, phone, subject, message, preferredBranch, preferredTime, botField } = body;
+
+    // Honeypot check
+    if (botField) {
+      return NextResponse.json({ success: true }, { status: 200 }); // silently drop
+    }
 
     // Basic validation
     if (!name || !phone || !message) {

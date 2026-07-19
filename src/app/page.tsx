@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { 
-  Dumbbell, Flame, ShieldAlert, Award, MapPin, 
+  Dumbbell, Flame, Award, MapPin, 
   Phone, Users, ChevronRight, Star, Heart, ArrowRight,
   MessageSquare, Sparkles, CheckCircle2
 } from "lucide-react";
@@ -108,6 +108,8 @@ export default function Home() {
           </h1>
           <p className="text-brand-gray text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
             Train at Muscle Gym Dindigul — strength training, weight loss, powerlifting, and transformation programs with imported premium gear under Master Rajkumar's expert guidance.
+            <br/><br/>
+            <span className="hidden sm:inline">Muscle Gym Dindigul operates 3 branches in Begampur, Trichy Bypass Road, and Palani Road, and has been coaching members under Master Rajkumar for over 18 years.</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-4">
             <Link
@@ -393,6 +395,79 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ SECTION (GEO & SEO Optimization) */}
+      <section className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-10">
+          <h2 className="font-bebas text-3xl sm:text-4xl text-white tracking-widest mb-3">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+          <div className="w-16 h-1 bg-brand-yellow mx-auto mb-4"></div>
+        </div>
+        <div className="flex flex-col gap-6">
+          <div className="bg-brand-dark-gray/30 p-6 rounded-2xl border border-brand-dark-gray">
+            <h3 className="font-bold text-brand-yellow text-lg mb-2">Where is Muscle Gym Dindigul located?</h3>
+            <p className="text-brand-gray text-sm leading-relaxed">Muscle Gym Dindigul operates 3 branches in Begampur (near Rasi Petrol Bunk), Trichy Bypass Service Road (opposite D-Mart), and Palani Road (opposite Income Tax Office).</p>
+          </div>
+          <div className="bg-brand-dark-gray/30 p-6 rounded-2xl border border-brand-dark-gray">
+            <h3 className="font-bold text-brand-yellow text-lg mb-2">What are Muscle Gym Dindigul's timings?</h3>
+            <p className="text-brand-gray text-sm leading-relaxed">Muscle Gym Dindigul is open Monday to Saturday from 5:30 AM to 9:00 PM, and Sunday from 5:30 AM to 10:00 AM.</p>
+          </div>
+          <div className="bg-brand-dark-gray/30 p-6 rounded-2xl border border-brand-dark-gray">
+            <h3 className="font-bold text-brand-yellow text-lg mb-2">Who trains members at Muscle Gym Dindigul?</h3>
+            <p className="text-brand-gray text-sm leading-relaxed">Members are coached by Master Rajkumar, a bodybuilding veteran with over 18 years of coaching experience, along with 10+ expert coaches across all branches.</p>
+          </div>
+          <div className="bg-brand-dark-gray/30 p-6 rounded-2xl border border-brand-dark-gray">
+            <h3 className="font-bold text-brand-yellow text-lg mb-2">Is Muscle Gym Dindigul unisex?</h3>
+            <p className="text-brand-gray text-sm leading-relaxed">Yes, Muscle Gym Dindigul is a unisex training facility with air-conditioned interiors and imported equipment.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQPage JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Where is Muscle Gym Dindigul located?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Muscle Gym Dindigul has 3 branches: Begampur (near Rasi Petrol Bunk), Trichy Bypass Service Road (opposite D-Mart), and Palani Road (opposite Income Tax Office)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are Muscle Gym Dindigul's timings?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Muscle Gym Dindigul is open Monday to Saturday from 5:30 AM to 9:00 PM, and Sunday from 5:30 AM to 10:00 AM."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Who trains members at Muscle Gym Dindigul?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Members are coached by Master Rajkumar, a bodybuilding veteran with over 18 years of coaching experience, along with 10+ expert coaches across all branches."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Muscle Gym Dindigul unisex?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, Muscle Gym Dindigul is a unisex training facility with air-conditioned interiors and imported equipment."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

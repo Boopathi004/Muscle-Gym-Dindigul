@@ -17,6 +17,7 @@ function JoinForm() {
     branch: "Muscle Gym, Bagambur",
     fitnessGoal: "Muscle Gain",
     message: "",
+    botField: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -71,6 +72,7 @@ function JoinForm() {
           branch: "Muscle Gym, Bagambur",
           fitnessGoal: "Muscle Gain",
           message: "",
+          botField: "",
         });
       }
     } catch (err) {
@@ -101,6 +103,20 @@ function JoinForm() {
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <h3 className="font-bebas text-2xl text-white tracking-wider mb-2">Member Sign-Up Form</h3>
+
+          {/* Honeypot field (hidden) */}
+          <div style={{ display: "none" }} aria-hidden="true">
+            <label htmlFor="botField">Leave this field empty if you're human</label>
+            <input
+              type="text"
+              name="botField"
+              id="botField"
+              value={formData.botField}
+              onChange={handleInputChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>

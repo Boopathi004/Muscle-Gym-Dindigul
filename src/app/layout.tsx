@@ -55,6 +55,72 @@ export default function RootLayout({
         <link rel="icon" href="/logos/extract_the_bodybuilder_silhouette_from_the_reference_logo._remove_the_gold.png" type="image/png" />
       </head>
       <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
+        {/* LocalBusiness JSON-LD Schemas */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "ExerciseGym",
+                "name": "Muscle Gym, Bagambur",
+                "image": "https://muscle-gym-dindigul.vercel.app/logo.png",
+                "telephone": "+919787045050",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "1st Floor, Vaigai Complex, Near Rasi Petrol Bunk, K.Paraipatti",
+                  "addressLocality": "Begampur, Dindigul",
+                  "postalCode": "624002",
+                  "addressCountry": "IN"
+                },
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+                    "opens": "05:30",
+                    "closes": "21:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Sunday"],
+                    "opens": "05:30",
+                    "closes": "10:00"
+                  }
+                ],
+                "founder": {
+                  "@type": "Person",
+                  "name": "Master Rajkumar"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "ExerciseGym",
+                "name": "Muscle Fitness Studio Unisex, Trichy Road",
+                "image": "https://muscle-gym-dindigul.vercel.app/logo.png",
+                "telephone": "+919944579994",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Sakthi Complex, D-Mart Opposite, Trichy Bypass Service Road",
+                  "addressLocality": "Dindigul",
+                  "addressCountry": "IN"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "ExerciseGym",
+                "name": "Muscle Pro Fitness Studio Unisex, Palani Road",
+                "image": "https://muscle-gym-dindigul.vercel.app/logo.png",
+                "telephone": "+919600578808",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "St Joseph Furniture Building, 1st Floor, Opposite Income Tax Office, Palani Road",
+                  "addressLocality": "Dindigul",
+                  "addressCountry": "IN"
+                }
+              }
+            ])
+          }}
+        />
         <LoadingScreen />
         <Navbar />
         <main className="flex-grow pt-16 sm:pt-20">{children}</main>

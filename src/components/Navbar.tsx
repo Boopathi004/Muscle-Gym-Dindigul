@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { Menu, X, ShieldAlert } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -112,13 +112,6 @@ export default function Navbar() {
           {/* CTAs */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              href="/admin"
-              className="text-brand-gray hover:text-brand-yellow p-2 transition-colors duration-300"
-              title="Admin Portal"
-            >
-              <ShieldAlert className="h-5 w-5" />
-            </Link>
-            <Link
               href="/join"
               className="bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-black px-5 py-2.5 rounded-full font-bold text-sm tracking-wider hover:scale-105 hover:shadow-[0_0_15px_rgba(255,140,0,0.4)] transition-all duration-300 uppercase"
             >
@@ -128,12 +121,6 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center gap-2">
-            <Link
-              href="/admin"
-              className="text-brand-gray hover:text-brand-yellow p-2 transition-colors"
-            >
-              <ShieldAlert className="h-5 w-5" />
-            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-brand-gray hover:text-white p-2 rounded-md hover:bg-brand-dark-gray/30 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"

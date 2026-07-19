@@ -14,6 +14,7 @@ export default function Contact() {
     preferredBranch: "Muscle Gym, Bagambur",
     preferredTime: "Morning (06:00 AM - 11:00 AM)",
     message: "",
+    botField: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,6 +42,7 @@ export default function Contact() {
           message: formData.message,
           preferredBranch: formData.preferredBranch,
           preferredTime: formData.preferredTime,
+          botField: formData.botField,
         }),
       });
 
@@ -60,6 +62,7 @@ export default function Contact() {
           preferredBranch: "Muscle Gym, Bagambur",
           preferredTime: "Morning (06:00 AM - 11:00 AM)",
           message: "",
+          botField: "",
         });
       }
     } catch (err) {
@@ -92,8 +95,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-bebas text-lg text-white tracking-wide mb-1">Phone Contacts</h4>
-                <p className="text-brand-gray text-xs leading-relaxed">Begampur: 9944579994, 9787045050</p>
-                <p className="text-brand-gray text-xs leading-relaxed">Trichy Bypass: 9787045050</p>
+                <p className="text-brand-gray text-xs leading-relaxed">Begampur: 9787045050</p>
+                <p className="text-brand-gray text-xs leading-relaxed">Trichy Bypass: 9944579994</p>
                 <p className="text-brand-gray text-xs leading-relaxed">Palani Road: 9600578808</p>
               </div>
             </div>
@@ -142,6 +145,20 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <h3 className="font-bebas text-2xl text-white tracking-wider mb-2">Send General Enquiry</h3>
+
+                {/* Honeypot field (hidden) */}
+                <div style={{ display: "none" }} aria-hidden="true">
+                  <label htmlFor="botField">Leave this field empty if you're human</label>
+                  <input
+                    type="text"
+                    name="botField"
+                    id="botField"
+                    value={formData.botField}
+                    onChange={handleInputChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>

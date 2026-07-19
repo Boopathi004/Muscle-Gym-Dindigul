@@ -145,12 +145,12 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
-            {/* TRICHY ROAD MANAGING OWNER */}
+            {/* TRICHY ROAD HEAD TRAINER */}
             <div className="glass-card rounded-3xl border border-brand-dark-gray/50 p-6 sm:p-8 flex flex-col gap-6 hover:border-brand-orange/45 hover:shadow-[0_0_30px_rgba(255,140,0,0.08)] transition-all duration-500">
               <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border-2 border-brand-orange/60 shadow-[0_0_30px_rgba(255,140,0,0.2)] group">
                 <Image
                   src="/trainers/manager%20trichy.jpeg"
-                  alt="Mani Ratnam — Managing Owner, Muscle Fitness Studio Unisex, Trichy Road"
+                  alt="Mani Ratnam — Head Trainer, Muscle Fitness Studio Unisex, Trichy Road"
                   fill
                   className="object-cover object-top image-hover-anim"
                   sizes="(max-width: 768px) 100vw, 450px"
@@ -162,9 +162,9 @@ export default function About() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6">
                   <div className="inline-flex items-center gap-2 bg-brand-orange text-brand-black px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest w-max mb-2">
-                    👑 Owner · Head Trainer
+                    💪 Head Trainer
                   </div>
-                  <h3 className="font-bebas text-3xl text-white tracking-wide">Mani Ratnam</h3>
+                  <h4 className="font-bebas text-3xl sm:text-4xl text-white tracking-wider mb-1">Mani Ratnam</h4>
                 </div>
               </div>
               
