@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Filter, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
-type Category = "all" | "achievements" | "transformations";
+type Category = "all" | "achievements" | "transformations" | "interiors";
 
 interface GalleryItem {
   id: number;
@@ -13,6 +13,7 @@ interface GalleryItem {
   category: Exclude<Category, "all">;
   title: string;
   desc: string;
+  branch?: number;
 }
 
 const items: GalleryItem[] = [
@@ -150,6 +151,55 @@ const items: GalleryItem[] = [
     title: "Trophy Presentation",
     desc: "Outstanding performance rewarded with a well-deserved trophy.",
   },
+  {
+    id: 104,
+    src: "/gallery/achievements/ach20.jpeg",
+    category: "achievements",
+    title: "Championship Team Celebration",
+    desc: "Our members and coaches celebrating victory at the benchpress championship.",
+  },
+  {
+    id: 105,
+    src: "/gallery/achievements/ach21.jpeg",
+    category: "achievements",
+    title: "Rotary Club Championship Winner",
+    desc: "Team championship win presentation at the Dindigul District Gym Association championship.",
+  },
+  {
+    id: 106,
+    src: "/gallery/achievements/ach22.jpeg",
+    category: "achievements",
+    title: "Muscle Gym Anniversary Celebration",
+    desc: "A massive turnout of members celebrating a milestone gym anniversary.",
+  },
+  {
+    id: 107,
+    src: "/gallery/achievements/ach23.jpeg",
+    category: "achievements",
+    title: "Madura Fitness Studio Showcase",
+    desc: "Muscle Gym athletes demonstrating their shape and receiving trophies.",
+  },
+  {
+    id: 108,
+    src: "/gallery/achievements/ach24.jpeg",
+    category: "achievements",
+    title: "Mr. Muscle Man 2023 Competition",
+    desc: "A showcase of outstanding physique athletes at the Mr. Muscle Man event.",
+  },
+  {
+    id: 109,
+    src: "/gallery/achievements/ach25.jpeg",
+    category: "achievements",
+    title: "Medal Winners Inside the Gym",
+    desc: "Members proudly displaying their medals and certificates after competition.",
+  },
+  {
+    id: 110,
+    src: "/gallery/achievements/ach26.jpeg",
+    category: "achievements",
+    title: "Team Ready for Competition",
+    desc: "Muscle Gym Dindigul team heading out together to represent the gym at a district-level event.",
+  },
 
   // ── Transformations ───────────────────────────────────────────────────────
   {
@@ -229,12 +279,304 @@ const items: GalleryItem[] = [
     title: "Pro-Level Physique",
     desc: "Member reaching competition-standard conditioning through the Muscle Gym Pro programme.",
   },
+  // ── Branch 1: Bagambur Interiors & Equipment ──
+  {
+    id: 201,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/2012-1.jpeg",
+    category: "interiors",
+    title: "Founder's Era — Original Gym Floor",
+    desc: "The starting of the gym version back in 2012.",
+    branch: 1,
+  },
+  {
+    id: 202,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/2012-2.jpeg",
+    category: "interiors",
+    title: "Founder's Era — Legacy Space",
+    desc: "The starting of the gym version back in 2012.",
+    branch: 1,
+  },
+  {
+    id: 203,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/2012-3.jpeg",
+    category: "interiors",
+    title: "Founder's Era — Legacy Weights",
+    desc: "The starting of the gym version back in 2012.",
+    branch: 1,
+  },
+  {
+    id: 204,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-1.jpeg",
+    category: "interiors",
+    title: "Modern Cardio Zone",
+    desc: "Improved and upgraded in past years till now.",
+    branch: 1,
+  },
+  {
+    id: 205,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-2.jpeg",
+    category: "interiors",
+    title: "Modern Strength Deck",
+    desc: "Improved and upgraded in past years till now.",
+    branch: 1,
+  },
+  {
+    id: 206,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-3.jpeg",
+    category: "interiors",
+    title: "Advanced Lifting Racks",
+    desc: "Improved and upgraded in past years till now.",
+    branch: 1,
+  },
+  {
+    id: 207,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-31.jpeg",
+    category: "interiors",
+    title: "Lifting Racks",
+    desc: "Sturdy squad racks and benches on our premium rubberized flooring.",
+    branch: 1,
+  },
+  {
+    id: 208,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-4.jpeg",
+    category: "interiors",
+    title: "Flagship Gym Floor",
+    desc: "Full view of our modern, air-conditioned flagship training floor.",
+    branch: 1,
+  },
+  {
+    id: 209,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM-(1).jpeg",
+    category: "interiors",
+    title: "Imported Plate-Loaded Machines",
+    desc: "Improved and upgraded in past years till now.",
+    branch: 1,
+  },
+  {
+    id: 210,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM-(2).jpeg",
+    category: "interiors",
+    title: "Hypertrophy Stations",
+    desc: "Specially selected isolation stations for maximum muscle building.",
+    branch: 1,
+  },
+  {
+    id: 211,
+    src: "/gallery/intirorandecupiments/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM.jpeg",
+    category: "interiors",
+    title: "Full Studio Interior",
+    desc: "Unisex training atmosphere with modern layout and lighting.",
+    branch: 1,
+  },
+  // ── Branch 2: Trichy Road Interiors & Equipment ──
+  {
+    id: 221,
+    src: "/gallery/intirorandecupiments/branch2-trichy/IMG20260718081948.jpg.jpeg",
+    category: "interiors",
+    title: "Trichy Road Strength Setup",
+    desc: "Complete lineup of premium imported training machines.",
+    branch: 2,
+  },
+  {
+    id: 222,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.03-AM-(1).jpeg",
+    category: "interiors",
+    title: "Lifting Benches & Racks",
+    desc: "High-grade benches and racks for heavy free-weight training.",
+    branch: 2,
+  },
+  {
+    id: 223,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.03-AM.jpeg",
+    category: "interiors",
+    title: "Trichy Road Free Weights",
+    desc: "A wide selection of pro-grade dumbbells and custom barbells.",
+    branch: 2,
+  },
+  {
+    id: 224,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM-(1).jpeg",
+    category: "interiors",
+    title: "Plate Loaded Strength Machines",
+    desc: "Advanced biomechanically optimized plate-loaded machines.",
+    branch: 2,
+  },
+  {
+    id: 225,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM-(2).jpeg",
+    category: "interiors",
+    title: "Hypertrophy Station Setup",
+    desc: "Isolation equipment designed for targeting key muscle groups.",
+    branch: 2,
+  },
+  {
+    id: 226,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM.jpeg",
+    category: "interiors",
+    title: "Trichy Road Cable Machine",
+    desc: "Multi-functional dual cable crossover machine for full body training.",
+    branch: 2,
+  },
+  {
+    id: 227,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.05-AM.jpeg",
+    category: "interiors",
+    title: "Premium Leg Press Station",
+    desc: "Heavy duty leg press machine for lower body strength and mass.",
+    branch: 2,
+  },
+  {
+    id: 228,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(1).jpeg",
+    category: "interiors",
+    title: "Functional Training Floor",
+    desc: "Dedicated spacious turf area for functional conditioning.",
+    branch: 2,
+  },
+  {
+    id: 229,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(2).jpeg",
+    category: "interiors",
+    title: "Trichy Road Cardio Deck",
+    desc: "High-end commercial treadmills and spin bikes.",
+    branch: 2,
+  },
+  {
+    id: 230,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(3).jpeg",
+    category: "interiors",
+    title: "Conditioning Equipment Area",
+    desc: "Agility ladders, battle ropes, and boxes for high-intensity work.",
+    branch: 2,
+  },
+  {
+    id: 231,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM.jpeg",
+    category: "interiors",
+    title: "Full Gym Layout View",
+    desc: "Bright, motivating, and clean unisex fitness environment.",
+    branch: 2,
+  },
+  {
+    id: 232,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.38-AM-(1).jpeg",
+    category: "interiors",
+    title: "Modern Locker Rooms",
+    desc: "Safe and secure storage space for personal belongings.",
+    branch: 2,
+  },
+  {
+    id: 233,
+    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.38-AM.jpeg",
+    category: "interiors",
+    title: "Trichy Road Entrance & Reception",
+    desc: "Welcoming reception desk and lounge for members.",
+    branch: 2,
+  },
+  // ── Branch 3: Palani Road Interiors & Equipment ──
+  {
+    id: 241,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718062018.jpg.jpeg",
+    category: "interiors",
+    title: "Palani Road Premium Equipment",
+    desc: "Brand new line of premium heavy-duty lifting equipment.",
+    branch: 3,
+  },
+  {
+    id: 242,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718062311.jpg.jpeg",
+    category: "interiors",
+    title: "Palani Road Power Rack Station",
+    desc: "Olympic grade power rack and platform for professional athletes.",
+    branch: 3,
+  },
+  {
+    id: 243,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080410.jpg.jpeg",
+    category: "interiors",
+    title: "Premium Dumbbell Rack",
+    desc: "Two levels of professional grade dumbbells ranging from light to heavy.",
+    branch: 3,
+  },
+  {
+    id: 244,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080425.jpg.jpeg",
+    category: "interiors",
+    title: "Palani Road Cable Crossover",
+    desc: "Versatile cable crossover station for functional upper body exercises.",
+    branch: 3,
+  },
+  {
+    id: 245,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080605.jpg.jpeg",
+    category: "interiors",
+    title: "Plate Loaded Row Station",
+    desc: "Advanced biomechanically optimized row machine for back development.",
+    branch: 3,
+  },
+  {
+    id: 246,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080726.jpg.jpeg",
+    category: "interiors",
+    title: "Palani Road Leg Press Station",
+    desc: "High-capacity leg press machine for compound lower body training.",
+    branch: 3,
+  },
+  {
+    id: 247,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080831.jpg.jpeg",
+    category: "interiors",
+    title: "Palani Road Squat Rack Setup",
+    desc: "Squat rack with Olympic barbell and premium bumper plates.",
+    branch: 3,
+  },
+  {
+    id: 248,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718081004.jpg.jpeg",
+    category: "interiors",
+    title: "Modern Steam Room",
+    desc: "Luxury steam room therapy exclusively available at Palani Road branch.",
+    branch: 3,
+  },
+  {
+    id: 249,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718081021.jpg.jpeg",
+    category: "interiors",
+    title: "Palani Road Restroom & Shower",
+    desc: "Clean, hygienic, and modern restrooms for our members.",
+    branch: 3,
+  },
+  {
+    id: 250,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718081224.jpg.jpeg",
+    category: "interiors",
+    title: "Palani Road Cardio Zone",
+    desc: "Fully air-conditioned cardio section overlooking the main street.",
+    branch: 3,
+  },
+  {
+    id: 251,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718082120.jpg.jpeg",
+    category: "interiors",
+    title: "Isometric Chest Press Setup",
+    desc: "Targeted chest press machine for deep chest isolation and hypertrophy.",
+    branch: 3,
+  },
+  {
+    id: 252,
+    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718083332.jpg.jpeg",
+    category: "interiors",
+    title: "Main Training Floor View",
+    desc: "A wide perspective of the premium, spacious training layout at Palani Road.",
+    branch: 3,
+  },
 ];
 
 const categories: { value: Category; label: string }[] = [
   { value: "all", label: "All Photos" },
   { value: "achievements", label: "Achievements" },
   { value: "transformations", label: "Transformations" },
+  { value: "interiors", label: "Gym Interiors & Equipment" },
 ];
 
 // ── Shuffle grid data — 16 real site images ──────────────────────────────────
@@ -258,6 +600,13 @@ const shuffleData = [
   { id: 101, src: "/gallery/achievements/ach17.jpeg" },
   { id: 102, src: "/gallery/achievements/ach18.jpeg" },
   { id: 103, src: "/gallery/achievements/ach19.jpeg" },
+  { id: 104, src: "/gallery/achievements/ach20.jpeg" },
+  { id: 105, src: "/gallery/achievements/ach21.jpeg" },
+  { id: 106, src: "/gallery/achievements/ach22.jpeg" },
+  { id: 107, src: "/gallery/achievements/ach23.jpeg" },
+  { id: 108, src: "/gallery/achievements/ach24.jpeg" },
+  { id: 109, src: "/gallery/achievements/ach25.jpeg" },
+  { id: 110, src: "/gallery/achievements/ach26.jpeg" },
 ];
 
 const shuffleArray = (arr: typeof shuffleData) => {
@@ -312,7 +661,7 @@ export default function Gallery() {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const filtered = filter === "all" ? items : items.filter((i) => i.category === filter);
+  const filtered = filter === "all" ? items.filter(i => i.category !== "interiors") : items.filter((i) => i.category === filter);
 
   const openLightbox = (id: number) => {
     const idx = filtered.findIndex((i) => i.id === id);
@@ -395,45 +744,136 @@ export default function Gallery() {
         </div>
 
         {/* ── GALLERY GRID ── */}
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-          {filtered.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => openLightbox(item.id)}
-              className="group relative break-inside-avoid cursor-pointer rounded-xl overflow-hidden border border-brand-dark-gray/40 hover:border-brand-yellow/40 transition-all duration-300"
-            >
-              {/* Actual photo */}
-              <div className="relative w-full">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  width={600}
-                  height={450}
-                  className="w-full h-auto object-cover transition-transform duration-150 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
-              </div>
+        {filter === "interiors" ? (
+          <div className="flex flex-col gap-16">
+            {[
+              { 
+                id: 1, 
+                displayName: (
+                  <>
+                    <span className="text-brand-yellow">MUSCLE</span> <span className="text-brand-orange">GYM</span>
+                    <span className="text-white">, Bagambur</span>
+                  </>
+                ), 
+                items: filtered.filter(i => i.branch === 1) 
+              },
+              { 
+                id: 2, 
+                displayName: (
+                  <>
+                    <span className="text-brand-yellow">MUSCLE</span> <span className="text-brand-orange">FITNESS STUDIO UNISEX</span>
+                    <span className="text-white">, Trichy Road</span>
+                  </>
+                ), 
+                items: filtered.filter(i => i.branch === 2) 
+              },
+              { 
+                id: 3, 
+                displayName: (
+                  <>
+                    <span className="text-brand-yellow">MUSCLE</span> <span className="text-brand-orange">PRO FITNESS STUDIO UNISEX</span>
+                    <span className="text-white">, Palani Road</span>
+                  </>
+                ), 
+                items: filtered.filter(i => i.branch === 3) 
+              }
+            ].map((branch) => (
+              <motion.div 
+                key={branch.id} 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="border-t border-brand-dark-gray/30 pt-8 first:border-0 first:pt-0"
+              >
+                <h2 className="font-bebas text-3xl sm:text-4xl tracking-widest mb-6 drop-shadow-[0_0_8px_rgba(255,137,59,0.2)]">
+                  {branch.displayName}
+                </h2>
+                <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4">
+                  {branch.items.map((item) => (
+                    <motion.div
+                      key={item.id}
+                      onClick={() => openLightbox(item.id)}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-40px" }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      className="group relative break-inside-avoid cursor-pointer rounded-xl overflow-hidden border border-brand-dark-gray/40 hover:border-brand-yellow/40 hover:shadow-[0_0_20px_rgba(255,137,59,0.15)] transition-all duration-300"
+                    >
+                      {/* Actual photo */}
+                      <div className="relative w-full">
+                        <Image
+                          src={item.src}
+                          alt={item.title}
+                          width={400}
+                          height={300}
+                          unoptimized
+                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-1"
+                          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                        />
+                      </div>
 
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                <span className="text-[9px] font-bold uppercase tracking-widest text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/30 px-2 py-0.5 rounded w-fit mb-1">
-                  {item.category}
-                </span>
-                <h3 className="font-bebas text-lg text-white tracking-wide leading-tight">
-                  {item.title}
-                </h3>
-                <p className="text-brand-gray text-[10px] leading-relaxed line-clamp-2 mt-0.5">
-                  {item.desc}
-                </p>
-              </div>
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+                        <h3 className="font-bebas text-base text-white tracking-wide leading-tight">
+                          {item.title}
+                        </h3>
+                        <p className="text-brand-gray text-[9px] leading-relaxed line-clamp-2 mt-0.5">
+                          {item.desc}
+                        </p>
+                      </div>
 
-              {/* Zoom icon */}
-              <div className="absolute top-3 right-3 p-2 bg-brand-black/60 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ZoomIn className="h-4 w-4 text-brand-yellow" />
+                      {/* Zoom icon */}
+                      <div className="absolute top-2.5 right-2.5 p-1.5 bg-brand-black/60 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <ZoomIn className="h-3.5 w-3.5 text-brand-yellow" />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+            {filtered.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => openLightbox(item.id)}
+                className="group relative break-inside-avoid cursor-pointer rounded-xl overflow-hidden border border-brand-dark-gray/40 hover:border-brand-yellow/40 transition-all duration-300"
+              >
+                {/* Actual photo */}
+                <div className="relative w-full">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    width={600}
+                    height={450}
+                    unoptimized
+                    className="w-full h-auto object-cover transition-transform duration-150 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
+                </div>
+
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/30 px-2 py-0.5 rounded w-fit mb-1">
+                    {item.category}
+                  </span>
+                  <h3 className="font-bebas text-lg text-white tracking-wide leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-brand-gray text-[10px] leading-relaxed line-clamp-2 mt-0.5">
+                    {item.desc}
+                  </p>
+                </div>
+
+                {/* Zoom icon */}
+                <div className="absolute top-3 right-3 p-2 bg-brand-black/60 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ZoomIn className="h-4 w-4 text-brand-yellow" />
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Empty state */}
         {filtered.length === 0 && (
@@ -490,6 +930,7 @@ export default function Gallery() {
                 alt={current.title}
                 width={1200}
                 height={900}
+                unoptimized
                 className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-brand-dark-gray/40"
                 priority
                 sizes="(max-width: 768px) 100vw, 80vw"

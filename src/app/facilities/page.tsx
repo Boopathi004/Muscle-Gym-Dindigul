@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Wind, ShowerHead, Cloud, Flame, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { Wind, ShowerHead, Cloud, Flame, Sparkles, ParkingCircle, Footprints } from "lucide-react";
 
 // Video source map for the equipment showcase
 const VIDEO_MAP = {
@@ -9,6 +10,44 @@ const VIDEO_MAP = {
   dumbbell: "/videos/dumbble.mp4",
   kettlebell: "/videos/ball.mp4",
 };
+
+const facilityPhotos = [
+  {
+    src: "/facilities/shoe-rack-1.jpeg",
+    label: "Shoe Rack",
+    title: "Dedicated Shoe Rack Area",
+    desc: "Organised shoe storage with shelves and bench seating at the entrance.",
+    branch: "Palani Road Branch",
+  },
+  {
+    src: "/facilities/shoe-rack-2.jpeg",
+    label: "Shoe Rack",
+    title: "Entry & Locker Zone",
+    desc: "Clean entry corridor with dedicated shoe racks and full-length mirror.",
+    branch: "Palani Road Branch",
+  },
+  {
+    src: "/facilities/steam-shower-palani.jpeg",
+    label: "Steam Room & Shower",
+    title: "Premium Steam Room & Shower",
+    desc: "Luxury glass-enclosed shower cabin with a dedicated steam room — exclusively at Branch 3.",
+    branch: "Palani Road Branch",
+  },
+  {
+    src: "/facilities/parking-palani-1.jpeg",
+    label: "Parking Space",
+    title: "Open Parking Area",
+    desc: "Spacious open-air parking for cars and two-wheelers, easily accessible from the main road.",
+    branch: "Palani Road Branch",
+  },
+  {
+    src: "/facilities/parking-palani-2.jpeg",
+    label: "Covered Parking",
+    title: "Covered Two-Wheeler Parking",
+    desc: "Sheltered paver-block parking bay with dedicated space for bikes and bicycles.",
+    branch: "Palani Road Branch",
+  },
+];
 
 export default function Facilities() {
   const [activeModel, setActiveModel] = useState<"barbell" | "dumbbell" | "kettlebell">("barbell");
@@ -18,6 +57,8 @@ export default function Facilities() {
     { icon: <ShowerHead className="h-6 w-6" />, name: "Private Shower Cabinets", desc: "Spacious, clean shower areas and changing rooms available for unisex timings." },
     { icon: <Cloud className="h-6 w-6" />, name: "Steam Room", desc: "Relax and detoxify your body after an intense workout session (Branch 3 only)." },
     { icon: <Flame className="h-6 w-6" />, name: "Supplements Bar", desc: "Affordable dynamic hydration shakes, BCAAs, and premium whey supplements." },
+    { icon: <Footprints className="h-6 w-6" />, name: "Shoe Rack Area", desc: "Dedicated shoe storage with shelves and benches at every branch entrance." },
+    { icon: <ParkingCircle className="h-6 w-6" />, name: "Free Parking", desc: "Ample open-air and covered parking available for two-wheelers and cars." },
   ];
 
   return (
@@ -82,14 +123,14 @@ export default function Facilities() {
         </section>
 
         {/* AMENITIES SECTION */}
-        <section>
+        <section className="mb-24">
           <div className="text-center mb-16">
             <h2 className="font-bebas text-3xl sm:text-4xl tracking-widest text-white">
               GYM <span className="text-brand-orange">AMENITIES</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {amenities.map((am, i) => (
               <div 
                 key={i} 
@@ -101,6 +142,54 @@ export default function Facilities() {
                 <div>
                   <h4 className="font-bebas text-lg text-white tracking-wide mb-1">{am.name}</h4>
                   <p className="text-brand-gray text-xs leading-relaxed">{am.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FACILITY PHOTOS — Branch 3 (Palani Road) */}
+        <section>
+          <div className="text-center mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">Palani Road Branch Exclusive</span>
+            <h2 className="font-bebas text-3xl sm:text-4xl tracking-widest text-white mt-2">
+              FACILITY <span className="text-brand-yellow">PHOTOS</span>
+            </h2>
+            <p className="text-brand-gray text-sm mt-3 max-w-lg mx-auto">
+              Explore the premium facilities at our Palani Road branch — from clean parking to steam rooms and organised shoe storage.
+            </p>
+          </div>
+
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+            {facilityPhotos.map((photo, i) => (
+              <div
+                key={i}
+                className="group relative break-inside-avoid cursor-pointer rounded-xl overflow-hidden border border-brand-dark-gray/40 hover:border-brand-yellow/40 hover:shadow-[0_0_20px_rgba(255,137,59,0.15)] transition-all duration-300"
+              >
+                <div className="relative w-full">
+                  <Image
+                    src={photo.src}
+                    alt={photo.title}
+                    width={600}
+                    height={450}
+                    unoptimized
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+
+                {/* Label badge */}
+                <div className="absolute top-3 left-3">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-brand-black bg-brand-yellow px-2 py-0.5 rounded-full shadow">
+                    {photo.label}
+                  </span>
+                </div>
+
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-brand-orange mb-1">{photo.branch}</span>
+                  <h3 className="font-bebas text-lg text-white tracking-wide leading-tight">{photo.title}</h3>
+                  <p className="text-brand-gray text-[10px] leading-relaxed mt-0.5">{photo.desc}</p>
                 </div>
               </div>
             ))}
