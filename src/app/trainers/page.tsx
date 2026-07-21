@@ -105,18 +105,18 @@ const TRAINERS = [
     bio: "Fitness trainer and personal training specialist with 3 years of experience at the Trichy Road branch. Mani Rathinam is dedicated to guiding every member with focused, personalised training plans.",
   },
   {
-    name: "Jerom",
+    name: "Jerome",
     badge: "👩‍💪 Women's Specialist",
     badgeColor: "bg-pink-500 text-white",
     imgSrc: "/trainers/placeholder.jpg",
-    imgAlt: "Jerom — Women's Training Specialist, Muscle Fitness Studio Trichy Road",
+    imgAlt: "Jerome — Women's Training Specialist, Muscle Fitness Studio Trichy Road",
     branch: "Trichy Road Branch",
     branchLabel: "Muscle Fitness Studio — Trichy Road",
     logo: "/logos/logo-primary.png",
     borderColor: "border-pink-400/60",
     shadowColor: "shadow-[0_0_30px_rgba(236,72,153,0.2)]",
     hoverBorder: "hover:border-pink-400/45 hover:shadow-[0_0_30px_rgba(236,72,153,0.08)]",
-    bio: "Women's training specialist with 2 years of experience dedicated to women's fitness and wellness. Jerom creates a safe, empowering environment for women to build strength, confidence, and a healthier lifestyle.",
+    bio: "Women's training specialist with 2 years of experience dedicated to women's fitness and wellness. Jerome creates a safe, empowering environment for women to build strength, confidence, and a healthier lifestyle.",
   },
 ];
 
