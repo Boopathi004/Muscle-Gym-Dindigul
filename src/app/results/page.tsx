@@ -66,6 +66,8 @@ export default function Results() {
     { id: 9,  src: "/gallery/transformations/trans11.jpg", title: "Cardio & Core" },
     { id: 10, src: "/gallery/transformations/trans13.jpg", title: "Motivational Milestone" },
     { id: 11, src: "/gallery/transformations/trans18.jpg", title: "Pro-Level Physique" },
+    { id: 12, src: "/gallery/transformations/before1.jpg", title: "Baseline Assessment" },
+    { id: 13, src: "/gallery/transformations/after1.jpg",  title: "Stage Physique Transformation" },
   ];
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);

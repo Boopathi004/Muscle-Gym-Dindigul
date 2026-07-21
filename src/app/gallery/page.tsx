@@ -200,6 +200,69 @@ const items: GalleryItem[] = [
     title: "Team Ready for Competition",
     desc: "Muscle Gym Dindigul team heading out together to represent the gym at a district-level event.",
   },
+  {
+    id: 111,
+    src: "/gallery/achievements/ach27.jpeg",
+    category: "achievements",
+    title: "Championship Achievement",
+    desc: "Proud moment showcasing dedication and hard work at the championship.",
+  },
+  {
+    id: 112,
+    src: "/gallery/achievements/ach28.jpeg",
+    category: "achievements",
+    title: "Winning Pose",
+    desc: "Displaying the winning physique on stage.",
+  },
+  {
+    id: 113,
+    src: "/gallery/achievements/ach29.jpeg",
+    category: "achievements",
+    title: "Stage Presentation",
+    desc: "Confident stage presence and posing during the bodybuilding competition.",
+  },
+  {
+    id: 114,
+    src: "/gallery/achievements/ach30.jpeg",
+    category: "achievements",
+    title: "Medal Ceremony",
+    desc: "Receiving the well-deserved medal for outstanding performance.",
+  },
+  {
+    id: 115,
+    src: "/gallery/achievements/ach31.jpeg",
+    category: "achievements",
+    title: "Victory Celebration",
+    desc: "Celebrating the hard-earned victory with the team.",
+  },
+  {
+    id: 116,
+    src: "/gallery/achievements/ach32.jpeg",
+    category: "achievements",
+    title: "Champion's Trophy",
+    desc: "Holding the championship trophy with pride.",
+  },
+  {
+    id: 117,
+    src: "/gallery/achievements/ach33.jpeg",
+    category: "achievements",
+    title: "Fitness Milestone",
+    desc: "A major fitness milestone achieved and recognized.",
+  },
+  {
+    id: 118,
+    src: "/gallery/achievements/ach34.jpeg",
+    category: "achievements",
+    title: "Team Success",
+    desc: "Another successful outing for the Muscle Gym team.",
+  },
+  {
+    id: 119,
+    src: "/gallery/achievements/ach35.jpeg",
+    category: "achievements",
+    title: "Dedication Rewarded",
+    desc: "Years of dedication paying off on the competitive stage.",
+  },
 
   // ── Transformations ───────────────────────────────────────────────────────
   {
@@ -278,6 +341,20 @@ const items: GalleryItem[] = [
     category: "transformations",
     title: "Pro-Level Physique",
     desc: "Member reaching competition-standard conditioning through the Muscle Gym Pro programme.",
+  },
+  {
+    id: 30,
+    src: "/gallery/transformations/after1.jpg",
+    category: "transformations",
+    title: "After State — Competition Conditioning",
+    desc: "Stage-ready physique transformation achieved under Master Rajkumar's coaching.",
+  },
+  {
+    id: 31,
+    src: "/gallery/transformations/trans20.jpeg",
+    category: "transformations",
+    title: "Remarkable Progress",
+    desc: "Amazing transformation showcasing dedication and consistency in the gym.",
   },
   // ── Branch 1: Bagambur Interiors & Equipment ──
   {
@@ -371,10 +448,10 @@ const items: GalleryItem[] = [
   // ── Branch 2: Trichy Road Interiors & Equipment ──
   {
     id: 221,
-    src: "/gallery/interiors/branch2-trichy/IMG20260718081948.jpg.jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM.jpeg",
     category: "interiors",
-    title: "Trichy Road Strength Setup",
-    desc: "Complete lineup of premium imported training machines.",
+    title: "Trichy Road Full Gym View",
+    desc: "Bright, motivating, and clean unisex fitness environment.",
     branch: 2,
   },
   {
@@ -556,6 +633,14 @@ const items: GalleryItem[] = [
   },
   {
     id: 251,
+    src: "/gallery/interiors/branch3-palani/IMG20260718081948.jpg.jpeg",
+    category: "interiors",
+    title: "Palani Road Equipment Row",
+    desc: "Full row of state-of-the-art machines for complete body training.",
+    branch: 3,
+  },
+  {
+    id: 252,
     src: "/gallery/interiors/branch3-palani/IMG20260718082120.jpg.jpeg",
     category: "interiors",
     title: "Isometric Chest Press Setup",
@@ -563,7 +648,7 @@ const items: GalleryItem[] = [
     branch: 3,
   },
   {
-    id: 252,
+    id: 253,
     src: "/gallery/interiors/branch3-palani/IMG20260718083332.jpg.jpeg",
     category: "interiors",
     title: "Main Training Floor View",

@@ -62,11 +62,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
           ? "bg-brand-black/90 backdrop-blur-md border-b border-brand-orange/20 py-2 sm:py-3 shadow-lg shadow-brand-orange/5"
           : "bg-transparent py-3 sm:py-5"
-      }`}
+        }`}
       style={{ paddingTop: `max(${isScrolled ? '0.5rem' : '0.75rem'}, var(--safe-area-top))` }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,8 +81,8 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <span className="font-bebas text-2xl sm:text-3xl tracking-widest text-brand-yellow group-hover:text-white transition-colors duration-300 drop-shadow-[0_0_8px_rgba(255,235,59,0.5)]">
-              MUSCLE <span className="text-white group-hover:text-brand-yellow transition-colors duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">GYM</span>
+            <span className="font-bebas text-2xl sm:text-3xl tracking-widest text-brand-yellow drop-shadow-[0_0_8px_rgba(255,235,59,0.5)]">
+              MUSCLE <span className="text-brand-orange drop-shadow-[0_0_8px_rgba(255,140,0,0.5)]">GYM</span>
             </span>
           </Link>
 
@@ -95,9 +94,8 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className={`text-sm font-medium tracking-wide transition-colors duration-300 relative py-1 ${
-                    isActive ? "text-brand-yellow" : "text-brand-gray hover:text-white"
-                  }`}
+                  className={`text-sm font-medium tracking-wide transition-colors duration-300 relative py-1 ${isActive ? "text-brand-yellow" : "text-brand-gray hover:text-white"
+                    }`}
                 >
                   {link.name}
                   {isActive && (
@@ -136,13 +134,13 @@ export default function Navbar() {
       {isOpen && (
         <>
           {/* Backdrop */}
-          <div 
+          <div
             className="lg:hidden fixed inset-0 bg-black/60 z-30 mobile-drawer-bg-enter"
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />
           {/* Drawer Panel */}
-          <div 
+          <div
             className="lg:hidden fixed inset-y-0 right-0 w-[85%] max-w-sm bg-brand-black/98 backdrop-blur-xl z-40 flex flex-col px-6 py-8 gap-4 border-l border-brand-dark-gray/30 mobile-drawer-enter overflow-y-auto"
             style={{ paddingTop: 'max(2rem, var(--safe-area-top))', paddingBottom: 'max(2rem, var(--safe-area-bottom))' }}
             role="dialog"
@@ -169,11 +167,10 @@ export default function Navbar() {
                     key={link.name}
                     href={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`text-lg font-bebas tracking-widest py-3 px-4 rounded-xl transition-all duration-200 ${
-                      isActive 
-                        ? "text-brand-yellow bg-brand-yellow/5 border-l-2 border-brand-yellow" 
+                    className={`text-lg font-bebas tracking-widest py-3 px-4 rounded-xl transition-all duration-200 ${isActive
+                        ? "text-brand-yellow bg-brand-yellow/5 border-l-2 border-brand-yellow"
                         : "text-brand-gray hover:text-white hover:bg-brand-dark-gray/20"
-                    }`}
+                      }`}
                     style={{ animationDelay: `${index * 30}ms` }}
                   >
                     {link.name}
