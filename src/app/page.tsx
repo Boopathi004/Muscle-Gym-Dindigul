@@ -8,7 +8,7 @@ import {
   Phone, Users, ChevronRight, Star, Heart, ArrowRight,
   MessageSquare, Sparkles, CheckCircle2
 } from "lucide-react";
-import TiltCard from "@/components/TiltCard";
+import TiltCard from "@/components/ui/TiltCard";
 
 import { INITIAL_BRANCHES, INITIAL_PROGRAMS, INITIAL_TESTIMONIALS } from "@/lib/constants";
 

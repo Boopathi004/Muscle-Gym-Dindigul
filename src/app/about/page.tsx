@@ -107,7 +107,7 @@ export default function About() {
               <div className="flex items-center gap-3 sm:gap-4 bg-brand-black/30 border border-brand-dark-gray/40 p-3 rounded-2xl w-full sm:w-max overflow-hidden">
                 <div className="relative">
                   <div className="absolute inset-0 bg-brand-yellow blur-md opacity-30 rounded-full" />
-                  <Image src="/logos/logo1.jpg" alt="Muscle Gym Begampur Logo" width={80} height={80} className="relative object-contain rounded-full border-2 border-brand-yellow/50" />
+                  <Image src="/logos/logo-bagambur.jpg" alt="Muscle Gym Begampur Logo" width={80} height={80} className="relative object-contain rounded-full border-2 border-brand-yellow/50" />
                 </div>
                 <div className="flex flex-col justify-center">
                   <span className="font-bebas text-2xl sm:text-3xl tracking-widest uppercase">
@@ -150,7 +150,7 @@ export default function About() {
               <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border-2 border-brand-orange/60 shadow-[0_0_30px_rgba(255,140,0,0.2)] group">
                 <Image
                   src="/trainers/manager%20trichy.jpeg"
-                  alt="Mani Ratnam — Head Trainer, Muscle Fitness Studio Unisex, Trichy Road"
+                  alt="Mani Rathinam — Head Trainer, Muscle Fitness Studio Unisex, Trichy Road"
                   fill
                   className="object-cover object-top image-hover-anim"
                   sizes="(max-width: 768px) 100vw, 450px"
@@ -162,15 +162,15 @@ export default function About() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6">
                   <div className="inline-flex items-center gap-2 bg-brand-orange text-brand-black px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest w-max mb-2">
-                    💪 Head Trainer
+                    💪 Fitness Trainer
                   </div>
-                  <h4 className="font-bebas text-3xl sm:text-4xl text-white tracking-wider mb-1">Mani Ratnam</h4>
+                  <h4 className="font-bebas text-3xl sm:text-4xl text-white tracking-wider mb-1">Mani Rathinam</h4>
                 </div>
               </div>
               
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <Image src="/logos/logo2.png" alt="Muscle Fitness Studio Logo" width={60} height={60} className="object-contain rounded-lg border border-brand-orange/30 p-1 bg-black/40" />
+                  <Image src="/logos/logo-primary.png" alt="Muscle Fitness Studio Logo" width={60} height={60} className="object-contain rounded-lg border border-brand-orange/30 p-1 bg-black/40" />
                   <div className="flex flex-col">
                     <span className="font-bebas text-xl tracking-wider text-brand-yellow">Muscle Fitness Studio</span>
                     <span className="text-brand-gray text-xs font-bold uppercase tracking-widest">Trichy Bypass Branch</span>
@@ -199,7 +199,7 @@ export default function About() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6">
                   <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-black px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest w-max mb-2">
-                    👑 Ex-Army · Owner
+                    👑 Ex-Army
                   </div>
                   <h3 className="font-bebas text-3xl text-white tracking-wide">N. Sundaran</h3>
                 </div>
@@ -207,7 +207,7 @@ export default function About() {
 
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <Image src="/logos/logo3.png" alt="Muscle Pro Fitness Studio Logo" width={60} height={60} className="object-contain rounded-lg border border-brand-yellow/30 p-1 bg-black/40" />
+                  <Image src="/logos/logo-alt.png" alt="Muscle Pro Fitness Studio Logo" width={60} height={60} className="object-contain rounded-lg border border-brand-yellow/30 p-1 bg-black/40" />
                   <div className="flex flex-col">
                     <span className="font-bebas text-xl tracking-wider text-brand-yellow">Muscle Pro Studio</span>
                     <span className="text-brand-gray text-xs font-bold uppercase tracking-widest">Palani Road Branch</span>

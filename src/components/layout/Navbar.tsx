@@ -75,7 +75,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden flex-shrink-0 shadow-[0_0_12px_rgba(255,140,0,0.4)] border border-brand-orange/30 group-hover:shadow-[0_0_20px_rgba(255,140,0,0.6)] transition-all duration-300">
               <Image
-                src="/logos/extract_the_bodybuilder_silhouette_from_the_reference_logo._remove_the_gold.png"
+                src="/logos/logo-silhouette.png"
                 alt="Muscle Gym Logo"
                 fill
                 className="object-cover"

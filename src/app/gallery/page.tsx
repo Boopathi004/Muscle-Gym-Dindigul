@@ -282,7 +282,7 @@ const items: GalleryItem[] = [
   // ── Branch 1: Bagambur Interiors & Equipment ──
   {
     id: 201,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/2012-1.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/2012-1.jpeg",
     category: "interiors",
     title: "Founder's Era — Original Gym Floor",
     desc: "The starting of the gym version back in 2012.",
@@ -290,7 +290,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 202,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/2012-2.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/2012-2.jpeg",
     category: "interiors",
     title: "Founder's Era — Legacy Space",
     desc: "The starting of the gym version back in 2012.",
@@ -298,7 +298,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 203,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/2012-3.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/2012-3.jpeg",
     category: "interiors",
     title: "Founder's Era — Legacy Weights",
     desc: "The starting of the gym version back in 2012.",
@@ -306,7 +306,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 204,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-1.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/2026-1.jpeg",
     category: "interiors",
     title: "Modern Cardio Zone",
     desc: "Improved and upgraded in past years till now.",
@@ -314,7 +314,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 205,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-2.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/2026-2.jpeg",
     category: "interiors",
     title: "Modern Strength Deck",
     desc: "Improved and upgraded in past years till now.",
@@ -322,7 +322,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 206,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-3.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/2026-3.jpeg",
     category: "interiors",
     title: "Advanced Lifting Racks",
     desc: "Improved and upgraded in past years till now.",
@@ -330,7 +330,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 207,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-31.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/2026-31.jpeg",
     category: "interiors",
     title: "Lifting Racks",
     desc: "Sturdy squad racks and benches on our premium rubberized flooring.",
@@ -338,7 +338,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 208,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/2026-4.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/2026-4.jpeg",
     category: "interiors",
     title: "Flagship Gym Floor",
     desc: "Full view of our modern, air-conditioned flagship training floor.",
@@ -346,7 +346,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 209,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM-(1).jpeg",
+    src: "/gallery/interiors/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM-(1).jpeg",
     category: "interiors",
     title: "Imported Plate-Loaded Machines",
     desc: "Improved and upgraded in past years till now.",
@@ -354,7 +354,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 210,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM-(2).jpeg",
+    src: "/gallery/interiors/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM-(2).jpeg",
     category: "interiors",
     title: "Hypertrophy Stations",
     desc: "Specially selected isolation stations for maximum muscle building.",
@@ -362,7 +362,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 211,
-    src: "/gallery/intirorandecupiments/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM.jpeg",
+    src: "/gallery/interiors/branch1-bagambur/WhatsApp-Image-2026-07-18-at-8.40.14-AM.jpeg",
     category: "interiors",
     title: "Full Studio Interior",
     desc: "Unisex training atmosphere with modern layout and lighting.",
@@ -371,7 +371,7 @@ const items: GalleryItem[] = [
   // ── Branch 2: Trichy Road Interiors & Equipment ──
   {
     id: 221,
-    src: "/gallery/intirorandecupiments/branch2-trichy/IMG20260718081948.jpg.jpeg",
+    src: "/gallery/interiors/branch2-trichy/IMG20260718081948.jpg.jpeg",
     category: "interiors",
     title: "Trichy Road Strength Setup",
     desc: "Complete lineup of premium imported training machines.",
@@ -379,7 +379,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 222,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.03-AM-(1).jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.03-AM-(1).jpeg",
     category: "interiors",
     title: "Lifting Benches & Racks",
     desc: "High-grade benches and racks for heavy free-weight training.",
@@ -387,7 +387,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 223,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.03-AM.jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.03-AM.jpeg",
     category: "interiors",
     title: "Trichy Road Free Weights",
     desc: "A wide selection of pro-grade dumbbells and custom barbells.",
@@ -395,7 +395,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 224,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM-(1).jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM-(1).jpeg",
     category: "interiors",
     title: "Plate Loaded Strength Machines",
     desc: "Advanced biomechanically optimized plate-loaded machines.",
@@ -403,7 +403,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 225,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM-(2).jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM-(2).jpeg",
     category: "interiors",
     title: "Hypertrophy Station Setup",
     desc: "Isolation equipment designed for targeting key muscle groups.",
@@ -411,7 +411,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 226,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM.jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.04-AM.jpeg",
     category: "interiors",
     title: "Trichy Road Cable Machine",
     desc: "Multi-functional dual cable crossover machine for full body training.",
@@ -419,7 +419,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 227,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.05-AM.jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.36.05-AM.jpeg",
     category: "interiors",
     title: "Premium Leg Press Station",
     desc: "Heavy duty leg press machine for lower body strength and mass.",
@@ -427,7 +427,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 228,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(1).jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(1).jpeg",
     category: "interiors",
     title: "Functional Training Floor",
     desc: "Dedicated spacious turf area for functional conditioning.",
@@ -435,7 +435,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 229,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(2).jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(2).jpeg",
     category: "interiors",
     title: "Trichy Road Cardio Deck",
     desc: "High-end commercial treadmills and spin bikes.",
@@ -443,7 +443,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 230,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(3).jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM-(3).jpeg",
     category: "interiors",
     title: "Conditioning Equipment Area",
     desc: "Agility ladders, battle ropes, and boxes for high-intensity work.",
@@ -451,7 +451,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 231,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM.jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.37-AM.jpeg",
     category: "interiors",
     title: "Full Gym Layout View",
     desc: "Bright, motivating, and clean unisex fitness environment.",
@@ -459,7 +459,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 232,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.38-AM-(1).jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.38-AM-(1).jpeg",
     category: "interiors",
     title: "Modern Locker Rooms",
     desc: "Safe and secure storage space for personal belongings.",
@@ -467,7 +467,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 233,
-    src: "/gallery/intirorandecupiments/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.38-AM.jpeg",
+    src: "/gallery/interiors/branch2-trichy/WhatsApp-Image-2026-07-18-at-8.42.38-AM.jpeg",
     category: "interiors",
     title: "Trichy Road Entrance & Reception",
     desc: "Welcoming reception desk and lounge for members.",
@@ -476,7 +476,7 @@ const items: GalleryItem[] = [
   // ── Branch 3: Palani Road Interiors & Equipment ──
   {
     id: 241,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718062018.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718062018.jpg.jpeg",
     category: "interiors",
     title: "Palani Road Premium Equipment",
     desc: "Brand new line of premium heavy-duty lifting equipment.",
@@ -484,7 +484,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 242,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718062311.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718062311.jpg.jpeg",
     category: "interiors",
     title: "Palani Road Power Rack Station",
     desc: "Olympic grade power rack and platform for professional athletes.",
@@ -492,7 +492,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 243,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080410.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718080410.jpg.jpeg",
     category: "interiors",
     title: "Premium Dumbbell Rack",
     desc: "Two levels of professional grade dumbbells ranging from light to heavy.",
@@ -500,7 +500,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 244,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080425.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718080425.jpg.jpeg",
     category: "interiors",
     title: "Palani Road Cable Crossover",
     desc: "Versatile cable crossover station for functional upper body exercises.",
@@ -508,7 +508,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 245,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080605.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718080605.jpg.jpeg",
     category: "interiors",
     title: "Plate Loaded Row Station",
     desc: "Advanced biomechanically optimized row machine for back development.",
@@ -516,7 +516,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 246,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080726.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718080726.jpg.jpeg",
     category: "interiors",
     title: "Palani Road Leg Press Station",
     desc: "High-capacity leg press machine for compound lower body training.",
@@ -524,7 +524,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 247,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718080831.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718080831.jpg.jpeg",
     category: "interiors",
     title: "Palani Road Squat Rack Setup",
     desc: "Squat rack with Olympic barbell and premium bumper plates.",
@@ -532,7 +532,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 248,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718081004.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718081004.jpg.jpeg",
     category: "interiors",
     title: "Modern Steam Room",
     desc: "Luxury steam room therapy exclusively available at Palani Road branch.",
@@ -540,7 +540,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 249,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718081021.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718081021.jpg.jpeg",
     category: "interiors",
     title: "Palani Road Restroom & Shower",
     desc: "Clean, hygienic, and modern restrooms for our members.",
@@ -548,7 +548,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 250,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718081224.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718081224.jpg.jpeg",
     category: "interiors",
     title: "Palani Road Cardio Zone",
     desc: "Fully air-conditioned cardio section overlooking the main street.",
@@ -556,7 +556,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 251,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718082120.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718082120.jpg.jpeg",
     category: "interiors",
     title: "Isometric Chest Press Setup",
     desc: "Targeted chest press machine for deep chest isolation and hypertrophy.",
@@ -564,7 +564,7 @@ const items: GalleryItem[] = [
   },
   {
     id: 252,
-    src: "/gallery/intirorandecupiments/branch3-palani/IMG20260718083332.jpg.jpeg",
+    src: "/gallery/interiors/branch3-palani/IMG20260718083332.jpg.jpeg",
     category: "interiors",
     title: "Main Training Floor View",
     desc: "A wide perspective of the premium, spacious training layout at Palani Road.",

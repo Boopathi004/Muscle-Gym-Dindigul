@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import SocialFloat from "@/components/SocialFloat";
-import LoadingScreen from "@/components/LoadingScreen";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import SocialFloat from "@/components/ui/SocialFloat";
+import LoadingScreen from "@/components/layout/LoadingScreen";
 
 
 
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Muscle Gym Dindigul",
   },
   icons: {
-    icon: "/logos/extract_the_bodybuilder_silhouette_from_the_reference_logo._remove_the_gold.png",
+    icon: "/logos/logo-silhouette.png",
   },
 };
 
@@ -52,7 +52,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/logos/extract_the_bodybuilder_silhouette_from_the_reference_logo._remove_the_gold.png" type="image/png" />
+        <link rel="icon" href="/logos/logo-silhouette.png" type="image/png" />
       </head>
       <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
         {/* LocalBusiness JSON-LD Schemas */}

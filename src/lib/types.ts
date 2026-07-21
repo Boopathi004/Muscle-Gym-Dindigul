@@ -1,3 +1,17 @@
+export interface Branch {
+  id: number;
+  name: string;
+  address: string;
+  phone: string[];
+  coordinates: { lat: number; lng: number };
+  contactNumber: string;
+  hours: { weekdays: string; sunday: string; womens?: string };
+  amenities: string[];
+  rating: string;
+  reviews: number;
+  mapUrl: string;
+}
+
 export interface Member {
   id: number;
   name: string;

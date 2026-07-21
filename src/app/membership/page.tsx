@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Check, X, Sparkles, Phone, HelpCircle } from "lucide-react";
-import TiltCard from "@/components/TiltCard";
+import TiltCard from "@/components/ui/TiltCard";
 
 export default function Membership() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");

@@ -7,19 +7,19 @@ import Image from "next/image";
 const LOGOS = [
   {
     id: "logo1",
-    src: "/logos/logo1.jpg",
+    src: "/logos/logo-bagambur.jpg",
     glowColor: "rgba(255, 137, 59, 0.35)", // Primary Orange glow
     glowColorHex: "#FF893B",
   },
   {
     id: "logo2",
-    src: "/logos/logo2.png",
+    src: "/logos/logo-primary.png",
     glowColor: "rgba(255, 137, 59, 0.35)", // Primary Orange glow
     glowColorHex: "#FF893B",
   },
   {
     id: "logo3",
-    src: "/logos/logo3.png",
+    src: "/logos/logo-alt.png",
     glowColor: "rgba(255, 235, 59, 0.35)", // Lemon Yellow glow
     glowColorHex: "#FFEB3B",
   },

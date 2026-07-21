@@ -1,4 +1,6 @@
-export const INITIAL_BRANCHES = [
+import type { Branch } from "@/lib/types";
+
+export const INITIAL_BRANCHES: Branch[] = [
   {
     id: 1,
     name: "Muscle Gym, Bagambur",

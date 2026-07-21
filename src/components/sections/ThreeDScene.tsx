@@ -4,7 +4,7 @@
 import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import DumbbellModel from "./DumbbellModel";
+import DumbbellModel from "../sections/DumbbellModel";
 import * as THREE from "three";
 
 // ─── Multi-color Particles ───────────────────────────────────────────────────
