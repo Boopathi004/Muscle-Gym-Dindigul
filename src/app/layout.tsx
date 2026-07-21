@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Muscle Gym Dindigul",
   },
   icons: {
-    icon: "/logos/logo-silhouette.png",
+    icon: "/logos/logo-gold-biceps.png",
   },
 };
 
@@ -52,7 +52,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/logos/logo-silhouette.png" type="image/png" />
+        <link rel="icon" href="/logos/logo-gold-biceps.png" type="image/png" />
       </head>
       <body className="bg-brand-black text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
         {/* LocalBusiness JSON-LD Schemas */}

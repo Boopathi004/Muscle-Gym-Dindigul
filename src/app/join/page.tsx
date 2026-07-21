@@ -64,6 +64,20 @@ function JoinForm() {
           origin: { y: 0.55 },
           colors: ["#FFEB3B", "#FF893B", "#ffffff"]
         });
+
+        // Redirect to WhatsApp Branch 1 with pre-filled message
+        const msg = encodeURIComponent(
+          `Hi Muscle Gym! I just registered for a membership.\n\n` +
+          `📛 Name: ${formData.name}\n` +
+          `📞 Phone: ${formData.phone}\n` +
+          `🏋️ Plan: ${formData.plan}\n` +
+          `🏢 Branch: ${formData.branch}\n` +
+          `🎯 Goal: ${formData.fitnessGoal}\n` +
+          (formData.message ? `💬 Notes: ${formData.message}\n` : ``) +
+          `\nPlease confirm my spot. Thank you!`
+        );
+        window.open(`https://wa.me/919944579994?text=${msg}`, "_blank");
+
         setFormData({
           name: "",
           email: "",
@@ -165,9 +179,9 @@ function JoinForm() {
                 onChange={handleInputChange}
                 className="w-full bg-brand-black border border-brand-dark-gray/80 rounded-xl px-3 py-3 text-xs text-white focus:outline-none focus:border-brand-yellow transition-colors"
               >
-                <option value="Starter Plan">Starter Plan (₹1,200/mo)</option>
-                <option value="Pro Cardio Plan">Pro Cardio Plan (₹2,000/mo)</option>
-                <option value="Transformation Plan">Transformation Plan (₹5,000/mo)</option>
+                <option value="Starter Plan">Starter Plan</option>
+                <option value="Pro Cardio Plan">Pro Cardio Plan</option>
+                <option value="Transformation Plan">Transformation Plan</option>
               </select>
             </div>
           </div>

@@ -73,13 +73,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden flex-shrink-0 shadow-[0_0_12px_rgba(255,140,0,0.4)] border border-brand-orange/30 group-hover:shadow-[0_0_20px_rgba(255,140,0,0.6)] transition-all duration-300">
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-[0_0_20px_rgba(244,208,63,0.6)] border-2 border-brand-yellow/60 bg-black group-hover:shadow-[0_0_30px_rgba(244,208,63,0.9)] transition-all duration-300 flex items-center justify-center p-0.5">
               <Image
-                src="/logos/logo-silhouette.png"
+                src="/logos/logo-gold-biceps.png"
                 alt="Muscle Gym Logo"
                 fill
-                className="object-cover"
-                style={{ transform: "scale(1.8) translateY(-5%)" }}
+                className="object-contain scale-[1.8] transform hover:scale-[2.0] transition-transform duration-300 drop-shadow-[0_0_12px_rgba(244,208,63,0.9)]"
                 priority
               />
             </div>

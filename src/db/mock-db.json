@@ -1,5 +1,28 @@
 {
-  "members": [],
+  "members": [
+    {
+      "name": "Boopathi Raja N",
+      "email": "boopathi17ucsb007@gmail.com",
+      "phone": "09360477390",
+      "plan": "Pro Cardio Plan",
+      "branch": "Muscle Gym, Bagambur",
+      "fitnessGoal": "Muscle Gain",
+      "message": null,
+      "id": 1,
+      "createdAt": "2026-07-21T06:06:12.039Z"
+    },
+    {
+      "name": "Boopathi Raja N",
+      "email": "boopathi17ucsb007@gmail.com",
+      "phone": "09360477390",
+      "plan": "Pro Cardio Plan",
+      "branch": "Muscle Gym, Bagambur",
+      "fitnessGoal": "Muscle Gain",
+      "message": null,
+      "id": 2,
+      "createdAt": "2026-07-21T06:09:30.936Z"
+    }
+  ],
   "enquiries": [],
   "leads": [
     {
@@ -40,6 +63,32 @@
       "lastContactedAt": "2026-07-08T06:27:21.189Z",
       "convertedAt": "2026-07-08T10:27:21.189Z",
       "createdAt": "2026-07-03T10:27:21.189Z"
+    },
+    {
+      "id": 4,
+      "name": "Boopathi Raja N",
+      "email": "boopathi17ucsb007@gmail.com",
+      "phone": "09360477390",
+      "source": "organic",
+      "leadScore": 100,
+      "status": "converted",
+      "notes": "Registered for plan: Pro Cardio Plan at branch: Muscle Gym, Bagambur. Goal: Muscle Gain.",
+      "lastContactedAt": "2026-07-21T06:06:12.039Z",
+      "convertedAt": "2026-07-21T06:06:12.039Z",
+      "createdAt": "2026-07-21T06:06:12.039Z"
+    },
+    {
+      "id": 5,
+      "name": "Boopathi Raja N",
+      "email": "boopathi17ucsb007@gmail.com",
+      "phone": "09360477390",
+      "source": "organic",
+      "leadScore": 100,
+      "status": "converted",
+      "notes": "Registered for plan: Pro Cardio Plan at branch: Muscle Gym, Bagambur. Goal: Muscle Gain.",
+      "lastContactedAt": "2026-07-21T06:09:30.937Z",
+      "convertedAt": "2026-07-21T06:09:30.937Z",
+      "createdAt": "2026-07-21T06:09:30.937Z"
     }
   ]
 }

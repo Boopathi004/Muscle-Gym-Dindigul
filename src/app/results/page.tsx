@@ -102,62 +102,164 @@ export default function Results() {
           </p>
         </div>
 
-        {/* INTERACTIVE BEFORE/AFTER SLIDER */}
-        <section className="max-w-4xl mx-auto mb-24 flex flex-col gap-6">
+        {/* REAL MEMBER TRANSFORMATION FEATURED COMPARISON */}
+        <section className="max-w-5xl mx-auto mb-24 flex flex-col gap-8">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-dark-gray/30 border border-brand-yellow/10 rounded-full w-max mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brand-yellow/10 border border-brand-yellow/30 rounded-full w-max mb-3">
               <Sparkles className="h-4 w-4 text-brand-yellow" />
-              <span className="text-xs font-semibold text-brand-yellow uppercase tracking-wider">Drag to Compare</span>
+              <span className="text-xs font-bold text-brand-yellow uppercase tracking-wider">Featured Transformation</span>
             </div>
-            <h2 className="font-bebas text-3xl text-white tracking-wide">
-              INTERACTIVE TRANSFORMATION SLIDER
+            <h2 className="font-bebas text-4xl sm:text-5xl text-white tracking-wide">
+              BEFORE & AFTER <span className="text-brand-yellow">TRANSFORMATION</span>
             </h2>
-            <p className="text-brand-gray text-xs sm:text-sm mt-1">
-              Drag the yellow indicator bar left and right to reveal Before vs. After details.
+            <p className="text-brand-gray text-xs sm:text-sm mt-2 max-w-lg mx-auto">
+              Real results achieved through scientific training, disciplined nutrition, and dedicated coaching at Muscle Gym Dindigul.
             </p>
           </div>
 
-          <div
-            ref={containerRef}
-            onMouseMove={handleMouseMove}
-            onTouchMove={handleTouchMove}
-            className="relative w-full h-[400px] rounded-3xl overflow-hidden select-none cursor-ew-resize border border-brand-dark-gray/70"
-          >
-            {/* BEFORE LAYER (BACKGROUND) */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-950/40 via-brand-black to-brand-black flex flex-col items-center justify-center p-8 text-center">
-              <div className="w-20 h-20 rounded-full bg-red-900/10 border border-red-500/30 flex items-center justify-center text-red-500 mb-4 animate-pulse">
-                <Flame className="h-10 w-10" />
-              </div>
-              <h3 className="font-bebas text-4xl text-red-500 tracking-widest uppercase">BEFORE STATE</h3>
-              <p className="text-brand-gray text-sm max-w-xs mt-2">
-                102kg Weight • 35% Body Fat • Low Energy • Structural Back Strain
-              </p>
-            </div>
-
-            {/* AFTER LAYER (SLIDER REVEAL) */}
-            <div
-              className="absolute inset-y-0 left-0 overflow-hidden bg-gradient-to-br from-brand-yellow/20 via-brand-black to-brand-black flex flex-col items-center justify-center p-8 text-center"
-              style={{ width: `${sliderPosition}%` }}
-            >
-              {/* Force inner elements to keep their layout width */}
-              <div className="w-[800px] max-w-[90vw] flex flex-col items-center justify-center">
-                <div className="w-20 h-20 rounded-full bg-brand-yellow/10 border border-brand-yellow/30 flex items-center justify-center text-brand-yellow mb-4 shadow-[0_0_15px_rgba(244,208,63,0.2)]">
-                  <Award className="h-10 w-10" />
+          {/* SIDE BY SIDE CLEAR COMPARISON CARDS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {/* BEFORE CARD */}
+            <div className="glass-card rounded-3xl border border-red-500/30 overflow-hidden flex flex-col group hover:border-red-500/60 transition-all duration-300">
+              <div className="relative h-[520px] w-full bg-black/90 flex items-center justify-center">
+                {/* Background ambient glow/blur */}
+                <Image
+                  src="/gallery/transformations/before1.jpg"
+                  alt="Before Transformation Blur"
+                  fill
+                  className="object-cover opacity-20 blur-xl"
+                />
+                {/* Main uncropped full image */}
+                <div className="relative w-full h-full p-4">
+                  <Image
+                    src="/gallery/transformations/before1.jpg"
+                    alt="Before Transformation"
+                    fill
+                    className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
                 </div>
-                <h3 className="font-bebas text-4xl text-brand-yellow tracking-widest uppercase">AFTER STATE</h3>
-                <p className="text-white text-sm max-w-xs mt-2 font-bold">
-                  84kg Weight • 12% Body Fat • High Metabolic Stamina • Strong Back Core
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full backdrop-blur-md border border-red-400/30 flex items-center gap-1.5 shadow-lg z-10">
+                  <Flame className="h-3.5 w-3.5" /> BEFORE
+                </div>
+              </div>
+              <div className="p-6 bg-brand-surface-card/60 flex flex-col gap-2 border-t border-red-500/20">
+                <h3 className="font-bebas text-2xl text-red-500 tracking-wider">INITIAL BASELINE</h3>
+                <p className="text-brand-gray text-xs leading-relaxed">
+                  Before starting structured training — focusing on posture alignment, metabolic baseline building, and fat loss foundation.
                 </p>
               </div>
             </div>
 
-            {/* VERTICAL SLIDER HANDLE */}
+            {/* AFTER CARD */}
+            <div className="glass-card rounded-3xl border border-brand-yellow/40 overflow-hidden flex flex-col group hover:border-brand-yellow/80 shadow-[0_0_30px_rgba(244,208,63,0.15)] transition-all duration-300">
+              <div className="relative h-[520px] w-full bg-black/90 flex items-center justify-center">
+                {/* Background ambient glow/blur */}
+                <Image
+                  src="/gallery/transformations/after1.jpg"
+                  alt="After Transformation Blur"
+                  fill
+                  className="object-cover opacity-20 blur-xl"
+                />
+                {/* Main uncropped full image */}
+                <div className="relative w-full h-full p-4">
+                  <Image
+                    src="/gallery/transformations/after1.jpg"
+                    alt="After Transformation"
+                    fill
+                    className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-4 left-4 bg-brand-yellow text-brand-black text-xs font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full backdrop-blur-md border border-brand-yellow/50 flex items-center gap-1.5 shadow-lg z-10">
+                  <Award className="h-3.5 w-3.5" /> AFTER RESULT
+                </div>
+              </div>
+              <div className="p-6 bg-brand-surface-card/60 flex flex-col gap-2 border-t border-brand-yellow/20">
+                <h3 className="font-bebas text-2xl text-brand-yellow tracking-wider">STAGE PHYSIQUE & PEAK CONDITIONING</h3>
+                <p className="text-brand-gray text-xs leading-relaxed">
+                  Transformed into competition-level lean muscle mass, symmetry, low body fat percentage, and peak strength.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* INTERACTIVE COMPARISON SLIDER BELOW */}
+          <div className="mt-8 flex flex-col gap-4">
+            <div className="text-center">
+              <h3 className="font-bebas text-2xl text-white tracking-wide">
+                INTERACTIVE SLIDER REVEAL
+              </h3>
+              <p className="text-brand-gray text-xs">
+                Drag the yellow handle left or right to slide between Before and After
+              </p>
+            </div>
+
             <div
-              className="absolute inset-y-0 w-1 bg-gradient-to-b from-brand-yellow to-brand-orange shadow-[0_0_10px_rgba(244,208,63,0.5)] cursor-ew-resize flex items-center justify-center"
-              style={{ left: `${sliderPosition}%` }}
+              ref={containerRef}
+              onMouseMove={handleMouseMove}
+              onTouchMove={handleTouchMove}
+              className="relative w-full h-[520px] rounded-3xl overflow-hidden select-none cursor-ew-resize border-2 border-brand-yellow/40 shadow-2xl bg-black"
             >
-              <div className="w-10 h-10 rounded-full bg-brand-yellow text-brand-black flex items-center justify-center border-2 border-white shadow-lg text-xs font-black uppercase tracking-wider select-none font-bebas">
-                ◀▶
+              {/* BASE LAYER: BEFORE IMAGE */}
+              <div className="absolute inset-0 bg-black flex items-center justify-center">
+                <Image
+                  src="/gallery/transformations/before1.jpg"
+                  alt="Before Transformation Blur"
+                  fill
+                  className="object-cover opacity-15 blur-lg"
+                />
+                <Image
+                  src="/gallery/transformations/before1.jpg"
+                  alt="Before Transformation"
+                  fill
+                  className="object-contain object-center"
+                  priority
+                />
+                {/* BEFORE BADGE ANCHORED TOP-RIGHT OF CONTAINER */}
+                <div className="absolute top-4 right-4 bg-red-600/90 text-white text-xs font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full backdrop-blur-md border border-red-400/40 z-10 shadow-lg flex items-center gap-1.5">
+                  <Flame className="h-3.5 w-3.5" /> BEFORE
+                </div>
+              </div>
+
+              {/* SLIDING LAYER: AFTER IMAGE (REVEALS FROM LEFT) */}
+              <div
+                className="absolute inset-y-0 left-0 overflow-hidden bg-black border-r-4 border-brand-yellow shadow-[5px_0_25px_rgba(244,208,63,0.6)] z-20"
+                style={{ width: `${sliderPosition}%` }}
+              >
+                <div className="w-[1000px] max-w-[90vw] h-full relative flex items-center justify-center">
+                  <Image
+                    src="/gallery/transformations/after1.jpg"
+                    alt="After Transformation Blur"
+                    fill
+                    className="object-cover opacity-15 blur-lg"
+                  />
+                  <Image
+                    src="/gallery/transformations/after1.jpg"
+                    alt="After Transformation"
+                    fill
+                    className="object-contain object-center"
+                    priority
+                  />
+                  {/* AFTER BADGE ANCHORED TOP-LEFT OF SLIDING LAYER */}
+                  <div className="absolute top-4 left-4 bg-brand-yellow text-brand-black text-xs font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full backdrop-blur-md border border-brand-yellow/50 z-10 shadow-lg flex items-center gap-1.5">
+                    <Award className="h-3.5 w-3.5" /> AFTER
+                  </div>
+                </div>
+              </div>
+
+              {/* VERTICAL SLIDER HANDLE WITH DYNAMIC TEXT */}
+              <div
+                className="absolute inset-y-0 w-1 bg-brand-yellow z-30 cursor-ew-resize flex items-center justify-center pointer-events-none"
+                style={{ left: `${sliderPosition}%` }}
+              >
+                <div className="px-3 py-1.5 rounded-full bg-brand-yellow text-brand-black flex items-center gap-1 border-2 border-black shadow-2xl text-[11px] font-black uppercase tracking-wider select-none font-bebas">
+                  <span>◀</span>
+                  <span>{sliderPosition > 50 ? "AFTER" : "BEFORE"}</span>
+                  <span>▶</span>
+                </div>
               </div>
             </div>
           </div>
