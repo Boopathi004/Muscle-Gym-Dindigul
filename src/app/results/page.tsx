@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Sparkles, Flame, Award, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
@@ -9,6 +9,19 @@ export default function Results() {
   // Slider ratio state (percentage of "after" showing from left, 0 to 100)
   const [sliderPosition, setSliderPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.getBoundingClientRect().width);
+      }
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   const handleMove = (clientX: number) => {
     if (!containerRef.current) return;
@@ -123,7 +136,7 @@ export default function Results() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* BEFORE CARD */}
             <div className="glass-card rounded-3xl border border-red-500/30 overflow-hidden flex flex-col group hover:border-red-500/60 transition-all duration-300">
-              <div className="relative h-[520px] w-full bg-black/90 flex items-center justify-center">
+              <div className="relative h-[320px] sm:h-[450px] md:h-[520px] w-full bg-black/90 flex items-center justify-center">
                 {/* Background ambient glow/blur */}
                 <Image
                   src="/gallery/transformations/before1.jpg"
@@ -156,7 +169,7 @@ export default function Results() {
 
             {/* AFTER CARD */}
             <div className="glass-card rounded-3xl border border-brand-yellow/40 overflow-hidden flex flex-col group hover:border-brand-yellow/80 shadow-[0_0_30px_rgba(244,208,63,0.15)] transition-all duration-300">
-              <div className="relative h-[520px] w-full bg-black/90 flex items-center justify-center">
+              <div className="relative h-[320px] sm:h-[450px] md:h-[520px] w-full bg-black/90 flex items-center justify-center">
                 {/* Background ambient glow/blur */}
                 <Image
                   src="/gallery/transformations/after1.jpg"
@@ -203,7 +216,7 @@ export default function Results() {
               ref={containerRef}
               onMouseMove={handleMouseMove}
               onTouchMove={handleTouchMove}
-              className="relative w-full h-[520px] rounded-3xl overflow-hidden select-none cursor-ew-resize border-2 border-brand-yellow/40 shadow-2xl bg-black"
+              className="relative w-full h-[320px] sm:h-[450px] md:h-[520px] rounded-3xl overflow-hidden select-none cursor-ew-resize border-2 border-brand-yellow/40 shadow-2xl bg-black"
             >
               {/* BASE LAYER: BEFORE IMAGE */}
               <div className="absolute inset-0 bg-black flex items-center justify-center">
@@ -231,7 +244,10 @@ export default function Results() {
                 className="absolute inset-y-0 left-0 overflow-hidden bg-black border-r-4 border-brand-yellow shadow-[5px_0_25px_rgba(244,208,63,0.6)] z-20"
                 style={{ width: `${sliderPosition}%` }}
               >
-                <div className="w-[1000px] max-w-[90vw] h-full relative flex items-center justify-center">
+                <div 
+                  className="h-full relative flex items-center justify-center"
+                  style={{ width: containerWidth || 1000 }}
+                >
                   <Image
                     src="/gallery/transformations/after1.jpg"
                     alt="After Transformation Blur"
@@ -282,7 +298,7 @@ export default function Results() {
             </p>
           </div>
 
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {photos.map((photo, idx) => (
               <div
                 key={photo.id}

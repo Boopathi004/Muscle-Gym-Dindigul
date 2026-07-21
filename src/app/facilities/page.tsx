@@ -17,35 +17,35 @@ const facilityPhotos = [
     label: "Shoe Rack",
     title: "Dedicated Shoe Rack Area",
     desc: "Organised shoe storage with shelves and bench seating at the entrance.",
-    branch: "Palani Road Branch",
+    branch: "Muscle Gym",
   },
   {
     src: "/facilities/shoe-rack-2.jpeg",
     label: "Shoe Rack",
     title: "Entry & Locker Zone",
     desc: "Clean entry corridor with dedicated shoe racks and full-length mirror.",
-    branch: "Palani Road Branch",
+    branch: "Muscle Gym",
   },
   {
     src: "/facilities/steam-shower-palani.jpeg",
     label: "Steam Room & Shower",
     title: "Premium Steam Room & Shower",
-    desc: "Luxury glass-enclosed shower cabin with a dedicated steam room — exclusively at Branch 3.",
-    branch: "Palani Road Branch",
+    desc: "Luxury glass-enclosed shower cabin with a dedicated steam room — exclusively at our premium facility.",
+    branch: "Muscle Gym",
   },
   {
     src: "/facilities/parking-palani-1.jpeg",
     label: "Parking Space",
     title: "Open Parking Area",
     desc: "Spacious open-air parking for cars and two-wheelers, easily accessible from the main road.",
-    branch: "Palani Road Branch",
+    branch: "Muscle Gym",
   },
   {
     src: "/facilities/parking-palani-2.jpeg",
     label: "Covered Parking",
     title: "Covered Two-Wheeler Parking",
     desc: "Sheltered paver-block parking bay with dedicated space for bikes and bicycles.",
-    branch: "Palani Road Branch",
+    branch: "Muscle Gym",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function Facilities() {
   const amenities = [
     { icon: <Wind className="h-6 w-6" />, name: "Fully Air Conditioned", desc: "Keep body temperatures regulated and oxygen flow high during heavy compounds." },
     { icon: <ShowerHead className="h-6 w-6" />, name: "Private Shower Cabinets", desc: "Spacious, clean shower areas and changing rooms available for unisex timings." },
-    { icon: <Cloud className="h-6 w-6" />, name: "Steam Room", desc: "Relax and detoxify your body after an intense workout session (Branch 3 only)." },
+    { icon: <Cloud className="h-6 w-6" />, name: "Steam Room", desc: "Relax and detoxify your body after an intense workout session (select branches)." },
     { icon: <Flame className="h-6 w-6" />, name: "Supplements Bar", desc: "Affordable dynamic hydration shakes, BCAAs, and premium whey supplements." },
     { icon: <Footprints className="h-6 w-6" />, name: "Shoe Rack Area", desc: "Dedicated shoe storage with shelves and benches at every branch entrance." },
     { icon: <ParkingCircle className="h-6 w-6" />, name: "Free Parking", desc: "Ample open-air and covered parking available for two-wheelers and cars." },
@@ -148,15 +148,15 @@ export default function Facilities() {
           </div>
         </section>
 
-        {/* FACILITY PHOTOS — Branch 3 (Palani Road) */}
+        {/* FACILITY PHOTOS — Premium Gym */}
         <section>
           <div className="text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">Palani Road Branch Exclusive</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">Premium Gym Exclusive</span>
             <h2 className="font-bebas text-3xl sm:text-4xl tracking-widest text-white mt-2">
               FACILITY <span className="text-brand-yellow">PHOTOS</span>
             </h2>
             <p className="text-brand-gray text-sm mt-3 max-w-lg mx-auto">
-              Explore the premium facilities at our Palani Road branch — from clean parking to steam rooms and organised shoe storage.
+              Explore the premium facilities at our gym branches — from clean parking to steam rooms and organised shoe storage.
             </p>
           </div>
 
@@ -172,7 +172,6 @@ export default function Facilities() {
                     alt={photo.title}
                     width={600}
                     height={450}
-                    unoptimized
                     className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />

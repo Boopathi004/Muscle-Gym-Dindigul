@@ -891,7 +891,6 @@ export default function Gallery() {
                           alt={item.title}
                           width={400}
                           height={300}
-                          unoptimized
                           className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-1"
                           sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
                         />
@@ -918,7 +917,7 @@ export default function Gallery() {
             ))}
           </div>
         ) : (
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {filtered.map((item) => (
               <div
                 key={item.id}
@@ -932,9 +931,8 @@ export default function Gallery() {
                     alt={item.title}
                     width={600}
                     height={450}
-                    unoptimized
                     className="w-full h-auto object-cover transition-transform duration-150 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                 </div>
 
@@ -1015,7 +1013,6 @@ export default function Gallery() {
                 alt={current.title}
                 width={1200}
                 height={900}
-                unoptimized
                 className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-brand-dark-gray/40"
                 priority
                 sizes="(max-width: 768px) 100vw, 80vw"
