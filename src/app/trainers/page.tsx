@@ -18,7 +18,7 @@ const TRAINERS = [
     borderColor: "border-brand-yellow/60",
     shadowColor: "shadow-[0_0_30px_rgba(244,208,63,0.2)]",
     hoverBorder: "hover:border-brand-yellow/45 hover:shadow-[0_0_30px_rgba(244,208,63,0.08)]",
-    bio: "With 18+ years of dedicated strength and bodybuilding experience, Master Rajkumar is renowned across Dindigul for scientific training splits and dietary profiles. Gold Medalist in State Powerlifting.",
+    bio: "With 18+ years of dedicated strength and bodybuilding experience, Master Rajkumar is renowned across Dindigul for scientific training splits and dietary profiles.",
   },
   {
     name: "Mani Kumar",

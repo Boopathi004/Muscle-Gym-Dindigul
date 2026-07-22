@@ -51,7 +51,7 @@ export const INITIAL_TRAINERS = [
     experience: 18,
     bio: "With over 18 years of professional fitness training experience, Master Rajkumar has trained and transformed thousands of individuals in Dindigul. He specializes in competition-level bodybuilding coaching, powerlifting, strength conditioning, and lifestyle transformations.",
     imageUrl: "/trainers/rajkumar.jpg",
-    certifications: "Gold Medalist in State Powerlifting, Certified Advanced Personal Trainer, Nutrition & Dietetics Specialist",
+    certifications: "Certified Advanced Personal Trainer, Nutrition & Dietetics Specialist",
     branch: "All Branches",
     socialLinks: { instagram: "https://instagram.com/muscle_gym_dindigul", facebook: "#" },
   },
@@ -144,12 +144,12 @@ export const INITIAL_PROGRAMS = [
 export const INITIAL_TESTIMONIALS = [
   {
     id: 1,
-    name: "Arun Kumar",
-    quote: "Muscle Gym changed my life. Under Master Rajkumar's personal guidance, I lost 18kg of fat and gained clean muscle in 6 months! The equipment is premium and the atmosphere is pure motivation.",
+    name: "Dinesh",
+    quote: "Muscle Gym changed my life. Under Master Rajkumar's personal guidance, I dropped from 115 kg to 96 kg in just 45 days! The equipment is premium and the atmosphere is pure motivation.",
     rating: 5,
     imageUrl: "/images/testimonials/arun.jpg",
     goal: "Weight Loss & Toning",
-    result: "-18 kg in 6 months",
+    result: "-19 kg in 45 days",
   },
   {
     id: 2,
@@ -162,11 +162,11 @@ export const INITIAL_TESTIMONIALS = [
   },
   {
     id: 3,
-    name: "Meera Nair",
-    quote: "As a beginner, I was nervous about starting strength training, but trainer Priya made me feel comfortable. The unisex training atmosphere is very safe and clean. Highly recommend the Palani Road branch!",
+    name: "Sanmugapriya",
+    quote: "As a beginner, I was nervous about starting strength training, but trainer Priya made me feel comfortable. I went from 97 kg to 91 kg in just 1 month. The unisex training atmosphere is very safe and clean.",
     rating: 5,
     imageUrl: "/images/testimonials/meera.jpg",
     goal: "General Fitness & Core Strength",
-    result: "Active lifestyle & better strength",
+    result: "-6 kg in 1 month",
   },
 ];

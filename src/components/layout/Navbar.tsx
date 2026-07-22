@@ -70,19 +70,18 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-[0_0_20px_rgba(244,208,63,0.6)] border-2 border-brand-yellow/60 bg-black group-hover:shadow-[0_0_30px_rgba(244,208,63,0.9)] transition-all duration-300 flex items-center justify-center p-0.5">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group" aria-label="Muscle Gym Home">
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 border-brand-yellow/60 bg-black shadow-[0_0_18px_rgba(244,208,63,0.55)] group-hover:shadow-[0_0_28px_rgba(244,208,63,0.85)] group-hover:border-brand-yellow flex items-center justify-center transition-all duration-300 group-hover:scale-105">
               <Image
-                src="/logos/logo-gold-biceps.png"
+                src="/logos/logo-gold-biceps copy.png"
                 alt="Muscle Gym Logo"
                 fill
-                className="object-contain scale-[1.8] transform hover:scale-[2.0] transition-transform duration-300 drop-shadow-[0_0_12px_rgba(244,208,63,0.9)]"
+                className="object-contain object-center scale-[1.15] transform transition-transform duration-300 drop-shadow-[0_0_10px_rgba(244,208,63,0.7)]"
                 priority
               />
             </div>
-            <span className="font-bebas text-2xl sm:text-3xl tracking-widest text-brand-yellow drop-shadow-[0_0_8px_rgba(255,235,59,0.5)]">
-              MUSCLE <span className="text-brand-orange drop-shadow-[0_0_8px_rgba(255,140,0,0.5)]">GYM</span>
+            <span className="font-bebas text-2xl sm:text-3xl tracking-widest text-brand-yellow drop-shadow-[0_0_8px_rgba(255,235,59,0.4)]">
+              MUSCLE <span className="text-brand-orange drop-shadow-[0_0_8px_rgba(255,140,0,0.4)]">GYM</span>
             </span>
           </Link>
 

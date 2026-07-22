@@ -5,7 +5,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { 
   Dumbbell, Flame, Award, MapPin, 
-  Phone, Users, ChevronRight, Star, Heart, ArrowRight,
+  Phone, Users, ChevronRight, ChevronLeft, Star, Heart, ArrowRight,
   MessageSquare, Sparkles, CheckCircle2
 } from "lucide-react";
 import TiltCard from "@/components/ui/TiltCard";
@@ -29,6 +29,25 @@ export default function Home() {
 
   // Active testimonial slider index
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [testiTouchStart, setTestiTouchStart] = useState<number | null>(null);
+  const [testiTouchEnd, setTestiTouchEnd] = useState<number | null>(null);
+
+  const nextTestimonial = () => setActiveTestimonial((prev) => (prev + 1) % INITIAL_TESTIMONIALS.length);
+  const prevTestimonial = () => setActiveTestimonial((prev) => (prev - 1 + INITIAL_TESTIMONIALS.length) % INITIAL_TESTIMONIALS.length);
+
+  const handleTestiTouchStart = (e: React.TouchEvent) => {
+    setTestiTouchEnd(null);
+    setTestiTouchStart(e.targetTouches[0].clientX);
+  };
+  const handleTestiTouchMove = (e: React.TouchEvent) => {
+    setTestiTouchEnd(e.targetTouches[0].clientX);
+  };
+  const handleTestiTouchEnd = () => {
+    if (!testiTouchStart || !testiTouchEnd) return;
+    const distance = testiTouchStart - testiTouchEnd;
+    if (distance > 40) nextTestimonial();
+    if (distance < -40) prevTestimonial();
+  };
 
   // Auto-slide testimonials
   useEffect(() => {
@@ -213,36 +232,58 @@ export default function Home() {
 
 
       {/* TESTIMONIALS SLIDER */}
-      <section className="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden reveal-on-scroll">
-        <div className="text-center mb-16">
-          <h2 className="font-bebas text-4xl sm:text-5xl tracking-widest text-white">
+      <section className="py-8 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden reveal-on-scroll">
+        <div className="text-center mb-6 sm:mb-12">
+          <h2 className="font-bebas text-3xl sm:text-5xl tracking-widest text-white">
             TRANSFORMATION <span className="text-brand-orange">REVIEWS</span>
           </h2>
-          <p className="text-brand-gray text-sm mt-3">
+          <p className="text-brand-gray text-xs sm:text-sm mt-2 max-w-lg mx-auto">
             Real stories of weight loss, strength gains, and active lifestyle changes from our local members.
           </p>
         </div>
 
-        <div className="relative max-w-3xl mx-auto glass-card p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl border border-brand-yellow/20 shadow-[0_10px_40px_rgba(244,208,63,0.03)]">
+        <div 
+          className="relative max-w-2xl mx-auto glass-card p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-brand-yellow/20 shadow-[0_10px_30px_rgba(244,208,63,0.03)] touch-pan-y select-none"
+          onTouchStart={handleTestiTouchStart}
+          onTouchMove={handleTestiTouchMove}
+          onTouchEnd={handleTestiTouchEnd}
+        >
           {/* Quote Icon */}
-          <span className="absolute top-6 right-8 text-8xl font-serif text-brand-yellow/10 pointer-events-none">“</span>
+          <span className="absolute top-3 right-4 sm:top-6 sm:right-8 text-5xl sm:text-7xl font-serif text-brand-yellow/10 pointer-events-none">“</span>
           
-          <div className="flex flex-col items-center text-center gap-6">
+          {/* Prev/Next arrows */}
+          <button
+            onClick={prevTestimonial}
+            className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 rounded-full bg-black/40 border border-brand-dark-gray/60 text-brand-gray hover:text-brand-yellow hover:border-brand-yellow/40 transition-colors z-10 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+          </button>
+          
+          <button
+            onClick={nextTestimonial}
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 rounded-full bg-black/40 border border-brand-dark-gray/60 text-brand-gray hover:text-brand-yellow hover:border-brand-yellow/40 transition-colors z-10 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+          </button>
+
+          <div className="flex flex-col items-center text-center gap-3 sm:gap-5 px-6 sm:px-10">
             <div className="flex items-center gap-1">
               {[...Array(INITIAL_TESTIMONIALS[activeTestimonial].rating)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-brand-yellow text-brand-yellow" />
+                <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 fill-brand-yellow text-brand-yellow" />
               ))}
             </div>
 
-            <p className="text-white text-base sm:text-lg italic leading-relaxed font-medium">
+            <p className="text-white text-sm sm:text-base md:text-lg italic leading-relaxed font-medium">
               "{INITIAL_TESTIMONIALS[activeTestimonial].quote}"
             </p>
 
-            <div className="mt-4">
-              <h4 className="font-bebas text-2xl text-brand-yellow tracking-wide">
+            <div className="mt-2">
+              <h3 className="font-bebas text-xl sm:text-2xl text-brand-yellow tracking-wide">
                 {INITIAL_TESTIMONIALS[activeTestimonial].name}
-              </h4>
-              <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-brand-gray font-bold uppercase mt-1">
+              </h3>
+              <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] sm:text-xs text-brand-gray font-bold uppercase mt-1">
                 <span>Goal: {INITIAL_TESTIMONIALS[activeTestimonial].goal}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
                 <span className="text-brand-orange">Result: {INITIAL_TESTIMONIALS[activeTestimonial].result}</span>
@@ -251,15 +292,20 @@ export default function Home() {
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center items-center gap-1.5 mt-5 sm:mt-6">
             {INITIAL_TESTIMONIALS.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTestimonial(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  index === activeTestimonial ? "bg-brand-yellow w-6" : "bg-brand-dark-gray/80"
-                }`}
-              />
+                aria-label={`Go to testimonial ${index + 1}`}
+                className="p-1 min-h-[44px] min-w-[30px] flex items-center justify-center cursor-pointer"
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 block ${
+                    index === activeTestimonial ? "bg-brand-yellow w-7" : "bg-brand-dark-gray/80 w-2.5"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

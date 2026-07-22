@@ -43,11 +43,11 @@ export default function Results() {
 
   const transformationCards = [
     {
-      name: "Arun Kumar",
+      name: "Dinesh",
       type: "Fat Loss & Conditioning",
-      stats: { before: "102 kg", after: "84 kg", duration: "6 Months" },
+      stats: { before: "115 kg", after: "96 kg", duration: "45 Days" },
       coach: "Master Rajkumar",
-      desc: "Combined structured push/pull strength routine with a caloric deficit plan. Master Rajkumar helped me lock down my form and remain consistent weekly.",
+      desc: "Combined structured push/pull strength routine with a caloric deficit plan. Dropped 19 kg from 115 kg down to 96 kg in just 45 days with consistent coaching.",
     },
     {
       name: "Karthikeyan",
@@ -57,11 +57,11 @@ export default function Results() {
       desc: "Highly tailored progressive overload scheme. Focused on hip mobility, bracing mechanics, and compound squat/deadlift frequency.",
     },
     {
-      name: "Meera Nair",
+      name: "Sanmugapriya",
       type: "Weight Loss & Lifestyle",
-      stats: { before: "76 kg", after: "64 kg", duration: "5 Months" },
+      stats: { before: "97 kg", after: "91 kg", duration: "1 Month" },
       coach: "Priya Sharma",
-      desc: "Designed engaging cardiovascular stamina templates and functional core workouts. Rebuilt mobility and stamina after a prolonged desk job.",
+      desc: "Designed engaging cardiovascular stamina templates and functional core workouts. Reduced weight by 6 kg (from 97 kg to 91 kg) in 1 month.",
     },
   ];
 
@@ -193,9 +193,9 @@ export default function Results() {
                 </div>
               </div>
               <div className="p-6 bg-brand-surface-card/60 flex flex-col gap-2 border-t border-brand-yellow/20">
-                <h3 className="font-bebas text-2xl text-brand-yellow tracking-wider">STAGE PHYSIQUE & PEAK CONDITIONING</h3>
+                <h3 className="font-bebas text-2xl text-brand-yellow tracking-wider">NATURAL BODYBUILDING, STAGE PHYSIQUE & PEAK CONDITIONING</h3>
                 <p className="text-brand-gray text-xs leading-relaxed">
-                  Transformed into competition-level lean muscle mass, symmetry, low body fat percentage, and peak strength.
+                  Transformed through 100% natural bodybuilding into competition-level lean muscle mass, symmetry, low body fat percentage, and peak strength.
                 </p>
               </div>
             </div>

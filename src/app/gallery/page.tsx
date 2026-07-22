@@ -415,11 +415,11 @@ const items: GalleryItem[] = [
   },
   {
     id: 208,
-    src: "/gallery/interiors/branch1-bagambur/2026-4.jpeg",
+    src: "/gallery/interiors/branch3-palani/2026-4.jpeg",
     category: "interiors",
-    title: "Flagship Gym Floor",
-    desc: "Full view of our modern, air-conditioned flagship training floor.",
-    branch: 1,
+    title: "Palani Road Gym Floor",
+    desc: "Full view of our modern, air-conditioned Palani Road training floor.",
+    branch: 3,
   },
   {
     id: 209,

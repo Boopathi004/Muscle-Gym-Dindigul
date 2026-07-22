@@ -18,8 +18,8 @@ export default function About() {
     },
     {
       year: "2016",
-      title: "Imported Equipment Upgrade",
-      desc: "Replaced standard weight rigs with premium imported biomechanically sound machines. Crossed 1,500+ satisfied member transformations.",
+      title: "Equipment Upgrade",
+      desc: "Replaced standard weight rigs with premium biomechanically sound machines. Crossed 1,500+ satisfied member transformations.",
     },
     {
       year: "2024",
@@ -34,7 +34,7 @@ export default function About() {
     {
       year: "2026",
       title: "Muscle Gym, Bagambur — Branch Upgrade",
-      desc: "Upgraded the flagship Muscle Gym Bagambur branch with the latest imported equipment and expanded training zones, delivering a next-level workout experience for our members.",
+      desc: "Upgraded the flagship Muscle Gym Bagambur branch with the latest equipment and expanded training zones, delivering a next-level workout experience for our members.",
     },
   ];
 
@@ -187,7 +187,7 @@ export default function About() {
               <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border-2 border-brand-yellow/60 shadow-[0_0_30px_rgba(244,208,63,0.2)] group">
                 <Image
                   src="/trainers/manager_palani.jpeg"
-                  alt="N. Sundaran — Managing Owner, Muscle Pro Fitness Studio Unisex, Palani Road"
+                  alt="Sundaran — Managing Owner, Muscle Pro Fitness Studio Unisex, Palani Road"
                   fill
                   className="object-cover object-top image-hover-anim"
                   sizes="(max-width: 768px) 100vw, 450px"
@@ -201,7 +201,7 @@ export default function About() {
                   <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-black px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest w-max mb-2">
                     👑 Ex-Army
                   </div>
-                  <h3 className="font-bebas text-3xl text-white tracking-wide">N. Sundaran</h3>
+                  <h3 className="font-bebas text-3xl text-white tracking-wide">Sundaran</h3>
                 </div>
               </div>
 

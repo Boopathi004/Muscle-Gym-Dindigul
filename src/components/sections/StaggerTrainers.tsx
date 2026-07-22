@@ -15,7 +15,7 @@ const TRAINER_CARDS = [
     specialty: "Head Coach · General Secretary - Dindigul District Gym Owner's Association",
     experience: "18+ Years",
     badge: "⭐ HEAD COACH",
-    highlight: "Gold Medalist — State Powerlifting",
+    highlight: "18+ Years Bodybuilding & Fitness Coach",
     imgSrc: "/trainers/coach1.jpg",
     branch: "All Branches",
     instagram: "https://instagram.com/muscle_gym_dindigul",
