@@ -110,10 +110,17 @@ export default function About() {
                   <Image src="/logos/logo-bagambur.jpg" alt="Muscle Gym Begampur Logo" width={80} height={80} className="relative object-contain rounded-full border-2 border-brand-yellow/50" />
                 </div>
                 <div className="flex flex-col justify-center">
-                  <span className="font-bebas text-2xl sm:text-3xl tracking-widest uppercase">
-                    <span className="text-brand-orange">Muscle</span> <span className="text-white">Gym</span>
-                  </span>
-                  <span className="text-white text-xs font-bold tracking-widest uppercase flex items-center gap-1.5 mt-0.5">
+                  <div className="inline-flex flex-col w-max">
+                    <span className="font-bebas text-2xl sm:text-3xl tracking-widest uppercase leading-none">
+                      <span className="text-brand-orange">Muscle</span> <span className="text-white">Gym</span>
+                    </span>
+                    <div className="flex justify-end">
+                      <span className="text-brand-yellow text-[11px] font-black tracking-widest uppercase -mt-0.5">
+                        2012
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-white text-xs font-bold tracking-widest uppercase flex items-center gap-1.5 mt-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" /> Begampur Branch
                   </span>
                 </div>
